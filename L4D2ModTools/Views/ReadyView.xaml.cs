@@ -1,6 +1,6 @@
 ﻿using L4D2ModTools.Core;
-using L4D2ModTools.Helper;
 using L4D2ModTools.Utils;
+using L4D2ModTools.Helper;
 
 namespace L4D2ModTools.Views;
 

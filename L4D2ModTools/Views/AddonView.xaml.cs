@@ -199,6 +199,41 @@ public partial class AddonView : UserControl
     }
 
     /// <summary>
+    /// 自动获取信息按钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_AutoGetInfo_Click(object sender, RoutedEventArgs e)
+    {
+        if (File.Exists(Globals.UnPackAddonImagePath))
+            TextBox_addonImage.Text = Globals.UnPackAddonImagePath;
+
+        var title = VPK.GetAddonTitle(Globals.UnPackAddonInfoPath);
+        if (!string.IsNullOrWhiteSpace(title))
+        {
+            TextBox_addonTitle.Text = $"[@@] {title}";
+            TextBox_addonDescription.Text = $"{title}, Replace Survivor for @@";
+        }
+        else
+        {
+            TextBox_addonTitle.Text = "自动获取失败";
+            TextBox_addonDescription.Text = "自动获取失败";
+        }
+
+        var name = Workshop.GetUserName();
+        if (!string.IsNullOrWhiteSpace(name))
+            TextBox_addonAuthor.Text = name;
+        else
+            TextBox_addonAuthor.Text = "自动获取失败";
+
+        var steamId = Workshop.GetUserSteamId();
+        if (steamId != 0)
+            TextBox_addonURL0.Text = $"https://steamcommunity.com/profiles/{steamId}/";
+        else
+            TextBox_addonURL0.Text = "自动获取失败";
+    }
+
+    /// <summary>
     /// 输出文件夹按钮点击事件
     /// </summary>
     /// <param name="sender"></param>

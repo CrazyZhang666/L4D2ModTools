@@ -96,6 +96,50 @@ public static class Workshop
         return string.Join(", ", tags);
     }
 
+    /////////////////////////////////////////////////////////////////////////////////
+
+    /// <summary>
+    /// 获取玩家Steam昵称
+    /// </summary>
+    /// <returns></returns>
+    public static string GetUserName()
+    {
+        try
+        {
+            if (Init())
+            {
+                return SteamClient.Name;
+            }
+        }
+        catch (Exception ex)
+        {
+            MsgBoxUtil.Exception(ex);
+        }
+
+        return string.Empty;
+    }
+
+    /// <summary>
+    /// 获取玩家Steam数字Id
+    /// </summary>
+    /// <returns></returns>
+    public static ulong GetUserSteamId()
+    {
+        try
+        {
+            if (Init())
+            {
+                return SteamClient.SteamId.Value;
+            }
+        }
+        catch (Exception ex)
+        {
+            MsgBoxUtil.Exception(ex);
+        }
+
+        return 0;
+    }
+
     /// <summary>
     /// 获取求生之路2玩家创意工坊物品列表
     /// </summary>

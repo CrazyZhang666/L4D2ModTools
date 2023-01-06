@@ -108,6 +108,11 @@
                         Click="Button_UseDefault_Click"
                         Content="使用默认值" />
                     <Button
+                        x:Name="Button_AutoGetInfo"
+                        Margin="5,0,0,5"
+                        Click="Button_AutoGetInfo_Click"
+                        Content="自动获取信息" />
+                    <Button
                         x:Name="Button_VPKPackage"
                         Margin="5,0,0,5"
                         Click="Button_VPKPackage_Click"
