@@ -46,14 +46,6 @@ public static class Workshop
     }
 
     /// <summary>
-    /// 结束SteamAPI
-    /// </summary>
-    public static void ShutDown()
-    {
-        SteamClient.Shutdown();
-    }
-
-    /// <summary>
     /// 获取求生之路2玩家创意工坊物品列表
     /// </summary>
     public static async Task<List<ItemInfo>> GetUserPublished()
@@ -93,5 +85,13 @@ public static class Workshop
         }
 
         return itemInfos;
+    }
+
+    /// <summary>
+    /// 结束SteamAPI
+    /// </summary>
+    public static void ShutDown()
+    {
+        SteamClient.Shutdown();
     }
 }

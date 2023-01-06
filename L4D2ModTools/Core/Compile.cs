@@ -36,31 +36,38 @@ public static class Compile
                 model.Model1 = "survivor_namvet";
                 model.Model2 = "v_arms_bill";
                 break;
+
             case Survivor.Francis:
                 model.Model1 = "survivor_biker";
                 model.Model2 = "v_arms_francis";
                 break;
+
             case Survivor.Louis:
                 model.Model1 = "survivor_manager";
                 model.Model2 = "v_arms_louis";
                 break;
+
             case Survivor.Zoey:
                 model.Model1 = "survivor_teenangst";
                 model.Model2 = "v_arms_zoey";
                 break;
+
             // 二代生还者
             case Survivor.Coach:
                 model.Model1 = "survivor_coach";
                 model.Model2 = "v_arms_coach_new";
                 break;
+
             case Survivor.Ellis:
                 model.Model1 = "survivor_mechanic";
                 model.Model2 = "v_arms_mechanic_new";
                 break;
+
             case Survivor.Nick:
                 model.Model1 = "survivor_gambler";
                 model.Model2 = "v_arms_gambler_new";
                 break;
+
             case Survivor.Rochelle:
                 model.Model1 = "survivor_producer";
                 model.Model2 = "v_arms_producer_new";

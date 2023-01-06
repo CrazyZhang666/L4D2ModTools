@@ -7,12 +7,12 @@ public static class MiscUtil
     /// <summary>
     /// 程序客户端版本号，如：1.2.3.4
     /// </summary>
-    public static Version VersionInfo = Application.ResourceAssembly.GetName().Version;
+    public static readonly Version VersionInfo = Application.ResourceAssembly.GetName().Version;
 
     /// <summary>
     /// 程序客户端最后编译时间
     /// </summary>
-    public static DateTime BuildTime = File.GetLastWriteTime(Environment.ProcessPath);
+    public static readonly DateTime BuildTime = File.GetLastWriteTime(Environment.ProcessPath);
 
     /// <summary>
     /// 用户名是否合法

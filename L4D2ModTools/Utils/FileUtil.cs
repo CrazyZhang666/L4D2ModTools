@@ -5,11 +5,11 @@ public static class FileUtil
     /// <summary>
     /// UTF-8 无BOM格式
     /// </summary>
-    public static UTF8Encoding UTF8NoBOM = new UTF8Encoding(false);
+    public static UTF8Encoding UTF8NoBOM = new(false);
 
-    private static List<string> AllFileLists = new List<string>();
+    private static List<string> AllFileLists = new();
 
-    private static object ObjLock = new object();
+    private static readonly object ObjLock = new();
 
     /// <summary>
     /// 写入UTF8无BOM格式文本文件

@@ -77,7 +77,7 @@ public static class ProcessUtil
 
     /// <summary>
     /// 关闭全部第三方exe进程
-    /// </summary> 
+    /// </summary>
     public static void CloseThirdProcess()
     {
         CloseProcess("Notepad2");

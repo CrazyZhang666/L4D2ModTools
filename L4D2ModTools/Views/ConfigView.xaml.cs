@@ -1,6 +1,6 @@
 ﻿using L4D2ModTools.Core;
-using L4D2ModTools.Utils;
 using L4D2ModTools.Helper;
+using L4D2ModTools.Utils;
 
 namespace L4D2ModTools.Views;
 
@@ -25,6 +25,7 @@ public partial class ConfigView : UserControl
             CheckEnv();
         }
     }
+
     /// <summary>
     /// 主窗口关闭事件
     /// </summary>

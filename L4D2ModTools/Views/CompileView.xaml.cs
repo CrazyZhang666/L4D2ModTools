@@ -1,6 +1,6 @@
 ﻿using L4D2ModTools.Core;
-using L4D2ModTools.Utils;
 using L4D2ModTools.Helper;
+using L4D2ModTools.Utils;
 
 namespace L4D2ModTools.Views;
 
@@ -393,24 +393,31 @@ public partial class CompileView : UserControl
             case "Bill":
                 RadioButton_L4D1_Bill.IsChecked = true;
                 break;
+
             case "Francis":
                 RadioButton_L4D1_Francis.IsChecked = true;
                 break;
+
             case "Louis":
                 RadioButton_L4D1_Louis.IsChecked = true;
                 break;
+
             case "Zoey":
                 RadioButton_L4D1_Zoey.IsChecked = true;
                 break;
+
             case "Coach":
                 RadioButton_L4D2_Coach.IsChecked = true;
                 break;
+
             case "Ellis":
                 RadioButton_L4D2_Ellis.IsChecked = true;
                 break;
+
             case "Nick":
                 RadioButton_L4D2_Nick.IsChecked = true;
                 break;
+
             case "Rochelle":
                 RadioButton_L4D2_Rochelle.IsChecked = true;
                 break;

@@ -19,6 +19,5 @@ public partial class AboutView : UserControl
 
     private void MainWindow_WindowClosingEvent()
     {
-        
     }
 }

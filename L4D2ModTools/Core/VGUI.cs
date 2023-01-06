@@ -46,16 +46,19 @@ public static class VGUI
                 hud.HUD2 = "s_panel_namvet_incap";
                 hud.HUD3 = "select_bill";
                 break;
+
             case Survivor.Francis:
                 hud.HUD1 = "s_panel_biker";
                 hud.HUD2 = "s_panel_biker_incap";
                 hud.HUD3 = "select_francis";
                 break;
+
             case Survivor.Louis:
                 hud.HUD1 = "s_panel_manager";
                 hud.HUD2 = "s_panel_manager_incap";
                 hud.HUD3 = "select_louis";
                 break;
+
             case Survivor.Zoey:
                 hud.HUD1 = "s_panel_teenangst";
                 hud.HUD2 = "s_panel_teenangst_incap";
@@ -67,16 +70,19 @@ public static class VGUI
                 hud.HUD2 = "s_panel_coach_incap";
                 hud.HUD3 = "s_panel_lobby_coach";
                 break;
+
             case Survivor.Ellis:
                 hud.HUD1 = "s_panel_mechanic";
                 hud.HUD2 = "s_panel_mechanic_incap";
                 hud.HUD3 = "s_panel_lobby_mechanic";
                 break;
+
             case Survivor.Nick:
                 hud.HUD1 = "s_panel_gambler";
                 hud.HUD2 = "s_panel_gambler_incap";
                 hud.HUD3 = "s_panel_lobby_gambler";
                 break;
+
             case Survivor.Rochelle:
                 hud.HUD1 = "s_panel_producer";
                 hud.HUD2 = "s_panel_producer_incap";

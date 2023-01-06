@@ -73,6 +73,5 @@ public partial class PublishView : UserControl
     /// <param name="e"></param>
     private void Button_PublishWorkshop_Click(object sender, RoutedEventArgs e)
     {
-        
     }
 }
