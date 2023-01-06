@@ -84,7 +84,7 @@ public partial class ConfigView : UserControl
         else
         {
             Globals.L4D2MainDir = string.Empty;
-            TextBox_L4D2MainDir.Text = "Steam自动识别识别";
+            TextBox_L4D2MainDir.Text = "Steam自动识别失败";
         }
     }
 

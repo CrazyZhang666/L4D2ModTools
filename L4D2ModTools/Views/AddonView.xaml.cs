@@ -223,15 +223,19 @@ public partial class AddonView : UserControl
 
         var name = Workshop.GetUserName();
         if (!string.IsNullOrWhiteSpace(name))
+        {
             TextBox_addonAuthor.Text = name;
-        else
-            TextBox_addonAuthor.Text = "自动获取失败";
 
-        var steamId = Workshop.GetUserSteamId();
-        if (steamId != 0)
-            TextBox_addonURL0.Text = $"https://steamcommunity.com/profiles/{steamId}/";
+            var steamId = Workshop.GetUserSteamId();
+            if (steamId != 0)
+                TextBox_addonURL0.Text = $"https://steamcommunity.com/profiles/{steamId}/";
+            else
+                TextBox_addonURL0.Text = "自动获取失败";
+        }
         else
-            TextBox_addonURL0.Text = "自动获取失败";
+        {
+            TextBox_addonAuthor.Text = "自动获取失败";
+        }
     }
 
     /// <summary>

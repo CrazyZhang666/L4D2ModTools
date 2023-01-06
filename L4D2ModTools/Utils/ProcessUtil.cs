@@ -3,6 +3,16 @@
 public static class ProcessUtil
 {
     /// <summary>
+    /// 判断程序是否运行
+    /// </summary>
+    /// <param name="appName">程序名称</param>
+    /// <returns>正在运行返回true，未运行返回false</returns>
+    public static bool IsAppRun(string appName)
+    {
+        return Process.GetProcessesByName(appName).Length > 0;
+    }
+
+    /// <summary>
     /// 垃圾回收
     /// </summary>
     public static void ClearMemory()

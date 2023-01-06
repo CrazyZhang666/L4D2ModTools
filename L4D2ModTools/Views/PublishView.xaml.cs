@@ -72,14 +72,18 @@ public partial class PublishView : UserControl
         ItemInfoLists.Clear();
 
         var itemInfos = await Workshop.GetUserPublished();
-        itemInfos.ForEach(info =>
+        if (itemInfos.Count > 0)
         {
-            ItemInfoLists.Add(info);
-            AddLogger($"{info.Index} {info.Title}");
-        });
+            itemInfos.ForEach(info =>
+            {
+                ItemInfoLists.Add(info);
+                AddLogger($"{info.Index} {info.Title}");
+            });
+
+            AddLogger("刷新Mod列表完成");
+        }
 
         Button_RefushModList.IsEnabled = true;
-        AddLogger("刷新Mod列表完成");
     }
 
     /// <summary>
@@ -89,11 +93,14 @@ public partial class PublishView : UserControl
     /// <param name="e"></param>
     private void Button_PublishWorkshop_Click(object sender, RoutedEventArgs e)
     {
-        var publishWindow = new PublishWindow
+        if (Workshop.Init())
         {
-            Owner = MainWindow.MainWindowInstance
-        };
-        publishWindow.ShowDialog();
+            var publishWindow = new PublishWindow
+            {
+                Owner = MainWindow.MainWindowInstance
+            };
+            publishWindow.ShowDialog();
+        }
     }
 
     /// <summary>

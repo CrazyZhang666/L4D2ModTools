@@ -19,24 +19,34 @@ public static class Workshop
     private static readonly object ObjLock = new();
 
     /// <summary>
-    /// 初始化
+    /// 初始化Steamworks
     /// </summary>
     /// <returns></returns>
     public static bool Init()
     {
         lock (ObjLock)
         {
-            try
+            if (ProcessUtil.IsAppRun("steam"))
             {
-                if (!IsInitSuccess)
-                    SteamClient.Init(Globals.AppID);
+                try
+                {
+                    if (!IsInitSuccess)
+                        SteamClient.Init(Globals.AppID);
 
-                IsInitSuccess = true;
-                return true;
+                    IsInitSuccess = true;
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MsgBoxUtil.Exception($"Steamworks初始化失败，请重启程序并检查Steam状态\n\n异常信息 : \n{ex.Message}", "初始化失败");
+
+                    IsInitSuccess = false;
+                    return false;
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MsgBoxUtil.Exception($"Steamworks初始化失败，请重启程序并检查Steam状态\n\n异常信息 : \n{ex.Message}", "初始化失败");
+                MsgBoxUtil.Warning("未发现Steam进程，请先启动Steam客户端");
 
                 IsInitSuccess = false;
                 return false;
