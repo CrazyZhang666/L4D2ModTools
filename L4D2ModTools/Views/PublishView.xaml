@@ -18,6 +18,11 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
                 <Button
+                    x:Name="Button_AutoColumWidth"
+                    Margin="5,5,0,5"
+                    Click="Button_AutoColumWidth_Click"
+                    Content="自动调整列宽" />
+                <Button
                     Name="Button_RestarApp"
                     Margin="5"
                     Click="Button_RestarApp_Click"
@@ -35,7 +40,9 @@
                     Click="Button_PublishWorkshop_Click"
                     Content="上传L4D2创意工坊" />
                 <Button
+                    x:Name="Button_UpdateWorkshop"
                     Margin="5,5,0,5"
+                    Click="Button_UpdateWorkshop_Click"
                     Content="更新选中Mod信息"
                     IsEnabled="{Binding ElementName=ListView_WorkShops, Path=SelectedIndex, Converter={StaticResource IsSelectedNullConverter}}" />
             </StackPanel>
@@ -49,7 +56,13 @@
             Style="{StaticResource ListViewStyle_Normal}">
             <ListView.View>
                 <GridView AllowsColumnReorder="False" ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle_Normal}">
-                    <GridViewColumn DisplayMemberBinding="{Binding Index}" Header="序号" />
+                    <GridViewColumn Header="序号">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock FontWeight="Bold" Text="{Binding Index}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn Header="预览图">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -68,7 +81,18 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="标题" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="文件ID" />
+                    <GridViewColumn Header="标题">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Hyperlink NavigateUri="{Binding Url}" RequestNavigate="Hyperlink_RequestNavigate">
+                                        <Run Text="{Binding Title}" />
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding FileSize}" Header="大小" />
                     <GridViewColumn DisplayMemberBinding="{Binding PublicState}" Header="可见性" />
                     <GridViewColumn DisplayMemberBinding="{Binding Updated}" Header="修改日期" />

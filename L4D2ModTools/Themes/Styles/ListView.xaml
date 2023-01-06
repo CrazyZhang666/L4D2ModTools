@@ -74,7 +74,7 @@
         </Setter>
     </Style>
 
-    <!--  *****************************************************************************  -->
+    <!--  /////////////////////////////////////////////////////////////////////////  -->
 
     <Style x:Key="DefaultGridViewScrollViewerStyle" TargetType="{x:Type ScrollViewer}">
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -227,7 +227,7 @@
                                         <Setter Property="Background" Value="#E0E0E0" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="{DynamicResource DarkBlue}" />
+                                        <Setter Property="Background" Value="{DynamicResource Orange}" />
                                         <Setter Property="Foreground" Value="White" />
                                     </Trigger>
                                 </ControlTemplate.Triggers>

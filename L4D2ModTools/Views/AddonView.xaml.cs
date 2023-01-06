@@ -1,6 +1,6 @@
 ﻿using L4D2ModTools.Core;
-using L4D2ModTools.Helper;
 using L4D2ModTools.Utils;
+using L4D2ModTools.Helper;
 
 namespace L4D2ModTools.Views;
 
@@ -9,13 +9,11 @@ namespace L4D2ModTools.Views;
 /// </summary>
 public partial class AddonView : UserControl
 {
-    private string addonimage = string.Empty;
+    private string addonImage = string.Empty;
 
-    private string addontitle = string.Empty;
-    private string addonversion = string.Empty;
-    private string addontagline = string.Empty;
-    private string addonauthor = string.Empty;
-    private string addonauthorSteamID = string.Empty;
+    private string addonTitle = string.Empty;
+    private string addonAuthor = string.Empty;
+    private string addonURL0 = string.Empty;
     private string addonDescription = string.Empty;
 
     public AddonView()
@@ -25,13 +23,11 @@ public partial class AddonView : UserControl
         MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
 
         // 读取对应配置文件
-        TextBox_addonimage.Text = IniHelper.ReadValue("Addon", "addonimage");
+        TextBox_addonImage.Text = IniHelper.ReadValue("Addon", "addonImage");
 
-        TextBox_addontitle.Text = IniHelper.ReadValue("Addon", "addontitle");
-        TextBox_addonversion.Text = IniHelper.ReadValue("Addon", "addonversion");
-        TextBox_addontagline.Text = IniHelper.ReadValue("Addon", "addontagline");
-        TextBox_addonauthor.Text = IniHelper.ReadValue("Addon", "addonauthor");
-        TextBox_addonauthorSteamID.Text = IniHelper.ReadValue("Addon", "addonauthorSteamID");
+        TextBox_addonTitle.Text = IniHelper.ReadValue("Addon", "addonTitle");
+        TextBox_addonAuthor.Text = IniHelper.ReadValue("Addon", "addonAuthor");
+        TextBox_addonURL0.Text = IniHelper.ReadValue("Addon", "addonURL0");
         TextBox_addonDescription.Text = IniHelper.ReadValue("Addon", "addonDescription");
     }
 
@@ -48,13 +44,11 @@ public partial class AddonView : UserControl
     /// </summary>
     private void SaveConfig()
     {
-        IniHelper.WriteValue("Addon", "addonimage", TextBox_addonimage.Text);
+        IniHelper.WriteValue("Addon", "addonImage", TextBox_addonImage.Text);
 
-        IniHelper.WriteValue("Addon", "addontitle", TextBox_addontitle.Text);
-        IniHelper.WriteValue("Addon", "addonversion", TextBox_addonversion.Text);
-        IniHelper.WriteValue("Addon", "addontagline", TextBox_addontagline.Text);
-        IniHelper.WriteValue("Addon", "addonauthor", TextBox_addonauthor.Text);
-        IniHelper.WriteValue("Addon", "addonauthorSteamID", TextBox_addonauthorSteamID.Text);
+        IniHelper.WriteValue("Addon", "addonTitle", TextBox_addonTitle.Text);
+        IniHelper.WriteValue("Addon", "addonAuthor", TextBox_addonAuthor.Text);
+        IniHelper.WriteValue("Addon", "addonURL0", TextBox_addonURL0.Text);
         IniHelper.WriteValue("Addon", "addonDescription", TextBox_addonDescription.Text);
     }
 
@@ -67,13 +61,11 @@ public partial class AddonView : UserControl
     {
         Button_VPKPackage.IsEnabled = false;
 
-        addonimage = TextBox_addonimage.Text.Trim();
+        addonImage = TextBox_addonImage.Text.Trim();
 
-        addontitle = TextBox_addontitle.Text.Trim();
-        addonversion = TextBox_addonversion.Text.Trim();
-        addontagline = TextBox_addontagline.Text.Trim();
-        addonauthor = TextBox_addonauthor.Text.Trim();
-        addonauthorSteamID = TextBox_addonauthorSteamID.Text.Trim();
+        addonTitle = TextBox_addonTitle.Text.Trim();
+        addonAuthor = TextBox_addonAuthor.Text.Trim();
+        addonURL0 = TextBox_addonURL0.Text.Trim();
         addonDescription = TextBox_addonDescription.Text.Trim();
 
         var dirs = Directory.GetDirectories(Globals.OutputDir);
@@ -163,20 +155,28 @@ public partial class AddonView : UserControl
             var builder = new StringBuilder();
             builder.AppendLine("\"AddonInfo\"");
             builder.AppendLine("{");
-            builder.AppendLine($"\taddontitle \"{addontitle}\"");
-            builder.AppendLine($"\taddonversion \"{addonversion}\"");
-            builder.AppendLine($"\taddontagline \"{addontagline}\"");
-            builder.AppendLine($"\taddonauthor \"{addonauthor}\"");
-            builder.AppendLine($"\taddonauthorSteamID \"{addonauthorSteamID}\"");
+            builder.AppendLine($"\taddonTitle \"{addonTitle}\"");
+            builder.AppendLine($"\taddonAuthor \"{addonAuthor}\"");
+            builder.AppendLine($"\taddonURL0 \"{addonURL0}\"");
             builder.AppendLine($"\taddonDescription \"{addonDescription}\"");
-            builder.AppendLine($"\taddonContent_Survivor \"{survivor}\"");
+            builder.AppendLine("\taddonContent_Campaign 0");
+            builder.AppendLine("\taddonContent_Map 0");
+            builder.AppendLine("\taddonContent_Survivor 1");
+            builder.AppendLine("\taddonContent_Skin 0");
+            builder.AppendLine("\taddonContent_BossInfected 0");
+            builder.AppendLine("\taddonContent_CommonInfected 0");
+            builder.AppendLine("\taddonContent_Music 0");
+            builder.AppendLine("\taddonContent_Sound 0");
+            builder.AppendLine("\taddonContent_Prop 0");
+            builder.AppendLine("\taddonContent_Weapon 0");
+            builder.AppendLine("\taddonContent_Script 0");
             builder.AppendLine("}");
 
             // 写入addoninfo文件
             FileUtil.WriteFileUTF8NoBOM(dirPath + "\\addoninfo.txt", builder.Replace("@@", $"{survivor}").ToString());
 
             // 如果图片存在，则复制预览图
-            FileUtil.SafeCopy(addonimage, dirPath + "\\addonimage.jpg");
+            FileUtil.SafeCopy(addonImage, dirPath + "\\addonimage.jpg");
 
             // 执行VPK打包命令
             Compile.RunL4D2DevExec(Globals.VPKExec, dirPath);
@@ -190,14 +190,12 @@ public partial class AddonView : UserControl
     /// <param name="e"></param>
     private void Button_UseDefault_Click(object sender, RoutedEventArgs e)
     {
-        TextBox_addonimage.Text = Directory.GetCurrentDirectory() + "\\AppData\\Addons\\addonimage.jpg";
+        TextBox_addonImage.Text = Directory.GetCurrentDirectory() + "\\AppData\\Addons\\addonimage.jpg";
 
-        TextBox_addontitle.Text = "[@@] DOAXVV Fiona - Endorphin Heart";
-        TextBox_addonversion.Text = "1.0";
-        TextBox_addontagline.Text = "Replace Survivor for @@";
-        TextBox_addonauthor.Text = "CrazyZhang";
-        TextBox_addonauthorSteamID.Text = "https://steamcommunity.com/id/crazyzhang";
-        TextBox_addonDescription.Text = "Replace Survivor for @@";
+        TextBox_addonTitle.Text = "[@@] DOAXVV Fiona - Endorphin Heart";
+        TextBox_addonAuthor.Text = "CrazyZhang";
+        TextBox_addonURL0.Text = "https://steamcommunity.com/profiles/76561198293570981/";
+        TextBox_addonDescription.Text = "DOAXVV Fiona - Endorphin Heart, Replace Survivor for @@";
     }
 
     /// <summary>
@@ -274,6 +272,6 @@ public partial class AddonView : UserControl
     private void Image_addonimage_Drop(object sender, DragEventArgs e)
     {
         if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            TextBox_addonimage.Text = (e.Data.GetData(DataFormats.FileDrop) as Array).GetValue(0).ToString();
+            TextBox_addonImage.Text = (e.Data.GetData(DataFormats.FileDrop) as Array).GetValue(0).ToString();
     }
 }

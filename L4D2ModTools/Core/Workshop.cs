@@ -115,8 +115,11 @@ public static class Workshop
                     itemInfos.Add(new()
                     {
                         Index = index++,
+                        Id = item.Id.Value,
                         PreviewImageUrl = item.PreviewImageUrl,
                         Title = item.Title.Replace("\n", ""),
+                        Description = item.Description,
+                        Url = item.Url,
                         FileSize = MiscUtil.ByteConverterMB(item.FileSize),
                         PublicState = GetPublicState(item.IsPublic, item.IsFriendsOnly, item.IsPrivate, item.IsUnlisted),
                         Updated = item.Updated.ToString(),

@@ -347,7 +347,7 @@ public struct Item
     /// <summary>
     /// Return a URL to view this item online
     /// </summary>
-    public string Url => $"http://steamcommunity.com/sharedfiles/filedetails/?source=Facepunch.Steamworks&id={Id}";
+    public string Url => $"http://steamcommunity.com/sharedfiles/filedetails/?id={Id}";
 
     /// <summary>
     /// The URl to view this item's changelog

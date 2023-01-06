@@ -18,8 +18,15 @@ public partial class MainWindow : Window
     /// </summary>
     public static event WindowClosingDelegate WindowClosingEvent;
 
+    ///////////////////////////////////////////////////////
+
     /// <summary>
-    /// 报告进度
+    /// 向外暴露主窗口实例
+    /// </summary>
+    public static Window MainWindowInstance { get; private set; }
+
+    /// <summary>
+    /// 报告状态栏进度委托
     /// </summary>
     public static Action<double> ActionTaskbarProgress;
 
@@ -31,6 +38,7 @@ public partial class MainWindow : Window
     private void Window_Main_Loaded(object sender, RoutedEventArgs e)
     {
         this.DataContext = this;
+        MainWindowInstance = this;
 
         this.Title = $"求生之路2 Mod工具箱 v{MiscUtil.VersionInfo} - 编译时间 {MiscUtil.BuildTime}";
 

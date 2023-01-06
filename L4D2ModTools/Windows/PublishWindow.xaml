@@ -1,0 +1,19 @@
+﻿<Window
+    x:Class="L4D2ModTools.Windows.PublishWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="Window_Publish"
+    Title="上传L4D2创意工坊"
+    Width="1000"
+    Height="700"
+    Closing="Window_Publish_Closing"
+    Loaded="Window_Publish_Loaded"
+    ResizeMode="CanMinimize"
+    WindowStartupLocation="CenterOwner"
+    mc:Ignorable="d">
+
+    <Grid />
+
+</Window>

@@ -15,99 +15,73 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--  ///////////////////////////////////////////  -->
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <!--  ///////////////////  -->
-                <DockPanel>
-                    <TextBlock
-                        Margin="5"
-                        DockPanel.Dock="Top"
-                        Text="请将图片拖拽此处" />
-                    <Border
-                        Width="200"
-                        Height="230"
-                        Margin="5"
-                        BorderBrush="Gray"
-                        BorderThickness="1"
-                        DockPanel.Dock="Bottom">
-                        <Image
-                            x:Name="Image_addonimage"
-                            AllowDrop="True"
-                            DragEnter="Image_addonimage_DragEnter"
-                            Drop="Image_addonimage_Drop"
-                            Source="{Binding ElementName=TextBox_addonimage, Path=Text, Converter={StaticResource StringToImageSourceConverter}}" />
-                    </Border>
-                </DockPanel>
-                <!--  ///////////////////  -->
-                <StackPanel Grid.Column="1">
-                    <DockPanel>
-                        <TextBlock Margin="5" Text="预览图 addonimage" />
-                        <TextBlock
-                            HorizontalAlignment="Right"
-                            Style="{StaticResource TextBlockStyle_HintInfo}"
-                            Text="图片格式 jpg，分辨率 256x256" />
-                    </DockPanel>
-                    <TextBox x:Name="TextBox_addonimage" Style="{StaticResource TextBoxStyle_InputBox}" />
-                    <!--  /////////////  -->
-                    <DockPanel>
-                        <TextBlock Margin="5" Text="标题 ★ addontitle" />
-                        <TextBlock
-                            HorizontalAlignment="Right"
-                            Style="{StaticResource TextBlockStyle_HintInfo}"
-                            Text="请输入英文，如 [@@] DOAXVV Fiona - Endorphin Heart" />
-                    </DockPanel>
-                    <TextBox x:Name="TextBox_addontitle" Style="{StaticResource TextBoxStyle_InputBox}" />
-                    <!--  /////////////  -->
-                    <UniformGrid Columns="2">
-                        <StackPanel>
-                            <DockPanel>
-                                <TextBlock Margin="5" Text="版本 addonversion" />
-                                <TextBlock
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TextBlockStyle_HintInfo}"
-                                    Text="比如 1.0" />
-                            </DockPanel>
-                            <TextBox x:Name="TextBox_addonversion" Style="{StaticResource TextBoxStyle_InputBox}" />
-                        </StackPanel>
-                        <!--  /////////////  -->
-                        <StackPanel>
-                            <DockPanel>
-                                <TextBlock Margin="5" Text="作者 addonauthor" />
-                                <TextBlock
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TextBlockStyle_HintInfo}"
-                                    Text="你的steam昵称" />
-                            </DockPanel>
-                            <TextBox x:Name="TextBox_addonauthor" Style="{StaticResource TextBoxStyle_InputBox}" />
-                        </StackPanel>
-                    </UniformGrid>
-                    <!--  /////////////  -->
-                    <DockPanel>
-                        <TextBlock Margin="5" Text="标签列 ★ addontagline" />
-                        <TextBlock
-                            HorizontalAlignment="Right"
-                            Style="{StaticResource TextBlockStyle_HintInfo}"
-                            Text="比如 Replace Survivor for @@" />
-                    </DockPanel>
-                    <TextBox x:Name="TextBox_addontagline" Style="{StaticResource TextBoxStyle_InputBox}" />
-                </StackPanel>
-            </Grid>
-            <!--  ////////////////////////////////////////  -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!--  ///////////////////  -->
             <DockPanel>
-                <TextBlock Margin="5" Text="作者ID addonauthorSteamID" />
                 <TextBlock
-                    HorizontalAlignment="Right"
-                    Style="{StaticResource TextBlockStyle_HintInfo}"
-                    Text="你的steam主页链接" />
+                    Margin="5"
+                    DockPanel.Dock="Top"
+                    Text="请将图片拖拽此处" />
+                <Border
+                    Width="230"
+                    Height="230"
+                    Margin="5"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    DockPanel.Dock="Bottom">
+                    <Image
+                        x:Name="Image_addonimage"
+                        AllowDrop="True"
+                        DragEnter="Image_addonimage_DragEnter"
+                        Drop="Image_addonimage_Drop"
+                        Source="{Binding ElementName=TextBox_addonImage, Path=Text, Converter={StaticResource StringToImageSourceConverter}}" />
+                </Border>
             </DockPanel>
-            <TextBox x:Name="TextBox_addonauthorSteamID" Style="{StaticResource TextBoxStyle_InputBox}" />
-        </StackPanel>
+            <!--  ///////////////////  -->
+            <StackPanel Grid.Column="1">
+                <DockPanel>
+                    <TextBlock Margin="5" Text="预览图 addonImage" />
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource TextBlockStyle_HintInfo}"
+                        Text="图片格式 jpg，分辨率 256x256" />
+                </DockPanel>
+                <TextBox x:Name="TextBox_addonImage" Style="{StaticResource TextBoxStyle_InputBox}" />
+                <!--  /////////////  -->
+                <DockPanel>
+                    <TextBlock Margin="5" Text="标题 ★ addonTitle" />
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource TextBlockStyle_HintInfo}"
+                        Text="请输入英文，如 [@@] DOAXVV Fiona - Endorphin Heart" />
+                </DockPanel>
+                <TextBox x:Name="TextBox_addonTitle" Style="{StaticResource TextBoxStyle_InputBox}" />
+                <!--  /////////////  -->
+                <DockPanel>
+                    <TextBlock Margin="5" Text="作者 addonAuthor" />
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource TextBlockStyle_HintInfo}"
+                        Text="你的steam昵称" />
+                </DockPanel>
+                <TextBox x:Name="TextBox_addonAuthor" Style="{StaticResource TextBoxStyle_InputBox}" />
+                <!--  /////////////  -->
+                <DockPanel>
+                    <TextBlock Margin="5" Text="链接 addonURL0" />
+                    <TextBlock
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource TextBlockStyle_HintInfo}"
+                        Text="你的steam主页链接" />
+                </DockPanel>
+                <TextBox x:Name="TextBox_addonURL0" Style="{StaticResource TextBoxStyle_InputBox}" />
+            </StackPanel>
+        </Grid>
         <!--  ///////////////////////////////////////////  -->
-        <DockPanel Grid.Row="1">
+        <StackPanel Grid.Row="1">
             <DockPanel DockPanel.Dock="Top">
                 <TextBlock Margin="5" Text="描述 ★ addonDescription" />
                 <TextBlock
@@ -117,10 +91,11 @@
             </DockPanel>
             <TextBox
                 x:Name="TextBox_addonDescription"
+                Height="90"
                 VerticalAlignment="Stretch"
                 DockPanel.Dock="Bottom"
                 Style="{StaticResource TextBoxStyle_InputBox}" />
-        </DockPanel>
+        </StackPanel>
         <!--  ///////////////////////////////////////////  -->
         <DockPanel Grid.Row="2">
             <TextBlock Style="{StaticResource TextBlockStyle_HintInfo}" Text="提示：使用 @@ 代替角色名称" />

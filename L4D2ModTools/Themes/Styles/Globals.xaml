@@ -6,9 +6,11 @@
     <cvt:StringToImageSourceConverter x:Key="StringToImageSourceConverter" />
     <cvt:IsSelectedNullConverter x:Key="IsSelectedNullConverter" />
     <cvt:BoolToOpacityConverter x:Key="BoolToOpacityConverter" />
+    <cvt:IsNotEmptyConverter x:Key="IsNotEmptyConverter" />
 
     <SolidColorBrush x:Key="Blue" Color="#2196F3" />
     <SolidColorBrush x:Key="Pink" Color="#E91E63" />
+    <SolidColorBrush x:Key="Orange" Color="#FFA631" />
 
     <SolidColorBrush x:Key="DarkBlue" Color="#0078d4" />
 
@@ -18,11 +20,12 @@
     <SolidColorBrush x:Key="DarkGray" Color="#A9A9A9" />
 
     <Style x:Key="HyperlinkStyle_Base" TargetType="{x:Type Hyperlink}">
-        <Setter Property="TextBlock.TextDecorations" Value="{x:Null}" />
+        <Setter Property="TextDecorations" Value="{x:Null}" />
         <Setter Property="Foreground" Value="{StaticResource Blue}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="{StaticResource Pink}" />
+                <Setter Property="TextDecorations" Value="Underline" />
             </Trigger>
         </Style.Triggers>
     </Style>

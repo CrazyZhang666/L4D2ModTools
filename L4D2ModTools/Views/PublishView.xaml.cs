@@ -1,6 +1,7 @@
 ﻿using L4D2ModTools.Core;
 using L4D2ModTools.Data;
 using L4D2ModTools.Utils;
+using L4D2ModTools.Windows;
 
 namespace L4D2ModTools.Views;
 
@@ -48,6 +49,17 @@ public partial class PublishView : UserControl
     }
 
     /// <summary>
+    /// 超链接请求导航事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    {
+        ProcessUtil.OpenLink(e.Uri.OriginalString);
+        e.Handled = true;
+    }
+
+    /// <summary>
     /// 刷新Mod列表按钮点击事件
     /// </summary>
     /// <param name="sender"></param>
@@ -77,11 +89,32 @@ public partial class PublishView : UserControl
     /// <param name="e"></param>
     private void Button_PublishWorkshop_Click(object sender, RoutedEventArgs e)
     {
-
+        var publishWindow = new PublishWindow
+        {
+            Owner = MainWindow.MainWindowInstance
+        };
+        publishWindow.ShowDialog();
     }
 
     /// <summary>
-    /// 重启工具
+    /// 更新选中Mod信息钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_UpdateWorkshop_Click(object sender, RoutedEventArgs e)
+    {
+        if (ListView_WorkShops.SelectedItem is ItemInfo info)
+        {
+            var updateWindow = new UpdateWindow(info)
+            {
+                Owner = MainWindow.MainWindowInstance
+            };
+            updateWindow.ShowDialog();
+        }
+    }
+
+    /// <summary>
+    /// 重启工具按钮点击事件
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
@@ -89,5 +122,25 @@ public partial class PublishView : UserControl
     {
         ProcessUtil.OpenExecWithArgs(FileUtil.CurrentAppPath);
         Application.Current.Shutdown();
+    }
+
+    /// <summary>
+    /// 自动调整列宽按钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_AutoColumWidth_Click(object sender, RoutedEventArgs e)
+    {
+        lock (this)
+        {
+            if (ListView_WorkShops.View is GridView workshop)
+            {
+                foreach (GridViewColumn gvc in workshop.Columns)
+                {
+                    gvc.Width = 100;
+                    gvc.Width = double.NaN;
+                }
+            }
+        }
     }
 }

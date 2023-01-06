@@ -291,7 +291,8 @@
                     VerticalAlignment="Center"
                     Click="Button_ReComplieModel_Click"
                     Content="开始重新编译模型"
-                    DockPanel.Dock="Left" />
+                    DockPanel.Dock="Left"
+                    IsEnabled="{Binding ElementName=TextBox_ModelName, Path=Text, Converter={StaticResource IsNotEmptyConverter}}" />
             </DockPanel>
             <!--  ////////////////////  -->
             <TextBox
