@@ -7,8 +7,10 @@
 		<UseWPF>true</UseWPF>
 		<Platforms>x86</Platforms>
 		<StartupObject>L4D2ModTools.App</StartupObject>
-		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 		<ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
+		<AssemblyTitle>求生之路2 Mod工具箱</AssemblyTitle>
+		<AssemblyVersion>1.0.0.3</AssemblyVersion>
+		<FileVersion>1.0.0.3</FileVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">

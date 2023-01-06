@@ -14,6 +14,24 @@ public static class Workshop
     private const int AppID = 550;
 
     /// <summary>
+    /// 初始化
+    /// </summary>
+    /// <returns></returns>
+    public static bool Init()
+    {
+        try
+        {
+            SteamClient.Init(AppID);
+            return true;
+        }
+        catch (Exception ex)
+        {
+            MsgBoxUtil.Exception(ex);
+            return false;
+        }
+    }
+
+    /// <summary>
     /// 获取Mod访问状态
     /// </summary>
     /// <param name="isPublic"></param>
