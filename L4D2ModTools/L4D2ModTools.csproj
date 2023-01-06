@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>x86</Platforms>
+    <StartupObject>L4D2ModTools.App</StartupObject>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Files\AppData.zip" />
+    <EmbeddedResource Include="Files\steam_api.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Facepunch.Steamworks.Win32">
+      <HintPath>..\..\..\..\.NET\Lib\Facepunch.Steamworks.Win32.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\crowbar.png" />
+    <Resource Include="Assets\favicon.ico" />
+    <Resource Include="Assets\l4d2.jpg" />
+    <Resource Include="Assets\Survivors\select_bill.png" />
+    <Resource Include="Assets\Survivors\select_francis.png" />
+    <Resource Include="Assets\Survivors\select_louis.png" />
+    <Resource Include="Assets\Survivors\select_zoey.png" />
+    <Resource Include="Assets\Survivors\s_panel_lobby_coach.png" />
+    <Resource Include="Assets\Survivors\s_panel_lobby_gambler.png" />
+    <Resource Include="Assets\Survivors\s_panel_lobby_mechanic.png" />
+    <Resource Include="Assets\Survivors\s_panel_lobby_producer.png" />
+    <Resource Include="Assets\vpk.jpg" />
+    <Resource Include="Themes\Fonts\iconfont.ttf" />
+  </ItemGroup>
+
+</Project>

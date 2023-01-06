@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Themes/Styles/Globals.xaml" />
+
+        <ResourceDictionary Source="/Themes/Styles/TextBlock.xaml" />
+        <ResourceDictionary Source="/Themes/Styles/ScrollViewer.xaml" />
+
+        <ResourceDictionary Source="/Themes/Styles/TextBox.xaml" />
+        <ResourceDictionary Source="/Themes/Styles/Button.xaml" />
+
+        <ResourceDictionary Source="/Themes/Styles/TabControl.xaml" />
+        <ResourceDictionary Source="/Themes/Styles/ListView.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>
