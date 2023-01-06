@@ -15,22 +15,31 @@
             <RowDefinition Height="200" />
         </Grid.RowDefinitions>
         <!--  //////////////////////  -->
-        <StackPanel Orientation="Horizontal">
-            <Button
-                x:Name="Button_RefushModList"
-                Margin="5,5,0,5"
-                Click="Button_RefushModList_Click"
-                Content="刷新Mod列表" />
-            <Button
-                Name="Button_PublishWorkshop"
-                Margin="5,5,0,5"
-                Click="Button_PublishWorkshop_Click"
-                Content="上传L4D2创意工坊" />
-            <Button
-                Margin="5,5,0,5"
-                Content="更新选中Mod信息"
-                IsEnabled="{Binding ElementName=ListView_WorkShops, Path=SelectedIndex, Converter={StaticResource IsSelectedNullConverter}}" />
-        </StackPanel>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                <Button
+                    Name="Button_RestarApp"
+                    Margin="5"
+                    Click="Button_RestarApp_Click"
+                    Content="重启工具" />
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
+                <Button
+                    x:Name="Button_RefushModList"
+                    Margin="5,5,0,5"
+                    Click="Button_RefushModList_Click"
+                    Content="刷新Mod列表" />
+                <Button
+                    Name="Button_PublishWorkshop"
+                    Margin="5,5,0,5"
+                    Click="Button_PublishWorkshop_Click"
+                    Content="上传L4D2创意工坊" />
+                <Button
+                    Margin="5,5,0,5"
+                    Content="更新选中Mod信息"
+                    IsEnabled="{Binding ElementName=ListView_WorkShops, Path=SelectedIndex, Converter={StaticResource IsSelectedNullConverter}}" />
+            </StackPanel>
+        </DockPanel>
         <!--  //////////////////////  -->
         <ListView
             x:Name="ListView_WorkShops"

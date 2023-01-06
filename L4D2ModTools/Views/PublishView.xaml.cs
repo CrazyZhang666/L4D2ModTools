@@ -1,5 +1,6 @@
 ﻿using L4D2ModTools.Core;
 using L4D2ModTools.Data;
+using L4D2ModTools.Utils;
 
 namespace L4D2ModTools.Views;
 
@@ -54,6 +55,7 @@ public partial class PublishView : UserControl
     private async void Button_RefushModList_Click(object sender, RoutedEventArgs e)
     {
         Button_RefushModList.IsEnabled = false;
+        ClearLogger();
 
         ItemInfoLists.Clear();
 
@@ -61,9 +63,11 @@ public partial class PublishView : UserControl
         itemInfos.ForEach(info =>
         {
             ItemInfoLists.Add(info);
+            AddLogger($"{info.Index} {info.Title}");
         });
 
         Button_RefushModList.IsEnabled = true;
+        AddLogger("刷新Mod列表完成");
     }
 
     /// <summary>
@@ -73,5 +77,17 @@ public partial class PublishView : UserControl
     /// <param name="e"></param>
     private void Button_PublishWorkshop_Click(object sender, RoutedEventArgs e)
     {
+
+    }
+
+    /// <summary>
+    /// 重启工具
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_RestarApp_Click(object sender, RoutedEventArgs e)
+    {
+        ProcessUtil.OpenExecWithArgs(FileUtil.CurrentAppPath);
+        Application.Current.Shutdown();
     }
 }

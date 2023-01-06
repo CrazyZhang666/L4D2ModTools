@@ -83,6 +83,11 @@ public struct Item
     public bool IsPrivate => details.Visibility == RemoteStoragePublishedFileVisibility.Private;
 
     /// <summary>
+    /// True if this is unlisted to the creator
+    /// </summary>
+    public bool IsUnlisted => details.Visibility == RemoteStoragePublishedFileVisibility.Unlisted;
+
+    /// <summary>
     /// True if this item has been banned
     /// </summary>
     public bool IsBanned => details.Banned;

@@ -31,7 +31,15 @@ public static class MsgBoxUtil
     /// </summary>
     public static void Exception(Exception ex, string title = "异常")
     {
-        MessageBox.Show("发生了未知的异常，查看异常信息以获取更多详情\n\n异常信息 : \n" + ex.Message,
+        MessageBox.Show($"发生了未知的异常，查看异常信息以获取更多详情\n\n异常信息 : \n{ex.Message}",
             title, MessageBoxButton.OK, MessageBoxImage.Error);
+    }
+
+    /// <summary>
+    /// 通用异常弹窗，Exception
+    /// </summary>
+    public static void Exception(string content, string title = "异常")
+    {
+        MessageBox.Show(content, title, MessageBoxButton.OK, MessageBoxImage.Error);
     }
 }

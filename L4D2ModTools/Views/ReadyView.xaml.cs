@@ -86,7 +86,7 @@ public partial class ReadyView : UserControl
 
     private void Button_RunCrowbar_Click(object sender, RoutedEventArgs e)
     {
-        Process.Start(Globals.ToolKitsDir + "\\Crowbar.exe");
+        Process.Start(Globals.SharedDir + "\\Crowbar.exe");
     }
 
     private void Border_DropVPKUnPack_DragEnter(object sender, DragEventArgs e)

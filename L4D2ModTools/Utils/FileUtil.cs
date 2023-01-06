@@ -7,9 +7,20 @@ public static class FileUtil
     /// </summary>
     public static UTF8Encoding UTF8NoBOM = new(false);
 
+    /// <summary>
+    /// 获取文件夹全部玩家缓存
+    /// </summary>
     private static List<string> AllFileLists = new();
 
+    /// <summary>
+    /// 锁标志
+    /// </summary>
     private static readonly object ObjLock = new();
+
+    /// <summary>
+    /// 获取当前运行文件完整路径
+    /// </summary>
+    public static string CurrentAppPath = Process.GetCurrentProcess().MainModule.FileName;
 
     /// <summary>
     /// 写入UTF8无BOM格式文本文件

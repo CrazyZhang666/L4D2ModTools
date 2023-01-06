@@ -5,7 +5,7 @@ public static class Globals
     public const string OutputDir = ".\\__输出目录";
 
     public const string AppDataDir = ".\\AppData";
-    public const string ToolKitsDir = $"{AppDataDir}\\ToolKits";
+    public const string SharedDir = $"{AppDataDir}\\__Shared";
 
     public const string AppSurvivorsDir = $"{AppDataDir}\\Survivors";
     public const string AppWeaponsDir = $"{AppDataDir}\\Weapons";

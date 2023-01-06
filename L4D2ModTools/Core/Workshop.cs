@@ -12,6 +12,15 @@ public static class Workshop
     /// 求生之路2 AppID
     /// </summary>
     private const int AppID = 550;
+    /// <summary>
+    /// 是否初始化成功
+    /// </summary>
+    private static bool IsInitSuccess = false;
+
+    /// <summary>
+    /// 锁标志
+    /// </summary>
+    private static readonly object ObjLock = new();
 
     /// <summary>
     /// 初始化
@@ -19,33 +28,57 @@ public static class Workshop
     /// <returns></returns>
     public static bool Init()
     {
-        try
+        lock (ObjLock)
         {
-            SteamClient.Init(AppID);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            MsgBoxUtil.Exception(ex);
-            return false;
+            try
+            {
+                if (!IsInitSuccess)
+                    SteamClient.Init(AppID);
+
+                IsInitSuccess = true;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MsgBoxUtil.Exception($"Steamworks初始化失败，请重启程序并检查Steam状态\n\n异常信息 : \n{ex.Message}", "初始化失败");
+
+                IsInitSuccess = false;
+                return false;
+            }
         }
     }
 
     /// <summary>
-    /// 获取Mod访问状态
+    /// 结束Steamworks
+    /// </summary>
+    public static void ShutDown()
+    {
+        if (IsInitSuccess)
+            SteamClient.Shutdown();
+    }
+
+    /// <summary>
+    /// 获取Mod可见性
     /// </summary>
     /// <param name="isPublic"></param>
     /// <param name="isFriendsOnly"></param>
     /// <param name="isPrivate"></param>
+    /// <param name="isUnlisted"></param>
     /// <returns></returns>
-    public static string GetPublicState(bool isPublic, bool isFriendsOnly, bool isPrivate)
+    public static string GetPublicState(bool isPublic, bool isFriendsOnly, bool isPrivate, bool isUnlisted)
     {
+        // 当前可见性： 公开
         if (isPublic)
             return "公开";
+        // 当前可见性： 仅限好友该物品仅对您、您的好友和管理员可见。
         if (isFriendsOnly)
-            return "仅好友可见";
+            return "仅限好友";
+        // 当前可见性： 隐藏该物品仅对您、管理员和被标记为创作者的用户可见。
         if (isPrivate)
-            return "私有";
+            return "隐藏";
+        // 当前可见性： 非公开此物品对所有人可见，但不会在搜索中或您的个人资料里显示。
+        if (isUnlisted)
+            return "非公开";
 
         return "其他";
     }
@@ -72,44 +105,33 @@ public static class Workshop
 
         try
         {
-            SteamClient.Init(AppID);
-
-            var result = await Query.All.WhereUserPublished().GetPageAsync(1);
-
-            int index = 1;
-            foreach (var item in result.Value.Entries)
+            if (Init())
             {
-                itemInfos.Add(new()
+                var result = await Query.All.WhereUserPublished().GetPageAsync(1);
+
+                int index = 1;
+                foreach (var item in result.Value.Entries)
                 {
-                    Index = index++,
-                    PreviewImageUrl = item.PreviewImageUrl,
-                    Title = item.Title.Replace("\n", ""),
-                    FileSize = MiscUtil.ByteConverterMB(item.FileSize),
-                    PublicState = GetPublicState(item.IsPublic, item.IsFriendsOnly, item.IsPrivate),
-                    Updated = item.Updated.ToString(),
-                    Created = item.Created.ToString(),
-                    Tags = GetTags(item.Tags),
-                    Owner = item.Owner.Name,
-                });
+                    itemInfos.Add(new()
+                    {
+                        Index = index++,
+                        PreviewImageUrl = item.PreviewImageUrl,
+                        Title = item.Title.Replace("\n", ""),
+                        FileSize = MiscUtil.ByteConverterMB(item.FileSize),
+                        PublicState = GetPublicState(item.IsPublic, item.IsFriendsOnly, item.IsPrivate, item.IsUnlisted),
+                        Updated = item.Updated.ToString(),
+                        Created = item.Created.ToString(),
+                        Tags = GetTags(item.Tags),
+                        Owner = item.Owner.Name,
+                    });
+                }
             }
         }
         catch (Exception ex)
         {
             MsgBoxUtil.Exception(ex);
         }
-        finally
-        {
-            SteamClient.Shutdown();
-        }
 
         return itemInfos;
-    }
-
-    /// <summary>
-    /// 结束SteamAPI
-    /// </summary>
-    public static void ShutDown()
-    {
-        SteamClient.Shutdown();
     }
 }
