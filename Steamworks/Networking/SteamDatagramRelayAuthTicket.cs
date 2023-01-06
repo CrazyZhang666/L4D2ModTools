@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿namespace Steamworks.Data;
 
-namespace Steamworks.Data
+struct SteamDatagramRelayAuthTicket
 {
-	struct SteamDatagramRelayAuthTicket
-	{
-		// Not implemented, not used
-	};
-}
+    // Not implemented, not used
+};

@@ -17,6 +17,7 @@ internal struct DepotId_t : IEquatable<DepotId_t>, IComparable<DepotId_t>
 	public static bool operator !=( DepotId_t a, DepotId_t b ) => !a.Equals( b );
 	public int CompareTo( DepotId_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct RTime32 : IEquatable<RTime32>, IComparable<RTime32>
 {
 	// Name: RTime32, Type: unsigned int
@@ -32,6 +33,7 @@ internal struct RTime32 : IEquatable<RTime32>, IComparable<RTime32>
 	public static bool operator !=( RTime32 a, RTime32 b ) => !a.Equals( b );
 	public int CompareTo( RTime32 other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SteamAPICall_t : IEquatable<SteamAPICall_t>, IComparable<SteamAPICall_t>
 {
 	// Name: SteamAPICall_t, Type: unsigned long long
@@ -47,6 +49,7 @@ internal struct SteamAPICall_t : IEquatable<SteamAPICall_t>, IComparable<SteamAP
 	public static bool operator !=( SteamAPICall_t a, SteamAPICall_t b ) => !a.Equals( b );
 	public int CompareTo( SteamAPICall_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct AccountID_t : IEquatable<AccountID_t>, IComparable<AccountID_t>
 {
 	// Name: AccountID_t, Type: unsigned int
@@ -62,6 +65,7 @@ internal struct AccountID_t : IEquatable<AccountID_t>, IComparable<AccountID_t>
 	public static bool operator !=( AccountID_t a, AccountID_t b ) => !a.Equals( b );
 	public int CompareTo( AccountID_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct PartyBeaconID_t : IEquatable<PartyBeaconID_t>, IComparable<PartyBeaconID_t>
 {
 	// Name: PartyBeaconID_t, Type: unsigned long long
@@ -77,6 +81,7 @@ internal struct PartyBeaconID_t : IEquatable<PartyBeaconID_t>, IComparable<Party
 	public static bool operator !=( PartyBeaconID_t a, PartyBeaconID_t b ) => !a.Equals( b );
 	public int CompareTo( PartyBeaconID_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HAuthTicket : IEquatable<HAuthTicket>, IComparable<HAuthTicket>
 {
 	// Name: HAuthTicket, Type: unsigned int
@@ -92,6 +97,7 @@ internal struct HAuthTicket : IEquatable<HAuthTicket>, IComparable<HAuthTicket>
 	public static bool operator !=( HAuthTicket a, HAuthTicket b ) => !a.Equals( b );
 	public int CompareTo( HAuthTicket other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HSteamPipe : IEquatable<HSteamPipe>, IComparable<HSteamPipe>
 {
 	// Name: HSteamPipe, Type: int
@@ -107,6 +113,7 @@ internal struct HSteamPipe : IEquatable<HSteamPipe>, IComparable<HSteamPipe>
 	public static bool operator !=( HSteamPipe a, HSteamPipe b ) => !a.Equals( b );
 	public int CompareTo( HSteamPipe other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HSteamUser : IEquatable<HSteamUser>, IComparable<HSteamUser>
 {
 	// Name: HSteamUser, Type: int
@@ -122,6 +129,7 @@ internal struct HSteamUser : IEquatable<HSteamUser>, IComparable<HSteamUser>
 	public static bool operator !=( HSteamUser a, HSteamUser b ) => !a.Equals( b );
 	public int CompareTo( HSteamUser other ) => Value.CompareTo( other.Value );
 }
+
 internal struct FriendsGroupID_t : IEquatable<FriendsGroupID_t>, IComparable<FriendsGroupID_t>
 {
 	// Name: FriendsGroupID_t, Type: short
@@ -137,6 +145,7 @@ internal struct FriendsGroupID_t : IEquatable<FriendsGroupID_t>, IComparable<Fri
 	public static bool operator !=( FriendsGroupID_t a, FriendsGroupID_t b ) => !a.Equals( b );
 	public int CompareTo( FriendsGroupID_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HServerListRequest : IEquatable<HServerListRequest>, IComparable<HServerListRequest>
 {
 	// Name: HServerListRequest, Type: void *
@@ -152,6 +161,7 @@ internal struct HServerListRequest : IEquatable<HServerListRequest>, IComparable
 	public static bool operator !=( HServerListRequest a, HServerListRequest b ) => !a.Equals( b );
 	public int CompareTo( HServerListRequest other ) => Value.ToInt64().CompareTo( other.Value.ToInt64() );
 }
+
 internal struct HServerQuery : IEquatable<HServerQuery>, IComparable<HServerQuery>
 {
 	// Name: HServerQuery, Type: int
@@ -167,6 +177,7 @@ internal struct HServerQuery : IEquatable<HServerQuery>, IComparable<HServerQuer
 	public static bool operator !=( HServerQuery a, HServerQuery b ) => !a.Equals( b );
 	public int CompareTo( HServerQuery other ) => Value.CompareTo( other.Value );
 }
+
 internal struct UGCHandle_t : IEquatable<UGCHandle_t>, IComparable<UGCHandle_t>
 {
 	// Name: UGCHandle_t, Type: unsigned long long
@@ -182,6 +193,7 @@ internal struct UGCHandle_t : IEquatable<UGCHandle_t>, IComparable<UGCHandle_t>
 	public static bool operator !=( UGCHandle_t a, UGCHandle_t b ) => !a.Equals( b );
 	public int CompareTo( UGCHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct PublishedFileUpdateHandle_t : IEquatable<PublishedFileUpdateHandle_t>, IComparable<PublishedFileUpdateHandle_t>
 {
 	// Name: PublishedFileUpdateHandle_t, Type: unsigned long long
@@ -197,6 +209,7 @@ internal struct PublishedFileUpdateHandle_t : IEquatable<PublishedFileUpdateHand
 	public static bool operator !=( PublishedFileUpdateHandle_t a, PublishedFileUpdateHandle_t b ) => !a.Equals( b );
 	public int CompareTo( PublishedFileUpdateHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 public struct PublishedFileId : IEquatable<PublishedFileId>, IComparable<PublishedFileId>
 {
 	// Name: PublishedFileId_t, Type: unsigned long long
@@ -212,6 +225,7 @@ public struct PublishedFileId : IEquatable<PublishedFileId>, IComparable<Publish
 	public static bool operator !=( PublishedFileId a, PublishedFileId b ) => !a.Equals( b );
 	public int CompareTo( PublishedFileId other ) => Value.CompareTo( other.Value );
 }
+
 internal struct UGCFileWriteStreamHandle_t : IEquatable<UGCFileWriteStreamHandle_t>, IComparable<UGCFileWriteStreamHandle_t>
 {
 	// Name: UGCFileWriteStreamHandle_t, Type: unsigned long long
@@ -227,6 +241,7 @@ internal struct UGCFileWriteStreamHandle_t : IEquatable<UGCFileWriteStreamHandle
 	public static bool operator !=( UGCFileWriteStreamHandle_t a, UGCFileWriteStreamHandle_t b ) => !a.Equals( b );
 	public int CompareTo( UGCFileWriteStreamHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SteamLeaderboard_t : IEquatable<SteamLeaderboard_t>, IComparable<SteamLeaderboard_t>
 {
 	// Name: SteamLeaderboard_t, Type: unsigned long long
@@ -242,6 +257,7 @@ internal struct SteamLeaderboard_t : IEquatable<SteamLeaderboard_t>, IComparable
 	public static bool operator !=( SteamLeaderboard_t a, SteamLeaderboard_t b ) => !a.Equals( b );
 	public int CompareTo( SteamLeaderboard_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SteamLeaderboardEntries_t : IEquatable<SteamLeaderboardEntries_t>, IComparable<SteamLeaderboardEntries_t>
 {
 	// Name: SteamLeaderboardEntries_t, Type: unsigned long long
@@ -257,6 +273,7 @@ internal struct SteamLeaderboardEntries_t : IEquatable<SteamLeaderboardEntries_t
 	public static bool operator !=( SteamLeaderboardEntries_t a, SteamLeaderboardEntries_t b ) => !a.Equals( b );
 	public int CompareTo( SteamLeaderboardEntries_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SNetSocket_t : IEquatable<SNetSocket_t>, IComparable<SNetSocket_t>
 {
 	// Name: SNetSocket_t, Type: unsigned int
@@ -272,6 +289,7 @@ internal struct SNetSocket_t : IEquatable<SNetSocket_t>, IComparable<SNetSocket_
 	public static bool operator !=( SNetSocket_t a, SNetSocket_t b ) => !a.Equals( b );
 	public int CompareTo( SNetSocket_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SNetListenSocket_t : IEquatable<SNetListenSocket_t>, IComparable<SNetListenSocket_t>
 {
 	// Name: SNetListenSocket_t, Type: unsigned int
@@ -287,6 +305,7 @@ internal struct SNetListenSocket_t : IEquatable<SNetListenSocket_t>, IComparable
 	public static bool operator !=( SNetListenSocket_t a, SNetListenSocket_t b ) => !a.Equals( b );
 	public int CompareTo( SNetListenSocket_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct ScreenshotHandle : IEquatable<ScreenshotHandle>, IComparable<ScreenshotHandle>
 {
 	// Name: ScreenshotHandle, Type: unsigned int
@@ -302,6 +321,7 @@ internal struct ScreenshotHandle : IEquatable<ScreenshotHandle>, IComparable<Scr
 	public static bool operator !=( ScreenshotHandle a, ScreenshotHandle b ) => !a.Equals( b );
 	public int CompareTo( ScreenshotHandle other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HTTPRequestHandle : IEquatable<HTTPRequestHandle>, IComparable<HTTPRequestHandle>
 {
 	// Name: HTTPRequestHandle, Type: unsigned int
@@ -317,6 +337,7 @@ internal struct HTTPRequestHandle : IEquatable<HTTPRequestHandle>, IComparable<H
 	public static bool operator !=( HTTPRequestHandle a, HTTPRequestHandle b ) => !a.Equals( b );
 	public int CompareTo( HTTPRequestHandle other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HTTPCookieContainerHandle : IEquatable<HTTPCookieContainerHandle>, IComparable<HTTPCookieContainerHandle>
 {
 	// Name: HTTPCookieContainerHandle, Type: unsigned int
@@ -332,6 +353,7 @@ internal struct HTTPCookieContainerHandle : IEquatable<HTTPCookieContainerHandle
 	public static bool operator !=( HTTPCookieContainerHandle a, HTTPCookieContainerHandle b ) => !a.Equals( b );
 	public int CompareTo( HTTPCookieContainerHandle other ) => Value.CompareTo( other.Value );
 }
+
 internal struct InputHandle_t : IEquatable<InputHandle_t>, IComparable<InputHandle_t>
 {
 	// Name: InputHandle_t, Type: unsigned long long
@@ -347,6 +369,7 @@ internal struct InputHandle_t : IEquatable<InputHandle_t>, IComparable<InputHand
 	public static bool operator !=( InputHandle_t a, InputHandle_t b ) => !a.Equals( b );
 	public int CompareTo( InputHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct InputActionSetHandle_t : IEquatable<InputActionSetHandle_t>, IComparable<InputActionSetHandle_t>
 {
 	// Name: InputActionSetHandle_t, Type: unsigned long long
@@ -362,6 +385,7 @@ internal struct InputActionSetHandle_t : IEquatable<InputActionSetHandle_t>, ICo
 	public static bool operator !=( InputActionSetHandle_t a, InputActionSetHandle_t b ) => !a.Equals( b );
 	public int CompareTo( InputActionSetHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct InputDigitalActionHandle_t : IEquatable<InputDigitalActionHandle_t>, IComparable<InputDigitalActionHandle_t>
 {
 	// Name: InputDigitalActionHandle_t, Type: unsigned long long
@@ -377,6 +401,7 @@ internal struct InputDigitalActionHandle_t : IEquatable<InputDigitalActionHandle
 	public static bool operator !=( InputDigitalActionHandle_t a, InputDigitalActionHandle_t b ) => !a.Equals( b );
 	public int CompareTo( InputDigitalActionHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct InputAnalogActionHandle_t : IEquatable<InputAnalogActionHandle_t>, IComparable<InputAnalogActionHandle_t>
 {
 	// Name: InputAnalogActionHandle_t, Type: unsigned long long
@@ -392,6 +417,7 @@ internal struct InputAnalogActionHandle_t : IEquatable<InputAnalogActionHandle_t
 	public static bool operator !=( InputAnalogActionHandle_t a, InputAnalogActionHandle_t b ) => !a.Equals( b );
 	public int CompareTo( InputAnalogActionHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct ControllerHandle_t : IEquatable<ControllerHandle_t>, IComparable<ControllerHandle_t>
 {
 	// Name: ControllerHandle_t, Type: unsigned long long
@@ -407,6 +433,7 @@ internal struct ControllerHandle_t : IEquatable<ControllerHandle_t>, IComparable
 	public static bool operator !=( ControllerHandle_t a, ControllerHandle_t b ) => !a.Equals( b );
 	public int CompareTo( ControllerHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct ControllerActionSetHandle_t : IEquatable<ControllerActionSetHandle_t>, IComparable<ControllerActionSetHandle_t>
 {
 	// Name: ControllerActionSetHandle_t, Type: unsigned long long
@@ -422,6 +449,7 @@ internal struct ControllerActionSetHandle_t : IEquatable<ControllerActionSetHand
 	public static bool operator !=( ControllerActionSetHandle_t a, ControllerActionSetHandle_t b ) => !a.Equals( b );
 	public int CompareTo( ControllerActionSetHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct ControllerDigitalActionHandle_t : IEquatable<ControllerDigitalActionHandle_t>, IComparable<ControllerDigitalActionHandle_t>
 {
 	// Name: ControllerDigitalActionHandle_t, Type: unsigned long long
@@ -437,6 +465,7 @@ internal struct ControllerDigitalActionHandle_t : IEquatable<ControllerDigitalAc
 	public static bool operator !=( ControllerDigitalActionHandle_t a, ControllerDigitalActionHandle_t b ) => !a.Equals( b );
 	public int CompareTo( ControllerDigitalActionHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct ControllerAnalogActionHandle_t : IEquatable<ControllerAnalogActionHandle_t>, IComparable<ControllerAnalogActionHandle_t>
 {
 	// Name: ControllerAnalogActionHandle_t, Type: unsigned long long
@@ -452,6 +481,7 @@ internal struct ControllerAnalogActionHandle_t : IEquatable<ControllerAnalogActi
 	public static bool operator !=( ControllerAnalogActionHandle_t a, ControllerAnalogActionHandle_t b ) => !a.Equals( b );
 	public int CompareTo( ControllerAnalogActionHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct UGCQueryHandle_t : IEquatable<UGCQueryHandle_t>, IComparable<UGCQueryHandle_t>
 {
 	// Name: UGCQueryHandle_t, Type: unsigned long long
@@ -467,6 +497,7 @@ internal struct UGCQueryHandle_t : IEquatable<UGCQueryHandle_t>, IComparable<UGC
 	public static bool operator !=( UGCQueryHandle_t a, UGCQueryHandle_t b ) => !a.Equals( b );
 	public int CompareTo( UGCQueryHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct UGCUpdateHandle_t : IEquatable<UGCUpdateHandle_t>, IComparable<UGCUpdateHandle_t>
 {
 	// Name: UGCUpdateHandle_t, Type: unsigned long long
@@ -482,6 +513,7 @@ internal struct UGCUpdateHandle_t : IEquatable<UGCUpdateHandle_t>, IComparable<U
 	public static bool operator !=( UGCUpdateHandle_t a, UGCUpdateHandle_t b ) => !a.Equals( b );
 	public int CompareTo( UGCUpdateHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HHTMLBrowser : IEquatable<HHTMLBrowser>, IComparable<HHTMLBrowser>
 {
 	// Name: HHTMLBrowser, Type: unsigned int
@@ -497,6 +529,7 @@ internal struct HHTMLBrowser : IEquatable<HHTMLBrowser>, IComparable<HHTMLBrowse
 	public static bool operator !=( HHTMLBrowser a, HHTMLBrowser b ) => !a.Equals( b );
 	public int CompareTo( HHTMLBrowser other ) => Value.CompareTo( other.Value );
 }
+
 public struct InventoryItemId : IEquatable<InventoryItemId>, IComparable<InventoryItemId>
 {
 	// Name: SteamItemInstanceID_t, Type: unsigned long long
@@ -512,6 +545,7 @@ public struct InventoryItemId : IEquatable<InventoryItemId>, IComparable<Invento
 	public static bool operator !=( InventoryItemId a, InventoryItemId b ) => !a.Equals( b );
 	public int CompareTo( InventoryItemId other ) => Value.CompareTo( other.Value );
 }
+
 public struct InventoryDefId : IEquatable<InventoryDefId>, IComparable<InventoryDefId>
 {
 	// Name: SteamItemDef_t, Type: int
@@ -527,6 +561,7 @@ public struct InventoryDefId : IEquatable<InventoryDefId>, IComparable<Inventory
 	public static bool operator !=( InventoryDefId a, InventoryDefId b ) => !a.Equals( b );
 	public int CompareTo( InventoryDefId other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SteamInventoryResult_t : IEquatable<SteamInventoryResult_t>, IComparable<SteamInventoryResult_t>
 {
 	// Name: SteamInventoryResult_t, Type: int
@@ -542,6 +577,7 @@ internal struct SteamInventoryResult_t : IEquatable<SteamInventoryResult_t>, ICo
 	public static bool operator !=( SteamInventoryResult_t a, SteamInventoryResult_t b ) => !a.Equals( b );
 	public int CompareTo( SteamInventoryResult_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SteamInventoryUpdateHandle_t : IEquatable<SteamInventoryUpdateHandle_t>, IComparable<SteamInventoryUpdateHandle_t>
 {
 	// Name: SteamInventoryUpdateHandle_t, Type: unsigned long long
@@ -557,6 +593,7 @@ internal struct SteamInventoryUpdateHandle_t : IEquatable<SteamInventoryUpdateHa
 	public static bool operator !=( SteamInventoryUpdateHandle_t a, SteamInventoryUpdateHandle_t b ) => !a.Equals( b );
 	public int CompareTo( SteamInventoryUpdateHandle_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct RemotePlaySessionID_t : IEquatable<RemotePlaySessionID_t>, IComparable<RemotePlaySessionID_t>
 {
 	// Name: RemotePlaySessionID_t, Type: unsigned int
@@ -572,6 +609,7 @@ internal struct RemotePlaySessionID_t : IEquatable<RemotePlaySessionID_t>, IComp
 	public static bool operator !=( RemotePlaySessionID_t a, RemotePlaySessionID_t b ) => !a.Equals( b );
 	public int CompareTo( RemotePlaySessionID_t other ) => Value.CompareTo( other.Value );
 }
+
 internal struct HSteamNetPollGroup : IEquatable<HSteamNetPollGroup>, IComparable<HSteamNetPollGroup>
 {
 	// Name: HSteamNetPollGroup, Type: unsigned int
@@ -587,6 +625,7 @@ internal struct HSteamNetPollGroup : IEquatable<HSteamNetPollGroup>, IComparable
 	public static bool operator !=( HSteamNetPollGroup a, HSteamNetPollGroup b ) => !a.Equals( b );
 	public int CompareTo( HSteamNetPollGroup other ) => Value.CompareTo( other.Value );
 }
+
 internal struct SteamNetworkingPOPID : IEquatable<SteamNetworkingPOPID>, IComparable<SteamNetworkingPOPID>
 {
 	// Name: SteamNetworkingPOPID, Type: unsigned int
@@ -602,3 +641,4 @@ internal struct SteamNetworkingPOPID : IEquatable<SteamNetworkingPOPID>, ICompar
 	public static bool operator !=( SteamNetworkingPOPID a, SteamNetworkingPOPID b ) => !a.Equals( b );
 	public int CompareTo( SteamNetworkingPOPID other ) => Value.CompareTo( other.Value );
 }
+

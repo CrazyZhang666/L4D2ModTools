@@ -10,6 +10,7 @@ internal enum SteamIPType : int
 	Type4 = 0,
 	Type6 = 1,
 }
+
 /// <summary>
 /// EUniverse
 /// <summary>
@@ -22,6 +23,7 @@ public enum Universe : int
 	Dev = 4,
 	Max = 5,
 }
+
 /// <summary>
 /// EResult
 /// <summary>
@@ -155,6 +157,7 @@ public enum Result : int
 	CachedCredentialInvalid = 126,
 	K_EResultPhoneNumberIsVOIP = 127,
 }
+
 /// <summary>
 /// EVoiceResult
 /// <summary>
@@ -171,6 +174,7 @@ internal enum VoiceResult : int
 	ReceiverOutOfDate = 8,
 	ReceiverDidNotAnswer = 9,
 }
+
 /// <summary>
 /// EDenyReason
 /// <summary>
@@ -193,6 +197,7 @@ internal enum DenyReason : int
 	SteamValidationStalled = 14,
 	SteamOwnerLeftGuestUser = 15,
 }
+
 /// <summary>
 /// EBeginAuthSessionResult
 /// <summary>
@@ -205,6 +210,7 @@ public enum BeginAuthResult : int
 	GameMismatch = 4,
 	ExpiredTicket = 5,
 }
+
 /// <summary>
 /// EAuthSessionResponse
 /// <summary>
@@ -221,6 +227,7 @@ public enum AuthResponse : int
 	AuthTicketInvalid = 8,
 	PublisherIssuedBan = 9,
 }
+
 /// <summary>
 /// EUserHasLicenseForAppResult
 /// <summary>
@@ -230,6 +237,7 @@ public enum UserHasLicenseForAppResult : int
 	DoesNotHaveLicense = 1,
 	NoAuth = 2,
 }
+
 /// <summary>
 /// EAccountType
 /// <summary>
@@ -248,6 +256,7 @@ internal enum AccountType : int
 	AnonUser = 10,
 	Max = 11,
 }
+
 /// <summary>
 /// EChatEntryType
 /// <summary>
@@ -266,6 +275,7 @@ internal enum ChatEntryType : int
 	HistoricalChat = 11,
 	LinkBlocked = 14,
 }
+
 /// <summary>
 /// EChatRoomEnterResponse
 /// <summary>
@@ -284,6 +294,7 @@ public enum RoomEnter : int
 	YouBlockedMember = 11,
 	RatelimitExceeded = 15,
 }
+
 /// <summary>
 /// EChatSteamIDInstanceFlags
 /// <summary>
@@ -294,6 +305,7 @@ internal enum ChatSteamIDInstanceFlags : int
 	InstanceFlagLobby = 262144,
 	InstanceFlagMMSLobby = 131072,
 }
+
 /// <summary>
 /// ENotificationPosition
 /// <summary>
@@ -304,6 +316,7 @@ public enum NotificationPosition : int
 	BottomLeft = 2,
 	BottomRight = 3,
 }
+
 /// <summary>
 /// EBroadcastUploadResult
 /// <summary>
@@ -334,6 +347,7 @@ public enum BroadcastUploadResult : int
 	VideoInitFailed = 22,
 	AudioInitFailed = 23,
 }
+
 /// <summary>
 /// EMarketNotAllowedReasonFlags
 /// <summary>
@@ -357,6 +371,7 @@ internal enum MarketNotAllowedReasonFlags : int
 	NoRecentPurchases = 16384,
 	AcceptedWalletGift = 32768,
 }
+
 /// <summary>
 /// EDurationControlProgress
 /// <summary>
@@ -369,6 +384,7 @@ public enum DurationControlProgress : int
 	ExitSoon_5h = 4,
 	ExitSoon_Night = 5,
 }
+
 /// <summary>
 /// EDurationControlNotification
 /// <summary>
@@ -383,6 +399,7 @@ internal enum DurationControlNotification : int
 	ExitSoon_5h = 6,
 	ExitSoon_Night = 7,
 }
+
 /// <summary>
 /// EDurationControlOnlineState
 /// <summary>
@@ -393,6 +410,7 @@ internal enum DurationControlOnlineState : int
 	Online = 2,
 	OnlineHighPri = 3,
 }
+
 /// <summary>
 /// EGameSearchErrorCode_t
 /// <summary>
@@ -408,6 +426,7 @@ internal enum GameSearchErrorCode_t : int
 	Failed_NotAuthorized = 8,
 	Failed_Unknown_Error = 9,
 }
+
 /// <summary>
 /// EPlayerResult_t
 /// <summary>
@@ -419,6 +438,7 @@ internal enum PlayerResult_t : int
 	Incomplete = 4,
 	Completed = 5,
 }
+
 /// <summary>
 /// ESteamIPv6ConnectivityProtocol
 /// <summary>
@@ -428,6 +448,7 @@ internal enum SteamIPv6ConnectivityProtocol : int
 	HTTP = 1,
 	UDP = 2,
 }
+
 /// <summary>
 /// ESteamIPv6ConnectivityState
 /// <summary>
@@ -437,6 +458,7 @@ internal enum SteamIPv6ConnectivityState : int
 	Good = 1,
 	Bad = 2,
 }
+
 /// <summary>
 /// EFriendRelationship
 /// <summary>
@@ -452,6 +474,7 @@ public enum Relationship : int
 	Suggested_DEPRECATED = 7,
 	Max = 8,
 }
+
 /// <summary>
 /// EPersonaState
 /// <summary>
@@ -467,6 +490,7 @@ public enum FriendState : int
 	Invisible = 7,
 	Max = 8,
 }
+
 /// <summary>
 /// EFriendFlags
 /// <summary>
@@ -485,6 +509,7 @@ internal enum FriendFlags : int
 	ChatMember = 4096,
 	All = 65535,
 }
+
 /// <summary>
 /// EUserRestriction
 /// <summary>
@@ -499,6 +524,7 @@ internal enum UserRestriction : int
 	GameInvites = 32,
 	Trading = 64,
 }
+
 /// <summary>
 /// EOverlayToStoreFlag
 /// <summary>
@@ -508,6 +534,7 @@ public enum OverlayToStoreFlag : int
 	AddToCart = 1,
 	AddToCartAndShow = 2,
 }
+
 /// <summary>
 /// EActivateGameOverlayToWebPageMode
 /// <summary>
@@ -516,6 +543,7 @@ internal enum ActivateGameOverlayToWebPageMode : int
 	Default = 0,
 	Modal = 1,
 }
+
 /// <summary>
 /// ECommunityProfileItemType
 /// <summary>
@@ -527,6 +555,7 @@ internal enum CommunityProfileItemType : int
 	ProfileBackground = 3,
 	MiniProfileBackground = 4,
 }
+
 /// <summary>
 /// ECommunityProfileItemProperty
 /// <summary>
@@ -545,6 +574,7 @@ internal enum CommunityProfileItemProperty : int
 	MovieWebMSmall = 10,
 	MovieMP4Small = 11,
 }
+
 /// <summary>
 /// EPersonaChange
 /// <summary>
@@ -566,6 +596,7 @@ internal enum PersonaChange : int
 	SteamLevel = 8192,
 	RichPresence = 16384,
 }
+
 /// <summary>
 /// ESteamAPICallFailure
 /// <summary>
@@ -577,6 +608,7 @@ internal enum SteamAPICallFailure : int
 	InvalidHandle = 2,
 	MismatchedCallback = 3,
 }
+
 /// <summary>
 /// EGamepadTextInputMode
 /// <summary>
@@ -585,6 +617,7 @@ public enum GamepadTextInputMode : int
 	Normal = 0,
 	Password = 1,
 }
+
 /// <summary>
 /// EGamepadTextInputLineMode
 /// <summary>
@@ -593,6 +626,7 @@ public enum GamepadTextInputLineMode : int
 	SingleLine = 0,
 	MultipleLines = 1,
 }
+
 /// <summary>
 /// EFloatingGamepadTextInputMode
 /// <summary>
@@ -603,6 +637,7 @@ public enum TextInputMode : int
 	Email = 2,
 	Numeric = 3,
 }
+
 /// <summary>
 /// ETextFilteringContext
 /// <summary>
@@ -613,6 +648,7 @@ public enum TextFilteringContext : int
 	Chat = 2,
 	Name = 3,
 }
+
 /// <summary>
 /// ECheckFileSignature
 /// <summary>
@@ -624,6 +660,7 @@ public enum CheckFileSignature : int
 	NoSignaturesFoundForThisApp = 3,
 	NoSignaturesFoundForThisFile = 4,
 }
+
 /// <summary>
 /// EMatchMakingServerResponse
 /// <summary>
@@ -633,6 +670,7 @@ internal enum MatchMakingServerResponse : int
 	ServerFailedToRespond = 1,
 	NoServersListedOnMasterServer = 2,
 }
+
 /// <summary>
 /// ELobbyType
 /// <summary>
@@ -644,6 +682,7 @@ internal enum LobbyType : int
 	Invisible = 3,
 	PrivateUnique = 4,
 }
+
 /// <summary>
 /// ELobbyComparison
 /// <summary>
@@ -656,6 +695,7 @@ internal enum LobbyComparison : int
 	EqualToOrGreaterThan = 2,
 	NotEqual = 3,
 }
+
 /// <summary>
 /// ELobbyDistanceFilter
 /// <summary>
@@ -666,6 +706,7 @@ internal enum LobbyDistanceFilter : int
 	Far = 2,
 	Worldwide = 3,
 }
+
 /// <summary>
 /// EChatMemberStateChange
 /// <summary>
@@ -677,6 +718,7 @@ internal enum ChatMemberStateChange : int
 	Kicked = 8,
 	Banned = 16,
 }
+
 /// <summary>
 /// ESteamPartyBeaconLocationType
 /// <summary>
@@ -686,6 +728,7 @@ internal enum SteamPartyBeaconLocationType : int
 	ChatGroup = 1,
 	Max = 2,
 }
+
 /// <summary>
 /// ESteamPartyBeaconLocationData
 /// <summary>
@@ -697,6 +740,7 @@ internal enum SteamPartyBeaconLocationData : int
 	IconURLMedium = 3,
 	IconURLLarge = 4,
 }
+
 /// <summary>
 /// ERemoteStoragePlatform
 /// <summary>
@@ -712,6 +756,7 @@ internal enum RemoteStoragePlatform : int
 	IOS = 64,
 	All = -1,
 }
+
 /// <summary>
 /// ERemoteStoragePublishedFileVisibility
 /// <summary>
@@ -722,6 +767,7 @@ internal enum RemoteStoragePublishedFileVisibility : int
 	Private = 2,
 	Unlisted = 3,
 }
+
 /// <summary>
 /// EWorkshopFileType
 /// <summary>
@@ -746,6 +792,7 @@ internal enum WorkshopFileType : int
 	GameManagedItem = 15,
 	Max = 16,
 }
+
 /// <summary>
 /// EWorkshopVote
 /// <summary>
@@ -756,6 +803,7 @@ internal enum WorkshopVote : int
 	Against = 2,
 	Later = 3,
 }
+
 /// <summary>
 /// EWorkshopFileAction
 /// <summary>
@@ -764,6 +812,7 @@ internal enum WorkshopFileAction : int
 	Played = 0,
 	Completed = 1,
 }
+
 /// <summary>
 /// EWorkshopEnumerationType
 /// <summary>
@@ -777,6 +826,7 @@ internal enum WorkshopEnumerationType : int
 	ContentByFriends = 5,
 	RecentFromFollowedUsers = 6,
 }
+
 /// <summary>
 /// EWorkshopVideoProvider
 /// <summary>
@@ -785,6 +835,7 @@ internal enum WorkshopVideoProvider : int
 	None = 0,
 	Youtube = 1,
 }
+
 /// <summary>
 /// EUGCReadAction
 /// <summary>
@@ -794,6 +845,7 @@ internal enum UGCReadAction : int
 	ontinueReading = 1,
 	lose = 2,
 }
+
 /// <summary>
 /// ERemoteStorageLocalFileChange
 /// <summary>
@@ -803,6 +855,7 @@ internal enum RemoteStorageLocalFileChange : int
 	FileUpdated = 1,
 	FileDeleted = 2,
 }
+
 /// <summary>
 /// ERemoteStorageFilePathType
 /// <summary>
@@ -812,6 +865,7 @@ internal enum RemoteStorageFilePathType : int
 	Absolute = 1,
 	APIFilename = 2,
 }
+
 /// <summary>
 /// ELeaderboardDataRequest
 /// <summary>
@@ -822,6 +876,7 @@ internal enum LeaderboardDataRequest : int
 	Friends = 2,
 	Users = 3,
 }
+
 /// <summary>
 /// ELeaderboardSortMethod
 /// <summary>
@@ -837,6 +892,7 @@ internal enum LeaderboardUploadScoreMethod : int
 	KeepBest = 1,
 	ForceUpdate = 2,
 }
+
 /// <summary>
 /// ERegisterActivationCodeResult
 /// <summary>
@@ -848,6 +904,7 @@ internal enum RegisterActivationCodeResult : int
 	ResultTimeout = 3,
 	AlreadyOwned = 4,
 }
+
 /// <summary>
 /// EP2PSessionError
 /// <summary>
@@ -860,6 +917,7 @@ public enum P2PSessionError : int
 	DestinationNotLoggedIn_DELETED = 3,
 	Max = 5,
 }
+
 /// <summary>
 /// EP2PSend
 /// <summary>
@@ -870,6 +928,7 @@ public enum P2PSend : int
 	Reliable = 2,
 	ReliableWithBuffering = 3,
 }
+
 /// <summary>
 /// ESNetSocketState
 /// <summary>
@@ -888,6 +947,7 @@ internal enum VRScreenshotType : int
 	MonoPanorama = 4,
 	StereoPanorama = 5,
 }
+
 /// <summary>
 /// AudioPlayback_Status
 /// <summary>
@@ -898,6 +958,7 @@ public enum MusicStatus : int
 	Paused = 2,
 	Idle = 3,
 }
+
 /// <summary>
 /// EHTTPMethod
 /// <summary>
@@ -912,6 +973,7 @@ internal enum HTTPMethod : int
 	OPTIONS = 6,
 	PATCH = 7,
 }
+
 /// <summary>
 /// EHTTPStatusCode
 /// <summary>
@@ -963,6 +1025,7 @@ internal enum HTTPStatusCode : int
 	Code505HTTPVersionNotSupported = 505,
 	Code5xxUnknown = 599,
 }
+
 /// <summary>
 /// EInputSourceMode
 /// <summary>
@@ -986,6 +1049,7 @@ public enum InputSourceMode : int
 	SingleButton = 15,
 	Switches = 16,
 }
+
 /// <summary>
 /// EInputActionOrigin
 /// <summary>
@@ -1400,6 +1464,7 @@ internal enum InputActionOrigin : int
 	Count = 406,
 	MaximumPossibleValue = 32767,
 }
+
 /// <summary>
 /// EXboxOrigin
 /// <summary>
@@ -1435,6 +1500,7 @@ internal enum XboxOrigin : int
 	DPad_East = 27,
 	Count = 28,
 }
+
 /// <summary>
 /// ESteamControllerPad
 /// <summary>
@@ -1443,6 +1509,7 @@ internal enum SteamControllerPad : int
 	Left = 0,
 	Right = 1,
 }
+
 /// <summary>
 /// EControllerHapticLocation
 /// <summary>
@@ -1452,6 +1519,7 @@ internal enum ControllerHapticLocation : int
 	Right = 2,
 	Both = 3,
 }
+
 /// <summary>
 /// EControllerHapticType
 /// <summary>
@@ -1461,6 +1529,7 @@ internal enum ControllerHapticType : int
 	Tick = 1,
 	Click = 2,
 }
+
 /// <summary>
 /// ESteamInputType
 /// <summary>
@@ -1484,6 +1553,7 @@ public enum InputType : int
 	Count = 15,
 	MaximumPossibleValue = 255,
 }
+
 /// <summary>
 /// ESteamInputConfigurationEnableType
 /// <summary>
@@ -1495,6 +1565,7 @@ internal enum SteamInputConfigurationEnableType : int
 	Generic = 4,
 	Switch = 8,
 }
+
 /// <summary>
 /// ESteamInputLEDFlag
 /// <summary>
@@ -1503,6 +1574,7 @@ internal enum SteamInputLEDFlag : int
 	SetColor = 0,
 	RestoreUserDefault = 1,
 }
+
 /// <summary>
 /// ESteamInputGlyphSize
 /// <summary>
@@ -1513,6 +1585,7 @@ public enum GlyphSize : int
 	Large = 2,
 	Count = 3,
 }
+
 /// <summary>
 /// ESteamInputGlyphStyle
 /// <summary>
@@ -1524,6 +1597,7 @@ internal enum SteamInputGlyphStyle : int
 	NeutralColorABXY = 16,
 	SolidABXY = 32,
 }
+
 /// <summary>
 /// ESteamInputActionEventType
 /// <summary>
@@ -1532,6 +1606,7 @@ internal enum SteamInputActionEventType : int
 	DigitalAction = 0,
 	AnalogAction = 1,
 }
+
 /// <summary>
 /// EControllerActionOrigin
 /// <summary>
@@ -1918,6 +1993,7 @@ internal enum ControllerActionOrigin : int
 	Count = 378,
 	MaximumPossibleValue = 32767,
 }
+
 /// <summary>
 /// ESteamControllerLEDFlag
 /// <summary>
@@ -1926,6 +2002,7 @@ internal enum SteamControllerLEDFlag : int
 	SetColor = 0,
 	RestoreUserDefault = 1,
 }
+
 /// <summary>
 /// EUGCMatchingUGCType
 /// <summary>
@@ -1946,6 +2023,7 @@ public enum UgcType : int
 	GameManagedItems = 12,
 	All = -1,
 }
+
 /// <summary>
 /// EUserUGCList
 /// <summary>
@@ -1961,6 +2039,7 @@ internal enum UserUGCList : int
 	UsedOrPlayed = 7,
 	Followed = 8,
 }
+
 /// <summary>
 /// EUserUGCListSortOrder
 /// <summary>
@@ -1974,6 +2053,7 @@ internal enum UserUGCListSortOrder : int
 	VoteScoreDesc = 5,
 	ForModeration = 6,
 }
+
 /// <summary>
 /// EUGCQuery
 /// <summary>
@@ -2000,6 +2080,7 @@ internal enum UGCQuery : int
 	RankedByLifetimePlaytimeSessions = 18,
 	RankedByLastUpdatedDate = 19,
 }
+
 /// <summary>
 /// EItemUpdateStatus
 /// <summary>
@@ -2012,6 +2093,7 @@ internal enum ItemUpdateStatus : int
 	UploadingPreviewFile = 4,
 	CommittingChanges = 5,
 }
+
 /// <summary>
 /// EItemState
 /// <summary>
@@ -2025,6 +2107,7 @@ internal enum ItemState : int
 	Downloading = 16,
 	DownloadPending = 32,
 }
+
 /// <summary>
 /// EItemStatistic
 /// <summary>
@@ -2044,6 +2127,7 @@ internal enum ItemStatistic : int
 	NumSecondsPlayedDuringTimePeriod = 11,
 	NumPlaytimeSessionsDuringTimePeriod = 12,
 }
+
 /// <summary>
 /// EItemPreviewType
 /// <summary>
@@ -2056,6 +2140,7 @@ public enum ItemPreviewType : int
 	EnvironmentMap_LatLong = 4,
 	ReservedMax = 255,
 }
+
 /// <summary>
 /// ESteamItemFlags
 /// <summary>
@@ -2065,6 +2150,7 @@ internal enum SteamItemFlags : int
 	Removed = 256,
 	Consumed = 512,
 }
+
 /// <summary>
 /// EParentalFeature
 /// <summary>
@@ -2086,6 +2172,7 @@ public enum ParentalFeature : int
 	SiteLicense = 13,
 	Max = 14,
 }
+
 /// <summary>
 /// ESteamDeviceFormFactor
 /// <summary>
@@ -2097,6 +2184,7 @@ public enum SteamDeviceFormFactor : int
 	Computer = 3,
 	TV = 4,
 }
+
 /// <summary>
 /// ESteamNetworkingAvailability
 /// <summary>
@@ -2113,6 +2201,7 @@ public enum SteamNetworkingAvailability : int
 	Unknown = 0,
 	Force32bit = 2147483647,
 }
+
 /// <summary>
 /// ESteamNetworkingIdentityType
 /// <summary>
@@ -2129,6 +2218,7 @@ internal enum NetIdentityType : int
 	UnknownType = 4,
 	Force32bit = 2147483647,
 }
+
 /// <summary>
 /// ESteamNetworkingFakeIPType
 /// <summary>
@@ -2139,6 +2229,7 @@ internal enum SteamNetworkingFakeIPType : int
 	GlobalIPv4 = 2,
 	LocalIPv4 = 3,
 }
+
 /// <summary>
 /// ESteamNetworkingConnectionState
 /// <summary>
@@ -2154,6 +2245,7 @@ public enum ConnectionState : int
 	Linger = -2,
 	Dead = -3,
 }
+
 /// <summary>
 /// ESteamNetConnectionEnd
 /// <summary>
@@ -2192,6 +2284,7 @@ public enum NetConnectionEnd : int
 	Misc_PeerSentNoConnection = 5010,
 	Misc_Max = 5999,
 }
+
 /// <summary>
 /// ESteamNetworkingConfigScope
 /// <summary>
@@ -2202,6 +2295,7 @@ internal enum NetConfigScope : int
 	ListenSocket = 3,
 	Connection = 4,
 }
+
 /// <summary>
 /// ESteamNetworkingConfigDataType
 /// <summary>
@@ -2213,6 +2307,7 @@ internal enum NetConfigType : int
 	String = 4,
 	Ptr = 5,
 }
+
 /// <summary>
 /// ESteamNetworkingConfigValue
 /// <summary>
@@ -2280,6 +2375,7 @@ internal enum NetConfig : int
 	LogLevel_SDRRelayPings = 18,
 	DELETED_EnumerateDevVars = 35,
 }
+
 /// <summary>
 /// ESteamNetworkingGetConfigValueResult
 /// <summary>
@@ -2291,6 +2387,7 @@ internal enum NetConfigResult : int
 	OK = 1,
 	OKInherited = 2,
 }
+
 /// <summary>
 /// ESteamNetworkingSocketsDebugOutputType
 /// <summary>
@@ -2306,6 +2403,7 @@ public enum NetDebugOutput : int
 	Debug = 7,
 	Everything = 8,
 }
+
 /// <summary>
 /// EServerMode
 /// <summary>
@@ -2316,3 +2414,4 @@ internal enum ServerMode : int
 	Authentication = 2,
 	AuthenticationAndSecure = 3,
 }
+

@@ -12,6 +12,7 @@ internal struct SteamServersConnected_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamServersConnected;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamServerConnectFailure_t : ICallbackData
 {
@@ -25,6 +26,7 @@ internal struct SteamServerConnectFailure_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamServerConnectFailure;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamServersDisconnected_t : ICallbackData
 {
@@ -36,6 +38,7 @@ internal struct SteamServersDisconnected_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamServersDisconnected;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ClientGameServerDeny_t : ICallbackData
 {
@@ -51,6 +54,7 @@ internal struct ClientGameServerDeny_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ClientGameServerDeny;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct IPCFailure_t : ICallbackData
 {
@@ -67,6 +71,7 @@ internal struct IPCFailure_t : ICallbackData
 		PipeFail = 1,
 	}
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LicensesUpdated_t : ICallbackData
 {
@@ -77,6 +82,7 @@ internal struct LicensesUpdated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LicensesUpdated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct ValidateAuthTicketResponse_t : ICallbackData
 {
@@ -90,6 +96,7 @@ internal struct ValidateAuthTicketResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ValidateAuthTicketResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MicroTxnAuthorizationResponse_t : ICallbackData
 {
@@ -103,6 +110,7 @@ internal struct MicroTxnAuthorizationResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MicroTxnAuthorizationResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct EncryptedAppTicketResponse_t : ICallbackData
 {
@@ -114,6 +122,7 @@ internal struct EncryptedAppTicketResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.EncryptedAppTicketResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GetAuthSessionTicketResponse_t : ICallbackData
 {
@@ -126,6 +135,7 @@ internal struct GetAuthSessionTicketResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GetAuthSessionTicketResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GameWebCallback_t : ICallbackData
 {
@@ -139,6 +149,7 @@ internal struct GameWebCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameWebCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct StoreAuthURLResponse_t : ICallbackData
 {
@@ -152,6 +163,7 @@ internal struct StoreAuthURLResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.StoreAuthURLResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MarketEligibilityResponse_t : ICallbackData
 {
@@ -168,6 +180,7 @@ internal struct MarketEligibilityResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MarketEligibilityResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct DurationControl_t : ICallbackData
 {
@@ -187,6 +200,7 @@ internal struct DurationControl_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.DurationControl;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct PersonaStateChange_t : ICallbackData
 {
@@ -199,6 +213,7 @@ internal struct PersonaStateChange_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.PersonaStateChange;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GameOverlayActivated_t : ICallbackData
 {
@@ -210,6 +225,7 @@ internal struct GameOverlayActivated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameOverlayActivated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GameServerChangeRequested_t : ICallbackData
 {
@@ -226,6 +242,7 @@ internal struct GameServerChangeRequested_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameServerChangeRequested;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GameLobbyJoinRequested_t : ICallbackData
 {
@@ -238,6 +255,7 @@ internal struct GameLobbyJoinRequested_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameLobbyJoinRequested;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AvatarImageLoaded_t : ICallbackData
 {
@@ -252,6 +270,7 @@ internal struct AvatarImageLoaded_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AvatarImageLoaded;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ClanOfficerListResponse_t : ICallbackData
 {
@@ -265,6 +284,7 @@ internal struct ClanOfficerListResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ClanOfficerListResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct FriendRichPresenceUpdate_t : ICallbackData
 {
@@ -277,6 +297,7 @@ internal struct FriendRichPresenceUpdate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FriendRichPresenceUpdate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GameRichPresenceJoinRequested_t : ICallbackData
 {
@@ -291,6 +312,7 @@ internal struct GameRichPresenceJoinRequested_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameRichPresenceJoinRequested;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GameConnectedClanChatMsg_t : ICallbackData
 {
@@ -304,6 +326,7 @@ internal struct GameConnectedClanChatMsg_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameConnectedClanChatMsg;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GameConnectedChatJoin_t : ICallbackData
 {
@@ -316,6 +339,7 @@ internal struct GameConnectedChatJoin_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameConnectedChatJoin;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GameConnectedChatLeave_t : ICallbackData
 {
@@ -332,6 +356,7 @@ internal struct GameConnectedChatLeave_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameConnectedChatLeave;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct DownloadClanActivityCountsResult_t : ICallbackData
 {
@@ -344,6 +369,7 @@ internal struct DownloadClanActivityCountsResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.DownloadClanActivityCountsResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct JoinClanChatRoomCompletionResult_t : ICallbackData
 {
@@ -356,6 +382,7 @@ internal struct JoinClanChatRoomCompletionResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.JoinClanChatRoomCompletionResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GameConnectedFriendChatMsg_t : ICallbackData
 {
@@ -368,6 +395,7 @@ internal struct GameConnectedFriendChatMsg_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GameConnectedFriendChatMsg;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct FriendsGetFollowerCount_t : ICallbackData
 {
@@ -381,6 +409,7 @@ internal struct FriendsGetFollowerCount_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FriendsGetFollowerCount;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct FriendsIsFollowing_t : ICallbackData
 {
@@ -395,6 +424,7 @@ internal struct FriendsIsFollowing_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FriendsIsFollowing;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct FriendsEnumerateFollowingList_t : ICallbackData
 {
@@ -410,6 +440,7 @@ internal struct FriendsEnumerateFollowingList_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FriendsEnumerateFollowingList;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SetPersonaNameResponse_t : ICallbackData
 {
@@ -425,6 +456,7 @@ internal struct SetPersonaNameResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SetPersonaNameResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UnreadChatMessagesChanged_t : ICallbackData
 {
@@ -435,6 +467,7 @@ internal struct UnreadChatMessagesChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UnreadChatMessagesChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct OverlayBrowserProtocolNavigation_t : ICallbackData
 {
@@ -448,6 +481,7 @@ internal struct OverlayBrowserProtocolNavigation_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.OverlayBrowserProtocolNavigation;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct EquippedProfileItemsChanged_t : ICallbackData
 {
@@ -459,6 +493,7 @@ internal struct EquippedProfileItemsChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.EquippedProfileItemsChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct EquippedProfileItems_t : ICallbackData
 {
@@ -481,6 +516,7 @@ internal struct EquippedProfileItems_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.EquippedProfileItems;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct IPCountry_t : ICallbackData
 {
@@ -491,6 +527,7 @@ internal struct IPCountry_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.IPCountry;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LowBatteryPower_t : ICallbackData
 {
@@ -502,6 +539,7 @@ internal struct LowBatteryPower_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LowBatteryPower;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamAPICallCompleted_t : ICallbackData
 {
@@ -515,6 +553,7 @@ internal struct SteamAPICallCompleted_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamAPICallCompleted;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamShutdown_t : ICallbackData
 {
@@ -525,6 +564,7 @@ internal struct SteamShutdown_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamShutdown;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct CheckFileSignature_t : ICallbackData
 {
@@ -536,6 +576,7 @@ internal struct CheckFileSignature_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.CheckFileSignature;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GamepadTextInputDismissed_t : ICallbackData
 {
@@ -549,6 +590,7 @@ internal struct GamepadTextInputDismissed_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GamepadTextInputDismissed;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AppResumingFromSuspend_t : ICallbackData
 {
@@ -559,6 +601,7 @@ internal struct AppResumingFromSuspend_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AppResumingFromSuspend;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct FloatingGamepadTextInputDismissed_t : ICallbackData
 {
@@ -569,6 +612,7 @@ internal struct FloatingGamepadTextInputDismissed_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FloatingGamepadTextInputDismissed;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct FavoritesListChanged_t : ICallbackData
 {
@@ -587,6 +631,7 @@ internal struct FavoritesListChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FavoritesListChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyInvite_t : ICallbackData
 {
@@ -600,6 +645,7 @@ internal struct LobbyInvite_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyInvite;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyEnter_t : ICallbackData
 {
@@ -615,6 +661,7 @@ internal struct LobbyEnter_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyEnter;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyDataUpdate_t : ICallbackData
 {
@@ -628,6 +675,7 @@ internal struct LobbyDataUpdate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyDataUpdate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyChatUpdate_t : ICallbackData
 {
@@ -642,6 +690,7 @@ internal struct LobbyChatUpdate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyChatUpdate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyChatMsg_t : ICallbackData
 {
@@ -656,6 +705,7 @@ internal struct LobbyChatMsg_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyChatMsg;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyGameCreated_t : ICallbackData
 {
@@ -670,6 +720,7 @@ internal struct LobbyGameCreated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyGameCreated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyMatchList_t : ICallbackData
 {
@@ -681,6 +732,7 @@ internal struct LobbyMatchList_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyMatchList;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyKicked_t : ICallbackData
 {
@@ -694,6 +746,7 @@ internal struct LobbyKicked_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyKicked;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LobbyCreated_t : ICallbackData
 {
@@ -706,6 +759,7 @@ internal struct LobbyCreated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LobbyCreated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct PSNGameBootInviteResult_t : ICallbackData
 {
@@ -719,6 +773,7 @@ internal struct PSNGameBootInviteResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.PSNGameBootInviteResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct FavoritesListAccountsUpdated_t : ICallbackData
 {
@@ -730,6 +785,7 @@ internal struct FavoritesListAccountsUpdated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FavoritesListAccountsUpdated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct SearchForGameProgressCallback_t : ICallbackData
 {
@@ -746,6 +802,7 @@ internal struct SearchForGameProgressCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SearchForGameProgressCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct SearchForGameResultCallback_t : ICallbackData
 {
@@ -763,6 +820,7 @@ internal struct SearchForGameResultCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SearchForGameResultCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RequestPlayersForGameProgressCallback_t : ICallbackData
 {
@@ -775,6 +833,7 @@ internal struct RequestPlayersForGameProgressCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RequestPlayersForGameProgressCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct RequestPlayersForGameResultCallback_t : ICallbackData
 {
@@ -801,6 +860,7 @@ internal struct RequestPlayersForGameResultCallback_t : ICallbackData
 		PlayerDeclined = 2,
 	}
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RequestPlayersForGameFinalResultCallback_t : ICallbackData
 {
@@ -814,6 +874,7 @@ internal struct RequestPlayersForGameFinalResultCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RequestPlayersForGameFinalResultCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct SubmitPlayerResultResultCallback_t : ICallbackData
 {
@@ -827,6 +888,7 @@ internal struct SubmitPlayerResultResultCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SubmitPlayerResultResultCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct EndGameResultCallback_t : ICallbackData
 {
@@ -839,6 +901,7 @@ internal struct EndGameResultCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.EndGameResultCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct JoinPartyCallback_t : ICallbackData
 {
@@ -855,6 +918,7 @@ internal struct JoinPartyCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.JoinPartyCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct CreateBeaconCallback_t : ICallbackData
 {
@@ -867,6 +931,7 @@ internal struct CreateBeaconCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.CreateBeaconCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct ReservationNotificationCallback_t : ICallbackData
 {
@@ -879,6 +944,7 @@ internal struct ReservationNotificationCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ReservationNotificationCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ChangeNumOpenSlotsCallback_t : ICallbackData
 {
@@ -890,6 +956,7 @@ internal struct ChangeNumOpenSlotsCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ChangeNumOpenSlotsCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AvailableBeaconLocationsUpdated_t : ICallbackData
 {
@@ -900,6 +967,7 @@ internal struct AvailableBeaconLocationsUpdated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AvailableBeaconLocationsUpdated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ActiveBeaconsUpdated_t : ICallbackData
 {
@@ -910,6 +978,7 @@ internal struct ActiveBeaconsUpdated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ActiveBeaconsUpdated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageFileShareResult_t : ICallbackData
 {
@@ -925,6 +994,7 @@ internal struct RemoteStorageFileShareResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageFileShareResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStoragePublishFileResult_t : ICallbackData
 {
@@ -939,6 +1009,7 @@ internal struct RemoteStoragePublishFileResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStoragePublishFileResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageDeletePublishedFileResult_t : ICallbackData
 {
@@ -951,6 +1022,7 @@ internal struct RemoteStorageDeletePublishedFileResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageDeletePublishedFileResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageEnumerateUserPublishedFilesResult_t : ICallbackData
 {
@@ -966,6 +1038,7 @@ internal struct RemoteStorageEnumerateUserPublishedFilesResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserPublishedFilesResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageSubscribePublishedFileResult_t : ICallbackData
 {
@@ -978,6 +1051,7 @@ internal struct RemoteStorageSubscribePublishedFileResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageSubscribePublishedFileResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageEnumerateUserSubscribedFilesResult_t : ICallbackData
 {
@@ -995,6 +1069,7 @@ internal struct RemoteStorageEnumerateUserSubscribedFilesResult_t : ICallbackDat
 	public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserSubscribedFilesResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageUnsubscribePublishedFileResult_t : ICallbackData
 {
@@ -1007,6 +1082,7 @@ internal struct RemoteStorageUnsubscribePublishedFileResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageUnsubscribePublishedFileResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageUpdatePublishedFileResult_t : ICallbackData
 {
@@ -1021,6 +1097,7 @@ internal struct RemoteStorageUpdatePublishedFileResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageUpdatePublishedFileResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageDownloadUGCResult_t : ICallbackData
 {
@@ -1039,6 +1116,7 @@ internal struct RemoteStorageDownloadUGCResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageDownloadUGCResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageGetPublishedFileDetailsResult_t : ICallbackData
 {
@@ -1083,6 +1161,7 @@ internal struct RemoteStorageGetPublishedFileDetailsResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageGetPublishedFileDetailsResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageEnumerateWorkshopFilesResult_t : ICallbackData
 {
@@ -1102,6 +1181,7 @@ internal struct RemoteStorageEnumerateWorkshopFilesResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateWorkshopFilesResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageGetPublishedItemVoteDetailsResult_t : ICallbackData
 {
@@ -1118,6 +1198,7 @@ internal struct RemoteStorageGetPublishedItemVoteDetailsResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageGetPublishedItemVoteDetailsResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStoragePublishedFileSubscribed_t : ICallbackData
 {
@@ -1130,6 +1211,7 @@ internal struct RemoteStoragePublishedFileSubscribed_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileSubscribed;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStoragePublishedFileUnsubscribed_t : ICallbackData
 {
@@ -1142,6 +1224,7 @@ internal struct RemoteStoragePublishedFileUnsubscribed_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileUnsubscribed;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStoragePublishedFileDeleted_t : ICallbackData
 {
@@ -1154,6 +1237,7 @@ internal struct RemoteStoragePublishedFileDeleted_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileDeleted;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageUpdateUserPublishedItemVoteResult_t : ICallbackData
 {
@@ -1166,6 +1250,7 @@ internal struct RemoteStorageUpdateUserPublishedItemVoteResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageUpdateUserPublishedItemVoteResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageUserVoteDetails_t : ICallbackData
 {
@@ -1179,6 +1264,7 @@ internal struct RemoteStorageUserVoteDetails_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageUserVoteDetails;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t : ICallbackData
 {
@@ -1194,6 +1280,7 @@ internal struct RemoteStorageEnumerateUserSharedWorkshopFilesResult_t : ICallbac
 	public CallbackType CallbackType => CallbackType.RemoteStorageEnumerateUserSharedWorkshopFilesResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageSetUserPublishedFileActionResult_t : ICallbackData
 {
@@ -1207,6 +1294,7 @@ internal struct RemoteStorageSetUserPublishedFileActionResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageSetUserPublishedFileActionResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t : ICallbackData
 {
@@ -1225,6 +1313,7 @@ internal struct RemoteStorageEnumeratePublishedFilesByUserActionResult_t : ICall
 	public CallbackType CallbackType => CallbackType.RemoteStorageEnumeratePublishedFilesByUserActionResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStoragePublishFileProgress_t : ICallbackData
 {
@@ -1238,6 +1327,7 @@ internal struct RemoteStoragePublishFileProgress_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStoragePublishFileProgress;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStoragePublishedFileUpdated_t : ICallbackData
 {
@@ -1251,6 +1341,7 @@ internal struct RemoteStoragePublishedFileUpdated_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStoragePublishedFileUpdated;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageFileWriteAsyncComplete_t : ICallbackData
 {
@@ -1262,6 +1353,7 @@ internal struct RemoteStorageFileWriteAsyncComplete_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageFileWriteAsyncComplete;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageFileReadAsyncComplete_t : ICallbackData
 {
@@ -1276,6 +1368,7 @@ internal struct RemoteStorageFileReadAsyncComplete_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageFileReadAsyncComplete;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoteStorageLocalFileChange_t : ICallbackData
 {
@@ -1286,6 +1379,7 @@ internal struct RemoteStorageLocalFileChange_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoteStorageLocalFileChange;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct UserStatsReceived_t : ICallbackData
 {
@@ -1299,6 +1393,7 @@ internal struct UserStatsReceived_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserStatsReceived;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UserStatsStored_t : ICallbackData
 {
@@ -1311,6 +1406,7 @@ internal struct UserStatsStored_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserStatsStored;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UserAchievementStored_t : ICallbackData
 {
@@ -1329,6 +1425,7 @@ internal struct UserAchievementStored_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserAchievementStored;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LeaderboardFindResult_t : ICallbackData
 {
@@ -1341,6 +1438,7 @@ internal struct LeaderboardFindResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LeaderboardFindResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LeaderboardScoresDownloaded_t : ICallbackData
 {
@@ -1354,6 +1452,7 @@ internal struct LeaderboardScoresDownloaded_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LeaderboardScoresDownloaded;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LeaderboardScoreUploaded_t : ICallbackData
 {
@@ -1370,6 +1469,7 @@ internal struct LeaderboardScoreUploaded_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LeaderboardScoreUploaded;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct NumberOfCurrentPlayers_t : ICallbackData
 {
@@ -1382,6 +1482,7 @@ internal struct NumberOfCurrentPlayers_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.NumberOfCurrentPlayers;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UserStatsUnloaded_t : ICallbackData
 {
@@ -1393,6 +1494,7 @@ internal struct UserStatsUnloaded_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserStatsUnloaded;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UserAchievementIconFetched_t : ICallbackData
 {
@@ -1410,6 +1512,7 @@ internal struct UserAchievementIconFetched_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserAchievementIconFetched;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GlobalAchievementPercentagesReady_t : ICallbackData
 {
@@ -1422,6 +1525,7 @@ internal struct GlobalAchievementPercentagesReady_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GlobalAchievementPercentagesReady;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LeaderboardUGCSet_t : ICallbackData
 {
@@ -1434,6 +1538,7 @@ internal struct LeaderboardUGCSet_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.LeaderboardUGCSet;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GlobalStatsReceived_t : ICallbackData
 {
@@ -1446,6 +1551,7 @@ internal struct GlobalStatsReceived_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GlobalStatsReceived;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct DlcInstalled_t : ICallbackData
 {
@@ -1457,6 +1563,7 @@ internal struct DlcInstalled_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.DlcInstalled;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RegisterActivationCodeResponse_t : ICallbackData
 {
@@ -1469,6 +1576,7 @@ internal struct RegisterActivationCodeResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RegisterActivationCodeResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct NewUrlLaunchParameters_t : ICallbackData
 {
@@ -1479,6 +1587,7 @@ internal struct NewUrlLaunchParameters_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.NewUrlLaunchParameters;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AppProofOfPurchaseKeyResponse_t : ICallbackData
 {
@@ -1495,6 +1604,7 @@ internal struct AppProofOfPurchaseKeyResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AppProofOfPurchaseKeyResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct FileDetailsResult_t : ICallbackData
 {
@@ -1510,6 +1620,7 @@ internal struct FileDetailsResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.FileDetailsResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct TimedTrialStatus_t : ICallbackData
 {
@@ -1525,6 +1636,7 @@ internal struct TimedTrialStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.TimedTrialStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct P2PSessionRequest_t : ICallbackData
 {
@@ -1536,6 +1648,7 @@ internal struct P2PSessionRequest_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.P2PSessionRequest;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct P2PSessionConnectFail_t : ICallbackData
 {
@@ -1548,6 +1661,7 @@ internal struct P2PSessionConnectFail_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.P2PSessionConnectFail;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ScreenshotReady_t : ICallbackData
 {
@@ -1560,6 +1674,7 @@ internal struct ScreenshotReady_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ScreenshotReady;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ScreenshotRequested_t : ICallbackData
 {
@@ -1570,6 +1685,7 @@ internal struct ScreenshotRequested_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ScreenshotRequested;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct PlaybackStatusHasChanged_t : ICallbackData
 {
@@ -1580,6 +1696,7 @@ internal struct PlaybackStatusHasChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.PlaybackStatusHasChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct VolumeHasChanged_t : ICallbackData
 {
@@ -1591,6 +1708,7 @@ internal struct VolumeHasChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.VolumeHasChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerRemoteWillActivate_t : ICallbackData
 {
@@ -1601,6 +1719,7 @@ internal struct MusicPlayerRemoteWillActivate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerRemoteWillActivate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerRemoteWillDeactivate_t : ICallbackData
 {
@@ -1611,6 +1730,7 @@ internal struct MusicPlayerRemoteWillDeactivate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerRemoteWillDeactivate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerRemoteToFront_t : ICallbackData
 {
@@ -1621,6 +1741,7 @@ internal struct MusicPlayerRemoteToFront_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerRemoteToFront;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWillQuit_t : ICallbackData
 {
@@ -1631,6 +1752,7 @@ internal struct MusicPlayerWillQuit_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWillQuit;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsPlay_t : ICallbackData
 {
@@ -1641,6 +1763,7 @@ internal struct MusicPlayerWantsPlay_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlay;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsPause_t : ICallbackData
 {
@@ -1651,6 +1774,7 @@ internal struct MusicPlayerWantsPause_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsPause;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsPlayPrevious_t : ICallbackData
 {
@@ -1661,6 +1785,7 @@ internal struct MusicPlayerWantsPlayPrevious_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayPrevious;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsPlayNext_t : ICallbackData
 {
@@ -1671,6 +1796,7 @@ internal struct MusicPlayerWantsPlayNext_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayNext;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsShuffled_t : ICallbackData
 {
@@ -1683,6 +1809,7 @@ internal struct MusicPlayerWantsShuffled_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsShuffled;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsLooped_t : ICallbackData
 {
@@ -1695,6 +1822,7 @@ internal struct MusicPlayerWantsLooped_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsLooped;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsVolume_t : ICallbackData
 {
@@ -1706,6 +1834,7 @@ internal struct MusicPlayerWantsVolume_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsVolume;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerSelectsQueueEntry_t : ICallbackData
 {
@@ -1717,6 +1846,7 @@ internal struct MusicPlayerSelectsQueueEntry_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerSelectsQueueEntry;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerSelectsPlaylistEntry_t : ICallbackData
 {
@@ -1728,6 +1858,7 @@ internal struct MusicPlayerSelectsPlaylistEntry_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerSelectsPlaylistEntry;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct MusicPlayerWantsPlayingRepeatStatus_t : ICallbackData
 {
@@ -1739,6 +1870,7 @@ internal struct MusicPlayerWantsPlayingRepeatStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.MusicPlayerWantsPlayingRepeatStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTTPRequestCompleted_t : ICallbackData
 {
@@ -1755,6 +1887,7 @@ internal struct HTTPRequestCompleted_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTTPRequestCompleted;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTTPRequestHeadersReceived_t : ICallbackData
 {
@@ -1767,6 +1900,7 @@ internal struct HTTPRequestHeadersReceived_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTTPRequestHeadersReceived;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTTPRequestDataReceived_t : ICallbackData
 {
@@ -1781,6 +1915,7 @@ internal struct HTTPRequestDataReceived_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTTPRequestDataReceived;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInputDeviceConnected_t : ICallbackData
 {
@@ -1792,6 +1927,7 @@ internal struct SteamInputDeviceConnected_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInputDeviceConnected;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInputDeviceDisconnected_t : ICallbackData
 {
@@ -1803,6 +1939,7 @@ internal struct SteamInputDeviceDisconnected_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInputDeviceDisconnected;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct SteamInputConfigurationLoaded_t : ICallbackData
 {
@@ -1822,6 +1959,7 @@ internal struct SteamInputConfigurationLoaded_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInputConfigurationLoaded;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamUGCQueryCompleted_t : ICallbackData
 {
@@ -1841,6 +1979,7 @@ internal struct SteamUGCQueryCompleted_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamUGCQueryCompleted;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamUGCRequestUGCDetailsResult_t : ICallbackData
 {
@@ -1854,6 +1993,7 @@ internal struct SteamUGCRequestUGCDetailsResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamUGCRequestUGCDetailsResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct CreateItemResult_t : ICallbackData
 {
@@ -1868,6 +2008,7 @@ internal struct CreateItemResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.CreateItemResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SubmitItemUpdateResult_t : ICallbackData
 {
@@ -1882,6 +2023,7 @@ internal struct SubmitItemUpdateResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SubmitItemUpdateResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct ItemInstalled_t : ICallbackData
 {
@@ -1894,6 +2036,7 @@ internal struct ItemInstalled_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ItemInstalled;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct DownloadItemResult_t : ICallbackData
 {
@@ -1907,6 +2050,7 @@ internal struct DownloadItemResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.DownloadItemResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UserFavoriteItemsListChanged_t : ICallbackData
 {
@@ -1921,6 +2065,7 @@ internal struct UserFavoriteItemsListChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserFavoriteItemsListChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SetUserItemVoteResult_t : ICallbackData
 {
@@ -1935,6 +2080,7 @@ internal struct SetUserItemVoteResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SetUserItemVoteResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GetUserItemVoteResult_t : ICallbackData
 {
@@ -1953,6 +2099,7 @@ internal struct GetUserItemVoteResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GetUserItemVoteResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct StartPlaytimeTrackingResult_t : ICallbackData
 {
@@ -1964,6 +2111,7 @@ internal struct StartPlaytimeTrackingResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.StartPlaytimeTrackingResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct StopPlaytimeTrackingResult_t : ICallbackData
 {
@@ -1975,6 +2123,7 @@ internal struct StopPlaytimeTrackingResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.StopPlaytimeTrackingResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AddUGCDependencyResult_t : ICallbackData
 {
@@ -1988,6 +2137,7 @@ internal struct AddUGCDependencyResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AddUGCDependencyResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoveUGCDependencyResult_t : ICallbackData
 {
@@ -2001,6 +2151,7 @@ internal struct RemoveUGCDependencyResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoveUGCDependencyResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AddAppDependencyResult_t : ICallbackData
 {
@@ -2014,6 +2165,7 @@ internal struct AddAppDependencyResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AddAppDependencyResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct RemoveAppDependencyResult_t : ICallbackData
 {
@@ -2027,6 +2179,7 @@ internal struct RemoveAppDependencyResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.RemoveAppDependencyResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GetAppDependenciesResult_t : ICallbackData
 {
@@ -2043,6 +2196,7 @@ internal struct GetAppDependenciesResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GetAppDependenciesResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct DeleteItemResult_t : ICallbackData
 {
@@ -2055,6 +2209,7 @@ internal struct DeleteItemResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.DeleteItemResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct UserSubscribedItemsListChanged_t : ICallbackData
 {
@@ -2066,6 +2221,7 @@ internal struct UserSubscribedItemsListChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.UserSubscribedItemsListChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct WorkshopEULAStatus_t : ICallbackData
 {
@@ -2084,6 +2240,7 @@ internal struct WorkshopEULAStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.WorkshopEULAStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamAppInstalled_t : ICallbackData
 {
@@ -2096,6 +2253,7 @@ internal struct SteamAppInstalled_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamAppInstalled;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamAppUninstalled_t : ICallbackData
 {
@@ -2108,6 +2266,7 @@ internal struct SteamAppUninstalled_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamAppUninstalled;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_BrowserReady_t : ICallbackData
 {
@@ -2119,6 +2278,7 @@ internal struct HTML_BrowserReady_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_BrowserReady;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_NeedsPaint_t : ICallbackData
 {
@@ -2141,6 +2301,7 @@ internal struct HTML_NeedsPaint_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_NeedsPaint;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_StartRequest_t : ICallbackData
 {
@@ -2157,6 +2318,7 @@ internal struct HTML_StartRequest_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_StartRequest;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_CloseBrowser_t : ICallbackData
 {
@@ -2168,6 +2330,7 @@ internal struct HTML_CloseBrowser_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_CloseBrowser;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_URLChanged_t : ICallbackData
 {
@@ -2186,6 +2349,7 @@ internal struct HTML_URLChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_URLChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_FinishedRequest_t : ICallbackData
 {
@@ -2199,6 +2363,7 @@ internal struct HTML_FinishedRequest_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_FinishedRequest;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_OpenLinkInNewTab_t : ICallbackData
 {
@@ -2211,6 +2376,7 @@ internal struct HTML_OpenLinkInNewTab_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_OpenLinkInNewTab;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_ChangedTitle_t : ICallbackData
 {
@@ -2223,6 +2389,7 @@ internal struct HTML_ChangedTitle_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_ChangedTitle;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_SearchResults_t : ICallbackData
 {
@@ -2236,6 +2403,7 @@ internal struct HTML_SearchResults_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_SearchResults;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_CanGoBackAndForward_t : ICallbackData
 {
@@ -2251,6 +2419,7 @@ internal struct HTML_CanGoBackAndForward_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_CanGoBackAndForward;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_HorizontalScroll_t : ICallbackData
 {
@@ -2268,6 +2437,7 @@ internal struct HTML_HorizontalScroll_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_HorizontalScroll;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_VerticalScroll_t : ICallbackData
 {
@@ -2285,6 +2455,7 @@ internal struct HTML_VerticalScroll_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_VerticalScroll;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_LinkAtPosition_t : ICallbackData
 {
@@ -2303,6 +2474,7 @@ internal struct HTML_LinkAtPosition_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_LinkAtPosition;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_JSAlert_t : ICallbackData
 {
@@ -2315,6 +2487,7 @@ internal struct HTML_JSAlert_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_JSAlert;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_JSConfirm_t : ICallbackData
 {
@@ -2327,6 +2500,7 @@ internal struct HTML_JSConfirm_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_JSConfirm;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_FileOpenDialog_t : ICallbackData
 {
@@ -2340,6 +2514,7 @@ internal struct HTML_FileOpenDialog_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_FileOpenDialog;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_NewWindow_t : ICallbackData
 {
@@ -2357,6 +2532,7 @@ internal struct HTML_NewWindow_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_NewWindow;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_SetCursor_t : ICallbackData
 {
@@ -2369,6 +2545,7 @@ internal struct HTML_SetCursor_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_SetCursor;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_StatusText_t : ICallbackData
 {
@@ -2381,6 +2558,7 @@ internal struct HTML_StatusText_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_StatusText;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_ShowToolTip_t : ICallbackData
 {
@@ -2393,6 +2571,7 @@ internal struct HTML_ShowToolTip_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_ShowToolTip;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_UpdateToolTip_t : ICallbackData
 {
@@ -2405,6 +2584,7 @@ internal struct HTML_UpdateToolTip_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_UpdateToolTip;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_HideToolTip_t : ICallbackData
 {
@@ -2416,6 +2596,7 @@ internal struct HTML_HideToolTip_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_HideToolTip;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct HTML_BrowserRestarted_t : ICallbackData
 {
@@ -2428,6 +2609,7 @@ internal struct HTML_BrowserRestarted_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.HTML_BrowserRestarted;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInventoryResultReady_t : ICallbackData
 {
@@ -2440,6 +2622,7 @@ internal struct SteamInventoryResultReady_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInventoryResultReady;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInventoryFullUpdate_t : ICallbackData
 {
@@ -2451,6 +2634,7 @@ internal struct SteamInventoryFullUpdate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInventoryFullUpdate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInventoryDefinitionUpdate_t : ICallbackData
 {
@@ -2461,6 +2645,7 @@ internal struct SteamInventoryDefinitionUpdate_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInventoryDefinitionUpdate;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct SteamInventoryEligiblePromoItemDefIDs_t : ICallbackData
 {
@@ -2476,6 +2661,7 @@ internal struct SteamInventoryEligiblePromoItemDefIDs_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInventoryEligiblePromoItemDefIDs;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInventoryStartPurchaseResult_t : ICallbackData
 {
@@ -2489,6 +2675,7 @@ internal struct SteamInventoryStartPurchaseResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInventoryStartPurchaseResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInventoryRequestPricesResult_t : ICallbackData
 {
@@ -2503,6 +2690,7 @@ internal struct SteamInventoryRequestPricesResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamInventoryRequestPricesResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GetVideoURLResult_t : ICallbackData
 {
@@ -2518,6 +2706,7 @@ internal struct GetVideoURLResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GetVideoURLResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GetOPFSettingsResult_t : ICallbackData
 {
@@ -2530,6 +2719,7 @@ internal struct GetOPFSettingsResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GetOPFSettingsResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamParentalSettingsChanged_t : ICallbackData
 {
@@ -2540,6 +2730,7 @@ internal struct SteamParentalSettingsChanged_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamParentalSettingsChanged;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamRemotePlaySessionConnected_t : ICallbackData
 {
@@ -2551,6 +2742,7 @@ internal struct SteamRemotePlaySessionConnected_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamRemotePlaySessionConnected;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamRemotePlaySessionDisconnected_t : ICallbackData
 {
@@ -2562,6 +2754,7 @@ internal struct SteamRemotePlaySessionDisconnected_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamRemotePlaySessionDisconnected;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamNetworkingMessagesSessionRequest_t : ICallbackData
 {
@@ -2573,6 +2766,7 @@ internal struct SteamNetworkingMessagesSessionRequest_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamNetworkingMessagesSessionRequest;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamNetworkingMessagesSessionFailed_t : ICallbackData
 {
@@ -2584,6 +2778,7 @@ internal struct SteamNetworkingMessagesSessionFailed_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamNetworkingMessagesSessionFailed;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamNetConnectionStatusChangedCallback_t : ICallbackData
 {
@@ -2597,6 +2792,7 @@ internal struct SteamNetConnectionStatusChangedCallback_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamNetConnectionStatusChangedCallback;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamNetAuthenticationStatus_t : ICallbackData
 {
@@ -2611,6 +2807,7 @@ internal struct SteamNetAuthenticationStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamNetAuthenticationStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamRelayNetworkStatus_t : ICallbackData
 {
@@ -2628,6 +2825,7 @@ internal struct SteamRelayNetworkStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamRelayNetworkStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GSClientApprove_t : ICallbackData
 {
@@ -2640,6 +2838,7 @@ internal struct GSClientApprove_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSClientApprove;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSClientDeny_t : ICallbackData
 {
@@ -2655,6 +2854,7 @@ internal struct GSClientDeny_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSClientDeny;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSClientKick_t : ICallbackData
 {
@@ -2667,6 +2867,7 @@ internal struct GSClientKick_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSClientKick;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSClientAchievementStatus_t : ICallbackData
 {
@@ -2683,6 +2884,7 @@ internal struct GSClientAchievementStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSClientAchievementStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSPolicyResponse_t : ICallbackData
 {
@@ -2694,6 +2896,7 @@ internal struct GSPolicyResponse_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSPolicyResponse;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSGameplayStats_t : ICallbackData
 {
@@ -2708,6 +2911,7 @@ internal struct GSGameplayStats_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSGameplayStats;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GSClientGroupStatus_t : ICallbackData
 {
@@ -2724,6 +2928,7 @@ internal struct GSClientGroupStatus_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSClientGroupStatus;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSReputation_t : ICallbackData
 {
@@ -2742,6 +2947,7 @@ internal struct GSReputation_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSReputation;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct AssociateWithClanResult_t : ICallbackData
 {
@@ -2753,6 +2959,7 @@ internal struct AssociateWithClanResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.AssociateWithClanResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct ComputeNewPlayerCompatibilityResult_t : ICallbackData
 {
@@ -2768,6 +2975,7 @@ internal struct ComputeNewPlayerCompatibilityResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.ComputeNewPlayerCompatibilityResult;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GSStatsReceived_t : ICallbackData
 {
@@ -2780,6 +2988,7 @@ internal struct GSStatsReceived_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSStatsReceived;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal struct GSStatsStored_t : ICallbackData
 {
@@ -2792,6 +3001,7 @@ internal struct GSStatsStored_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSStatsStored;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct GSStatsUnloaded_t : ICallbackData
 {
@@ -2803,6 +3013,7 @@ internal struct GSStatsUnloaded_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.GSStatsUnloaded;
 	#endregion
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamNetworkingFakeIPResult_t : ICallbackData
 {
@@ -2818,3 +3029,4 @@ internal struct SteamNetworkingFakeIPResult_t : ICallbackData
 	public CallbackType CallbackType => CallbackType.SteamNetworkingFakeIPResult;
 	#endregion
 }
+

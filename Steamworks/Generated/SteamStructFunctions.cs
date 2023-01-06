@@ -14,12 +14,14 @@ internal partial struct gameserveritem_t
 	internal static extern void InternalSetName( ref gameserveritem_t self, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pName );
 	
 }
+
 internal partial struct MatchMakingKeyValuePair
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_MatchMakingKeyValuePair_t_Construct", CallingConvention = Platform.CC)]
 	internal static extern void InternalConstruct( ref MatchMakingKeyValuePair self );
 	
 }
+
 internal partial struct servernetadr_t
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_servernetadr_t_Construct", CallingConvention = Platform.CC)]
@@ -60,6 +62,7 @@ internal partial struct servernetadr_t
 	internal static extern void InternalAssign( ref servernetadr_t self, ref servernetadr_t that );
 	
 }
+
 internal partial struct SteamDatagramHostedAddress
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamDatagramHostedAddress_Clear", CallingConvention = Platform.CC)]
@@ -72,6 +75,7 @@ internal partial struct SteamDatagramHostedAddress
 	internal static extern void InternalSetDevAddress( ref SteamDatagramHostedAddress self, uint nIP, ushort nPort, SteamNetworkingPOPID popid );
 	
 }
+
 internal partial struct SteamIPAddress
 {
 	[return: MarshalAs( UnmanagedType.I1 )]
@@ -79,6 +83,7 @@ internal partial struct SteamIPAddress
 	internal static extern bool InternalIsSet( ref SteamIPAddress self );
 	
 }
+
 internal partial struct NetKeyValue
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingConfigValue_t_SetInt32", CallingConvention = Platform.CC)]
@@ -97,6 +102,7 @@ internal partial struct NetKeyValue
 	internal static extern void InternalSetString( ref NetKeyValue self, NetConfig eVal, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string data );
 	
 }
+
 public partial struct NetIdentity
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingIdentity_Clear", CallingConvention = Platform.CC)]
@@ -189,6 +195,7 @@ public partial struct NetIdentity
 	internal static extern bool InternalParseString( ref NetIdentity self, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pszStr );
 	
 }
+
 public partial struct NetAddress
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingIPAddr_Clear", CallingConvention = Platform.CC)]
@@ -237,9 +244,11 @@ public partial struct NetAddress
 	internal static extern bool InternalIsFakeIP( ref NetAddress self );
 	
 }
+
 internal partial struct NetMsg
 {
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_SteamNetworkingMessage_t_Release", CallingConvention = Platform.CC)]
 	internal static unsafe extern void InternalRelease( NetMsg* self );
 	
 }
+

@@ -1,19 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿namespace Steamworks;
 
-namespace Steamworks
+internal static class Platform
 {
-    internal static class Platform
-    {
-        public const int StructPlatformPackSize = 8;
-        public const string LibraryName = "steam_api";
+    public const int StructPlatformPackSize = 8;
+    public const string LibraryName = "steam_api";
 
-        public const CallingConvention CC = CallingConvention.Cdecl;
-        public const int StructPackSize = 4;
-    }
+    public const CallingConvention CC = CallingConvention.Cdecl;
+    public const int StructPackSize = 4;
 }

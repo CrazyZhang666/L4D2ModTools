@@ -1,8 +1,7 @@
-﻿namespace Steamworks.Data
+﻿namespace Steamworks.Data;
+
+public struct P2Packet
 {
-	public struct P2Packet
-	{
-		public SteamId SteamId;
-		public byte[] Data;
-	}
+    public SteamId SteamId;
+    public byte[] Data;
 }

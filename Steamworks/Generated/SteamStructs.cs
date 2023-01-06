@@ -12,6 +12,7 @@ internal struct FriendGameInfo_t
 	internal ulong SteamIDLobby; // m_steamIDLobby CSteamID
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal partial struct servernetadr_t
 {
@@ -20,6 +21,7 @@ internal partial struct servernetadr_t
 	internal uint IP; // m_unIP uint32
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPackSize )]
 internal partial struct gameserveritem_t
 {
@@ -57,6 +59,7 @@ internal partial struct gameserveritem_t
 	internal ulong SteamID; // m_steamID CSteamID
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamPartyBeaconLocation_t
 {
@@ -64,6 +67,7 @@ internal struct SteamPartyBeaconLocation_t
 	internal ulong LocationID; // m_ulLocationID uint64
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamParamStringArray_t
 {
@@ -71,6 +75,7 @@ internal struct SteamParamStringArray_t
 	internal int NumStrings; // m_nNumStrings int32
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct LeaderboardEntry_t
 {
@@ -81,6 +86,7 @@ internal struct LeaderboardEntry_t
 	internal ulong UGC; // m_hUGC UGCHandle_t
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct P2PSessionState_t
 {
@@ -94,6 +100,7 @@ internal struct P2PSessionState_t
 	internal ushort RemotePort; // m_nRemotePort uint16
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamInputActionEvent_t
 {
@@ -102,6 +109,7 @@ internal struct SteamInputActionEvent_t
 	// internal SteamInputActionEvent_t.AnalogAction_t AnalogAction; // analogAction SteamInputActionEvent_t::AnalogAction_t
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamUGCDetails_t
 {
@@ -146,6 +154,7 @@ internal struct SteamUGCDetails_t
 	internal uint NumChildren; // m_unNumChildren uint32
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamItemDetails_t
 {
@@ -155,6 +164,7 @@ internal struct SteamItemDetails_t
 	internal ushort Flags; // m_unFlags uint16
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal partial struct SteamDatagramHostedAddress
 {
@@ -164,6 +174,7 @@ internal partial struct SteamDatagramHostedAddress
 	internal byte[] Data; // m_data char [128]
 	
 }
+
 [StructLayout( LayoutKind.Sequential, Pack = Platform.StructPlatformPackSize )]
 internal struct SteamDatagramGameCoordinatorServerLogin
 {
@@ -177,3 +188,4 @@ internal struct SteamDatagramGameCoordinatorServerLogin
 	internal byte[] AppData; // m_appData char [2048]
 	
 }
+

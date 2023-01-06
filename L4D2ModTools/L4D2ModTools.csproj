@@ -29,9 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Facepunch.Steamworks.Win32">
-      <HintPath>..\..\..\..\.NET\Lib\Facepunch.Steamworks.Win32.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\Steamworks\Steamworks.csproj" />
   </ItemGroup>
 
   <ItemGroup>
