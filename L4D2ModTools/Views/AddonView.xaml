@@ -35,6 +35,7 @@
                     DockPanel.Dock="Bottom">
                     <Image
                         x:Name="Image_addonimage"
+                        Margin="1"
                         AllowDrop="True"
                         DragEnter="Image_addonimage_DragEnter"
                         Drop="Image_addonimage_Drop"

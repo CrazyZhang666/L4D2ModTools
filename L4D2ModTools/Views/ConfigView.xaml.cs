@@ -20,7 +20,7 @@ public partial class ConfigView : UserControl
 
         TextBox_L4D2MainDir.Text = Globals.L4D2MainDir;
 
-        if (!string.IsNullOrEmpty(Globals.L4D2MainDir))
+        if (!string.IsNullOrWhiteSpace(Globals.L4D2MainDir))
         {
             CheckEnv();
         }
@@ -68,6 +68,24 @@ public partial class ConfigView : UserControl
     private void TextBox_L4D2MainDir_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
         SelectL4D2MainDir();
+    }
+
+    private void Button_SteamAutoFind_Click(object sender, RoutedEventArgs e)
+    {
+        var dir = Workshop.GetL4D2InstallDir();
+
+        if (!string.IsNullOrWhiteSpace(dir))
+        {
+            Globals.L4D2MainDir = dir;
+            TextBox_L4D2MainDir.Text = Globals.L4D2MainDir;
+
+            CheckEnv();
+        }
+        else
+        {
+            Globals.L4D2MainDir = string.Empty;
+            TextBox_L4D2MainDir.Text = "Steam自动识别识别";
+        }
     }
 
     private void SelectL4D2MainDir()

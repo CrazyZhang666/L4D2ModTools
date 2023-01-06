@@ -42,10 +42,12 @@
                     DragEnter="Border_DropVPKUnPack_DragEnter"
                     Drop="Border_DropVPKUnPack_Drop">
                     <StackPanel VerticalAlignment="Center">
-                        <Image
-                            Width="60"
+                        <TextBlock
                             Margin="5"
-                            Source="/Assets/vpk.jpg" />
+                            HorizontalAlignment="Center"
+                            FontSize="50"
+                            Style="{StaticResource TextBlockStyle_IconFontVerCen}"
+                            Text="&#xeabe;" />
                         <TextBlock HorizontalAlignment="Center" Text="VPK解包" />
                     </StackPanel>
                 </Border>
@@ -60,10 +62,12 @@
                     DragEnter="Border_DropVPKPack_DragEnter"
                     Drop="Border_DropVPKPack_Drop">
                     <StackPanel VerticalAlignment="Center">
-                        <Image
-                            Width="60"
+                        <TextBlock
                             Margin="5"
-                            Source="/Assets/vpk.jpg" />
+                            HorizontalAlignment="Center"
+                            FontSize="50"
+                            Style="{StaticResource TextBlockStyle_IconFontVerCen}"
+                            Text="&#xe865;" />
                         <TextBlock HorizontalAlignment="Center" Text="VPK打包" />
                     </StackPanel>
                 </Border>
@@ -92,7 +96,7 @@
             <TextBlock
                 Margin="5,0,0,0"
                 VerticalAlignment="Center"
-                Text="VPK解包" />
+                Text="VPK解包目录" />
             <Button
                 x:Name="Button_UnPackDir"
                 Margin="0,5,5,5"

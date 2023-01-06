@@ -211,6 +211,7 @@ public partial class AddonView : UserControl
         var title = VPK.GetAddonTitle(Globals.UnPackAddonInfoPath);
         if (!string.IsNullOrWhiteSpace(title))
         {
+            title = VPK.ReplaceSurvivorName(title);
             TextBox_addonTitle.Text = $"[@@] {title}";
             TextBox_addonDescription.Text = $"{title}, Replace Survivor for @@";
         }

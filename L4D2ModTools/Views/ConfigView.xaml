@@ -26,7 +26,17 @@
                 Click="Button_L4D2MainDir_Click"
                 Content="&#xec17;"
                 DockPanel.Dock="Right"
-                Style="{StaticResource ButtonStyle_IconFont}" />
+                Style="{StaticResource ButtonStyle_IconFont}"
+                ToolTip="手动文件夹寻找" />
+            <Button
+                x:Name="Button_SteamAutoFind"
+                Margin="0,5,0,5"
+                BorderThickness="0,1,1,1"
+                Click="Button_SteamAutoFind_Click"
+                Content="&#xe722;"
+                DockPanel.Dock="Right"
+                Style="{StaticResource ButtonStyle_IconFont}"
+                ToolTip="Steam自动识别" />
             <TextBox
                 x:Name="TextBox_L4D2MainDir"
                 Margin="5,5,0,5"

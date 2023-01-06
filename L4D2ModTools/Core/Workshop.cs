@@ -9,10 +9,6 @@ namespace L4D2ModTools.Core;
 public static class Workshop
 {
     /// <summary>
-    /// 求生之路2 AppID
-    /// </summary>
-    private const int AppID = 550;
-    /// <summary>
     /// 是否初始化成功
     /// </summary>
     private static bool IsInitSuccess = false;
@@ -33,7 +29,7 @@ public static class Workshop
             try
             {
                 if (!IsInitSuccess)
-                    SteamClient.Init(AppID);
+                    SteamClient.Init(Globals.AppID);
 
                 IsInitSuccess = true;
                 return true;
@@ -138,6 +134,27 @@ public static class Workshop
         }
 
         return 0;
+    }
+
+    /// <summary>
+    /// 获取求生之路2安装目录
+    /// </summary>
+    /// <returns></returns>
+    public static string GetL4D2InstallDir()
+    {
+        try
+        {
+            if (Init())
+            {
+                return SteamApps.AppInstallDir(Globals.AppID);
+            }
+        }
+        catch (Exception ex)
+        {
+            MsgBoxUtil.Exception(ex);
+        }
+
+        return string.Empty;
     }
 
     /// <summary>

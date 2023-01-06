@@ -48,7 +48,6 @@
 		<Resource Include="Assets\Survivors\s_panel_lobby_gambler.png" />
 		<Resource Include="Assets\Survivors\s_panel_lobby_mechanic.png" />
 		<Resource Include="Assets\Survivors\s_panel_lobby_producer.png" />
-		<Resource Include="Assets\vpk.jpg" />
 		<Resource Include="Themes\Fonts\iconfont.ttf" />
 	</ItemGroup>
 

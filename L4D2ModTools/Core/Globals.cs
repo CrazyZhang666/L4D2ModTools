@@ -2,6 +2,13 @@
 
 public static class Globals
 {
+    /// <summary>
+    /// 求生之路2 AppID
+    /// </summary>
+    public const int AppID = 550;
+
+    /////////////////////////////////////////////////////////////
+
     public const string OutputDir = ".\\__输出目录";
 
     public const string AppDataDir = ".\\AppData";
