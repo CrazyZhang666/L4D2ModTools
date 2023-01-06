@@ -1,4 +1,6 @@
-﻿namespace TestDemo;
+﻿using System;
+
+namespace TestDemo;
 
 internal class Program
 {
