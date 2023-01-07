@@ -1,5 +1,5 @@
-﻿using L4D2ModTools.Core;
-using L4D2ModTools.Data;
+﻿using L4D2ModTools.Data;
+using L4D2ModTools.Steam;
 using L4D2ModTools.Utils;
 using L4D2ModTools.Windows;
 
@@ -41,9 +41,9 @@ public partial class PublishView : UserControl
     /// <param name="log"></param>
     private void AddLogger(string log)
     {
-        this.Dispatcher.Invoke(() =>
+        this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
         {
-            TextBox_Logger.AppendText($"[{DateTime.Now:T}]  {log}\n");
+            TextBox_Logger.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {log}\n");
             TextBox_Logger.ScrollToEnd();
         });
     }
@@ -57,6 +57,16 @@ public partial class PublishView : UserControl
     {
         ProcessUtil.OpenLink(e.Uri.OriginalString);
         e.Handled = true;
+    }
+
+    /// <summary>
+    /// 启动Steam按钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_RunSteam_Click(object sender, RoutedEventArgs e)
+    {
+        Client.Run();
     }
 
     /// <summary>

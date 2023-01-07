@@ -1,6 +1,6 @@
 ﻿using L4D2ModTools.Core;
-using L4D2ModTools.Helper;
 using L4D2ModTools.Utils;
+using L4D2ModTools.Helper;
 
 namespace L4D2ModTools.Views;
 
@@ -131,9 +131,9 @@ public partial class CompileView : UserControl
     /// <param name="log"></param>
     private void AddLogger(string log)
     {
-        this.Dispatcher.Invoke(() =>
+        this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
         {
-            TextBox_Logger.AppendText($"[{DateTime.Now:T}]  {log}\n");
+            TextBox_Logger.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {log}\n");
             TextBox_Logger.ScrollToEnd();
         });
     }

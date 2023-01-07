@@ -56,8 +56,11 @@ public partial class ReadyView : UserControl
     /// <param name="log"></param>
     private void AddLogger(string log)
     {
-        TextBox_Logger.AppendText($"[{DateTime.Now:T}]  {log}\n");
-        TextBox_Logger.ScrollToEnd();
+        this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
+        {
+            TextBox_Logger.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {log}\n");
+            TextBox_Logger.ScrollToEnd();
+        });
     }
 
     /// <summary>

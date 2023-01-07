@@ -1,5 +1,6 @@
 ﻿using L4D2ModTools.Core;
 using L4D2ModTools.Utils;
+using L4D2ModTools.Steam;
 using L4D2ModTools.Helper;
 
 namespace L4D2ModTools.Views;
@@ -265,7 +266,7 @@ public partial class AddonView : UserControl
     /// <param name="e"></param>
     private void Button_RunL4D2_Click(object sender, RoutedEventArgs e)
     {
-        ProcessUtil.OpenLink("steam://rungameid/550");
+        Client.RunL4D2Game();
     }
 
     /// <summary>

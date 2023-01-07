@@ -30,6 +30,11 @@
             </StackPanel>
             <StackPanel DockPanel.Dock="Left" Orientation="Horizontal">
                 <Button
+                    Name="Button_RunSteam"
+                    Margin="5,5,0,5"
+                    Click="Button_RunSteam_Click"
+                    Content="启动Steam" />
+                <Button
                     x:Name="Button_RefushModList"
                     Margin="5,5,0,5"
                     Click="Button_RefushModList_Click"

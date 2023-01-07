@@ -1,10 +1,11 @@
-﻿using L4D2ModTools.Data;
+﻿using L4D2ModTools.Core;
+using L4D2ModTools.Data;
 using L4D2ModTools.Utils;
 
 using Steamworks;
 using Steamworks.Ugc;
 
-namespace L4D2ModTools.Core;
+namespace L4D2ModTools.Steam;
 
 public static class Workshop
 {
