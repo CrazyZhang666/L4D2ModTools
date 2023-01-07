@@ -1,7 +1,6 @@
 ﻿using L4D2ModTools.Data;
 using L4D2ModTools.Utils;
 using L4D2ModTools.Steam;
-using L4D2ModTools.Helper;
 using L4D2ModTools.Windows;
 
 namespace L4D2ModTools.Views;
@@ -131,6 +130,25 @@ public partial class PublishView : UserControl
                 Owner = MainWindow.MainWindowInstance
             };
             publishWindow.ShowDialog();
+        }
+    }
+
+    /// <summary>
+    /// 删除选中Mod
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_DeleteWorkshop_Click(object sender, RoutedEventArgs e)
+    {
+        if (ListView_WorkShops.SelectedItem is ItemInfo info)
+        {
+            if (MessageBox.Show("您确定要删除这件物品吗？此操作不可撤销！", "删除物品", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                if (!Workshop.Init())
+                    return;
+
+                Workshop.DeletePublishedFile(info.Id);
+            }
         }
     }
 

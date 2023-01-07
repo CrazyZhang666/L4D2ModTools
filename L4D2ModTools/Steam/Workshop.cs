@@ -3,6 +3,7 @@ using L4D2ModTools.Data;
 using L4D2ModTools.Utils;
 
 using Steamworks;
+using Steamworks.Data;
 using Steamworks.Ugc;
 
 namespace L4D2ModTools.Steam;
@@ -211,5 +212,23 @@ public static class Workshop
         }
 
         return itemInfos;
+    }
+
+    /// <summary>
+    /// 删除创意工坊物品
+    /// </summary>
+    /// <param name="id"></param>
+    public static async void DeletePublishedFile(ulong id)
+    {
+        var fileId = new PublishedFileId
+        {
+            Value = id
+        };
+
+        var result = await SteamUGC.DeleteFileAsync(fileId);
+        if (result)
+            MsgBoxUtil.Information($"物品ID {fileId} 删除成功");
+        else
+            MsgBoxUtil.Error($"物品ID {fileId} 删除失败");
     }
 }

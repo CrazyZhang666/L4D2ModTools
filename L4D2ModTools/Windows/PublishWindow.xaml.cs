@@ -7,7 +7,6 @@ using L4D2ModTools.Helper;
 using Steamworks;
 using Steamworks.Ugc;
 using Steamworks.Data;
-using System.Xml.Linq;
 
 namespace L4D2ModTools.Windows;
 
@@ -112,7 +111,7 @@ public partial class PublishWindow : Window
                 return;
 
             var vpk = $"{Globals.OutputDir}\\{fileName}.vpk";
-            var jpg = Directory.GetCurrentDirectory() + $"{Globals.OutputDir}\\{fileName}.jpg";
+            var jpg = $"{Globals.FullOutputDir}\\{fileName}.jpg";
             var json = $"{Globals.OutputDir}\\{fileName}.json";
 
             if (File.Exists(jpg))
@@ -177,13 +176,6 @@ public partial class PublishWindow : Window
 
         var editor = Editor.NewCommunityFile.WithTag("Survivors");
 
-        // AppId
-        var appId = new AppId
-        {
-            Value = Globals.AppID
-        };
-        editor.ForAppId(appId);
-
         // 标题
         editor.WithTitle(TextBox_Title.Text.Trim());
         // 描述
@@ -210,7 +202,7 @@ public partial class PublishWindow : Window
             editor.WithUnlistedVisibility();
 
         // VPK目录
-        editor.WithContent(Directory.GetCurrentDirectory() + Globals.PublishDir);
+        //editor.WithContent(Globals.FullPublishDir);
 
         // 提交更新请求
         var result = await editor.SubmitAsync(Progress);
@@ -270,7 +262,7 @@ public partial class PublishWindow : Window
             if (name != NotUploadFile)
             {
                 // VPK目录
-                editor.WithContent(Directory.GetCurrentDirectory() + Globals.PublishDir);
+                //editor.WithContent(Globals.FullPublishDir);
 
                 // 预览图
                 editor.WithPreviewFile(TextBox_PreviewImage.Text.Trim());

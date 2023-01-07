@@ -50,6 +50,13 @@
                     Click="Button_UpdateWorkshop_Click"
                     Content="更新选中Mod信息"
                     IsEnabled="{Binding ElementName=ListView_WorkShops, Path=SelectedIndex, Converter={StaticResource IsSelectedNullConverter}}" />
+                <Button
+                    x:Name="Button_DeleteWorkshop"
+                    Margin="5,5,0,5"
+                    Click="Button_DeleteWorkshop_Click"
+                    Content="删除选中Mod"
+                    Foreground="Red"
+                    IsEnabled="{Binding ElementName=ListView_WorkShops, Path=SelectedIndex, Converter={StaticResource IsSelectedNullConverter}}" />
             </StackPanel>
         </DockPanel>
         <!--  //////////////////////  -->

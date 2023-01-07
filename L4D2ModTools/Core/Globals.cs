@@ -22,6 +22,9 @@ public static class Globals
     public const string AppSurvivorsQc = $"{AppSurvivorsDir}\\__Main.qci";
     public const string AppWeaponsQc = $"{AppWeaponsDir}\\__Main.qci";
 
+    public static string FullOutputDir = Directory.GetCurrentDirectory() + "\\__Output";
+    public static string FullPublishDir = Directory.GetCurrentDirectory() + "\\__Publish";
+
     /////////////////////////////////////////////////////////////
 
     public static bool IsConfigOk { get; set; } = false;
