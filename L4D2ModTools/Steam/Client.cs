@@ -10,7 +10,13 @@ public static class Client
     /// <returns></returns>
     public static bool IsRun()
     {
-        return ProcessUtil.IsAppRun("steam");
+        if (!ProcessUtil.IsAppRun("steam"))
+        {
+            MsgBoxUtil.Warning("未发现Steam进程，请先启动Steam客户端");
+            return false;
+        }
+
+        return true;
     }
 
     /// <summary>

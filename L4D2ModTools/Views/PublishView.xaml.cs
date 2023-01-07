@@ -126,7 +126,7 @@ public partial class PublishView : UserControl
     {
         if (ListView_WorkShops.SelectedItem is ItemInfo info)
         {
-            var publishWindow = new PublishWindow(JsonHelper.DeepClone(info), false)
+            var publishWindow = new PublishWindow(info, false)
             {
                 Owner = MainWindow.MainWindowInstance
             };

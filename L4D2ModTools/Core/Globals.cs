@@ -12,6 +12,7 @@ public static class Globals
     public const string OutputDir = ".\\__Output";
     public const string PublishDir = ".\\__Publish";
     public const string AppDataDir = ".\\AppData";
+    public const string ConfigDir = ".\\Config";
 
     public const string SharedDir = $"{AppDataDir}\\__Shared";
 

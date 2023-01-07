@@ -44,10 +44,32 @@ public static class JsonHelper
     /// 利用序列化和反序列号深拷贝
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="source"></param>
+    /// <param name="jsonClass"></param>
     /// <returns></returns>
-    public static T DeepClone<T>(T source)
+    public static T DeepClone<T>(T jsonClass)
     {
-        return JsonDese<T>(JsonSeri(source));
+        return JsonDese<T>(JsonSeri(jsonClass));
+    }
+
+    /// <summary>
+    /// 读取Json文件
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="savePath"></param>
+    /// <param name="jsonClass"></param>
+    public static T ReadFile<T>(string savePath)
+    {
+        return JsonDese<T>(File.ReadAllText(savePath));
+    }
+
+    /// <summary>
+    /// 写入Json文件
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="savePath"></param>
+    /// <param name="jsonClass"></param>
+    public static void WriteFile<T>(string savePath, T jsonClass)
+    {
+        File.WriteAllText(savePath, JsonSeri(jsonClass));
     }
 }

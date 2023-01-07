@@ -46,6 +46,11 @@ public partial class MainWindow : Window
 
         try
         {
+            // 创建文件夹
+            Directory.CreateDirectory(Globals.OutputDir);
+            Directory.CreateDirectory(Globals.PublishDir);
+            Directory.CreateDirectory(Globals.ConfigDir);
+
             // 创建INI配置文件
             IniHelper.Create();
 
@@ -61,18 +66,17 @@ public partial class MainWindow : Window
                     using var archive = ZipFile.OpenRead(".\\AppData.bin");
                     archive.ExtractToDirectory(Globals.AppDataDir);
                 }
-                // 创建文件夹
-                Directory.CreateDirectory(Globals.OutputDir);
-                Directory.CreateDirectory(Globals.PublishDir);
             }
             else
             {
                 MsgBoxUtil.Error("未发现AppData.bin，请更新工具版本");
+                Application.Current.Shutdown();
             }
         }
         catch (Exception ex)
         {
             MsgBoxUtil.Exception(ex);
+            Application.Current.Shutdown();
         }
     }
 

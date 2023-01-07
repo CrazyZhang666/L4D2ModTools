@@ -86,7 +86,7 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="物品ID" />
                     <GridViewColumn Header="标题">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

@@ -1,4 +1,5 @@
-﻿using L4D2ModTools.Core;
+﻿using L4D2ModTools.Data;
+using L4D2ModTools.Core;
 using L4D2ModTools.Utils;
 using L4D2ModTools.Steam;
 using L4D2ModTools.Helper;
@@ -10,14 +11,14 @@ namespace L4D2ModTools.Views;
 /// </summary>
 public partial class AddonView : UserControl
 {
-    private string addonImage = string.Empty;
-
-    private string addonTitle = string.Empty;
-    private string addonAuthor = string.Empty;
-    private string addonURL0 = string.Empty;
-    private string addonDescription = string.Empty;
-
-    private string description = string.Empty;
+    /// <summary>
+    /// Addon配置文件
+    /// </summary>
+    private AddonInfo AddonInfo = new();
+    /// <summary>
+    /// Addon配置文件保存路径
+    /// </summary>
+    private const string savePath = $"{Globals.ConfigDir}\\addon.json";
 
     public AddonView()
     {
@@ -25,15 +26,27 @@ public partial class AddonView : UserControl
         this.DataContext = this;
         MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
 
-        // 读取对应配置文件
-        TextBox_addonImage.Text = IniHelper.ReadValue("Addon", "addonImage");
+        // 如果配置文件不存在就创建
+        if (!File.Exists(savePath))
+        {
+            // 保存配置文件
+            SaveConfig();
+        }
 
-        TextBox_addonTitle.Text = IniHelper.ReadValue("Addon", "addonTitle");
-        TextBox_addonAuthor.Text = IniHelper.ReadValue("Addon", "addonAuthor");
-        TextBox_addonURL0.Text = IniHelper.ReadValue("Addon", "addonURL0");
-        TextBox_addonDescription.Text = IniHelper.ReadValue("Addon", "addonDescription");
+        // 如果配置文件存在就读取
+        if (File.Exists(savePath))
+        {
+            AddonInfo = JsonHelper.ReadFile<AddonInfo>(savePath);
 
-        TextBox_Description.Text = IniHelper.ReadValue("Addon", "Description");
+            TextBox_addonImage.Text = AddonInfo.AddonImage;
+
+            TextBox_addonTitle.Text = AddonInfo.AddonTitle;
+            TextBox_addonAuthor.Text = AddonInfo.AddonAuthor;
+            TextBox_addonURL0.Text = AddonInfo.AddonURL0;
+            TextBox_addonDescription.Text = AddonInfo.AddonDescription;
+
+            TextBox_Description.Text = AddonInfo.Description;
+        }
     }
 
     /// <summary>
@@ -49,14 +62,16 @@ public partial class AddonView : UserControl
     /// </summary>
     private void SaveConfig()
     {
-        IniHelper.WriteValue("Addon", "addonImage", TextBox_addonImage.Text);
+        AddonInfo.AddonImage = TextBox_addonImage.Text;
 
-        IniHelper.WriteValue("Addon", "addonTitle", TextBox_addonTitle.Text);
-        IniHelper.WriteValue("Addon", "addonAuthor", TextBox_addonAuthor.Text);
-        IniHelper.WriteValue("Addon", "addonURL0", TextBox_addonURL0.Text);
-        IniHelper.WriteValue("Addon", "addonDescription", TextBox_addonDescription.Text);
+        AddonInfo.AddonTitle = TextBox_addonTitle.Text;
+        AddonInfo.AddonAuthor = TextBox_addonAuthor.Text;
+        AddonInfo.AddonURL0 = TextBox_addonURL0.Text;
+        AddonInfo.AddonDescription = TextBox_addonDescription.Text;
 
-        IniHelper.WriteValue("Addon", "Description", TextBox_Description.Text);
+        AddonInfo.Description = TextBox_Description.Text;
+
+        JsonHelper.WriteFile(savePath, AddonInfo);
     }
 
     /// <summary>
@@ -68,14 +83,14 @@ public partial class AddonView : UserControl
     {
         Button_VPKPackage.IsEnabled = false;
 
-        addonImage = TextBox_addonImage.Text.Trim();
+        AddonInfo.AddonImage = TextBox_addonImage.Text.Trim();
 
-        addonTitle = TextBox_addonTitle.Text.Trim();
-        addonAuthor = TextBox_addonAuthor.Text.Trim();
-        addonURL0 = TextBox_addonURL0.Text.Trim();
-        addonDescription = TextBox_addonDescription.Text.Trim();
+        AddonInfo.AddonTitle = TextBox_addonTitle.Text.Trim();
+        AddonInfo.AddonAuthor = TextBox_addonAuthor.Text.Trim();
+        AddonInfo.AddonURL0 = TextBox_addonURL0.Text.Trim();
+        AddonInfo.AddonDescription = TextBox_addonDescription.Text.Trim();
 
-        description = TextBox_Description.Text.Trim();
+        AddonInfo.Description = TextBox_Description.Text.Trim();
 
         var dirs = Directory.GetDirectories(Globals.OutputDir);
         if (dirs.Length == 0)
@@ -98,56 +113,56 @@ public partial class AddonView : UserControl
     /// <summary>
     /// 构建对应打包文件
     /// </summary>
-    /// <param name="dirPath"></param>
-    private async void BuildVPK(string dirPath)
+    /// <param name="outputDir"></param>
+    private async void BuildVPK(string outputDir)
     {
-        if (dirPath.Contains($"{Survivor.Bill}"))
+        if (outputDir.Contains($"{Survivor.Bill}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Bill);
+            await BuildAddonInfo(outputDir, Survivor.Bill);
             return;
         }
 
-        if (dirPath.Contains($"{Survivor.Francis}"))
+        if (outputDir.Contains($"{Survivor.Francis}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Francis);
+            await BuildAddonInfo(outputDir, Survivor.Francis);
             return;
         }
 
-        if (dirPath.Contains($"{Survivor.Louis}"))
+        if (outputDir.Contains($"{Survivor.Louis}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Louis);
+            await BuildAddonInfo(outputDir, Survivor.Louis);
             return;
         }
 
-        if (dirPath.Contains($"{Survivor.Zoey}"))
+        if (outputDir.Contains($"{Survivor.Zoey}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Zoey);
+            await BuildAddonInfo(outputDir, Survivor.Zoey);
             return;
         }
 
         //////////////////////////////////////
 
-        if (dirPath.Contains($"{Survivor.Coach}"))
+        if (outputDir.Contains($"{Survivor.Coach}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Coach);
+            await BuildAddonInfo(outputDir, Survivor.Coach);
             return;
         }
 
-        if (dirPath.Contains($"{Survivor.Ellis}"))
+        if (outputDir.Contains($"{Survivor.Ellis}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Ellis);
+            await BuildAddonInfo(outputDir, Survivor.Ellis);
             return;
         }
 
-        if (dirPath.Contains($"{Survivor.Nick}"))
+        if (outputDir.Contains($"{Survivor.Nick}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Nick);
+            await BuildAddonInfo(outputDir, Survivor.Nick);
             return;
         }
 
-        if (dirPath.Contains($"{Survivor.Rochelle}"))
+        if (outputDir.Contains($"{Survivor.Rochelle}"))
         {
-            await BuildAddonInfo(dirPath, Survivor.Rochelle);
+            await BuildAddonInfo(outputDir, Survivor.Rochelle);
             return;
         }
     }
@@ -155,19 +170,30 @@ public partial class AddonView : UserControl
     /// <summary>
     /// 构建AddonInfo文本具体内容
     /// </summary>
-    /// <param name="dirPath"></param>
+    /// <param name="outputDir"></param>
     /// <param name="survivor"></param>
-    private Task BuildAddonInfo(string dirPath, Survivor survivor)
+    private Task BuildAddonInfo(string outputDir, Survivor survivor)
     {
         return Task.Run(() =>
         {
+            var info = new AddonInfo()
+            {
+                AddonImage = AddonInfo.AddonImage,
+                AddonTitle = AddonInfo.AddonTitle.Replace("@@", $"{survivor}"),
+                AddonAuthor = AddonInfo.AddonAuthor,
+                AddonURL0 = AddonInfo.AddonURL0,
+                AddonDescription = AddonInfo.AddonDescription.Replace("@@", $"{survivor}"),
+                Survivor = survivor.ToString(),
+                Description = AddonInfo.Description.Replace("@@", $"{survivor}")
+            };
+
             var builder = new StringBuilder();
             builder.AppendLine("\"AddonInfo\"");
             builder.AppendLine("{");
-            builder.AppendLine($"\taddonTitle                     \"{addonTitle}\"");
-            builder.AppendLine($"\taddonAuthor                    \"{addonAuthor}\"");
-            builder.AppendLine($"\taddonURL0                      \"{addonURL0}\"");
-            builder.AppendLine($"\taddonDescription               \"{addonDescription}\"");
+            builder.AppendLine($"\taddonTitle                     \"{info.AddonTitle}\"");
+            builder.AppendLine($"\taddonAuthor                    \"{info.AddonAuthor}\"");
+            builder.AppendLine($"\taddonURL0                      \"{info.AddonURL0}\"");
+            builder.AppendLine($"\taddonDescription               \"{info.AddonDescription}\"");
             builder.AppendLine("\taddonContent_Campaign          0");
             builder.AppendLine("\taddonContent_Map               0");
             builder.AppendLine("\taddonContent_Survivor          1");
@@ -182,13 +208,18 @@ public partial class AddonView : UserControl
             builder.Append("}");
 
             // 写入addoninfo文件
-            FileUtil.WriteFileUTF8NoBOM(dirPath + "\\addoninfo.txt", builder.Replace("@@", $"{survivor}").ToString());
+            FileUtil.WriteFileUTF8NoBOM($"{outputDir}\\addoninfo.txt", builder.ToString());
 
             // 如果图片存在，则复制预览图
-            FileUtil.SafeCopy(addonImage, dirPath + "\\addonimage.jpg");
+            FileUtil.SafeCopy(info.AddonImage, $"{outputDir}\\addonimage.jpg");
 
             // 执行VPK打包命令
-            Compile.RunL4D2DevExec(Globals.VPKExec, dirPath);
+            Compile.RunL4D2DevExec(Globals.VPKExec, outputDir);
+
+            // 上传工坊信息准备
+            var path = $"{Globals.OutputDir}\\{outputDir.Replace(".\\__Output\\", "").ToLower()}";
+            JsonHelper.WriteFile($"{path}.json", info);
+            FileUtil.SafeCopy(info.AddonImage, $"{path}.jpg");
         });
     }
 

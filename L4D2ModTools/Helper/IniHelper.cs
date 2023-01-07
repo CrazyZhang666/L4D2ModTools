@@ -1,11 +1,13 @@
-﻿namespace L4D2ModTools.Helper;
+﻿using L4D2ModTools.Core;
+
+namespace L4D2ModTools.Helper;
 
 public static class IniHelper
 {
     /// <summary>
     /// 默认配置文件路径
     /// </summary>
-    private const string IniPath = ".\\config.ini";
+    private const string IniPath = $"{Globals.ConfigDir}.\\config.ini";
 
     [DllImport("kernel32", CharSet = CharSet.Unicode)]
     private static extern int GetPrivateProfileString(string section, string key, string def, StringBuilder retVal, int size, string filePath);

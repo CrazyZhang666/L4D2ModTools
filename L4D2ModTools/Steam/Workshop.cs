@@ -47,8 +47,6 @@ public static class Workshop
             }
             else
             {
-                MsgBoxUtil.Warning("未发现Steam进程，请先启动Steam客户端");
-
                 IsInitSuccess = false;
                 return false;
             }

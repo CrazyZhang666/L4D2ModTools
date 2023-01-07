@@ -32,58 +32,73 @@
                     <TextBlock
                         Margin="5"
                         FontWeight="Bold"
+                        Text="内容文件 ContentFile ( .vpk )" />
+                    <ComboBox x:Name="ComboBox_ContentFile" SelectionChanged="ComboBox_ContentFile_SelectionChanged" />
+                    <!--  //////////////////  -->
+                    <TextBlock
+                        Margin="5"
+                        FontWeight="Bold"
                         Text="{Binding ElementName=TextBox_Title, Path=Text.Length, StringFormat='标题 Title ( {0} / 129 最大字符数 )'}" />
                     <TextBox
                         x:Name="TextBox_Title"
                         MaxLength="129"
-                        Style="{StaticResource TextBoxStyle_InputBox}"
-                        Text="{Binding ItemInfo.Title, UpdateSourceTrigger=PropertyChanged}" />
+                        Style="{StaticResource TextBoxStyle_InputBox}" />
                     <!--  //////////////////  -->
                     <TextBlock
                         Margin="5"
                         FontWeight="Bold"
                         Text="预览图 PreviewImage" />
-                    <TextBox
-                        x:Name="TextBox_PreviewImage"
-                        Style="{StaticResource TextBoxStyle_InputBox}"
-                        Text="{Binding ItemInfo.PreviewImage, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox x:Name="TextBox_PreviewImage" Style="{StaticResource TextBoxStyle_InputBox}" />
                     <!--  //////////////////  -->
-                    <TextBlock
-                        Margin="5"
-                        FontWeight="Bold"
-                        Text="内容文件 ContentFile ( .vpk )" />
-                    <ComboBox x:Name="ComboBox_ContentFile" />
-                    <!--  //////////////////  -->
-                    <TextBlock
-                        Margin="5"
-                        FontWeight="Bold"
-                        Text="可见性 Visibility" />
-                    <WrapPanel>
-                        <RadioButton
-                            x:Name="RadioButton_IsPublic"
-                            Margin="5"
-                            Content="公开 Public"
-                            GroupName="Visibility"
-                            IsChecked="{Binding ItemInfo.IsPublic, UpdateSourceTrigger=PropertyChanged}" />
-                        <RadioButton
-                            x:Name="RadioButton_IsFriendsOnly"
-                            Margin="5"
-                            Content="仅限好友 FriendsOnly"
-                            GroupName="Visibility"
-                            IsChecked="{Binding ItemInfo.IsFriendsOnly, UpdateSourceTrigger=PropertyChanged}" />
-                        <RadioButton
-                            x:Name="RadioButton_IsPrivate"
-                            Margin="5"
-                            Content="隐藏 Private"
-                            GroupName="Visibility"
-                            IsChecked="{Binding ItemInfo.IsPrivate, UpdateSourceTrigger=PropertyChanged}" />
-                        <RadioButton
-                            x:Name="RadioButton_IsUnlisted"
-                            Margin="5"
-                            Content="非公开 Unlisted"
-                            GroupName="Visibility"
-                            IsChecked="{Binding ItemInfo.IsUnlisted, UpdateSourceTrigger=PropertyChanged}" />
-                    </WrapPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel>
+                            <TextBlock
+                                Margin="5"
+                                FontWeight="Bold"
+                                Text="可见性 Visibility" />
+                            <WrapPanel>
+                                <RadioButton
+                                    x:Name="RadioButton_IsPublic"
+                                    Margin="5"
+                                    Content="公开 Public"
+                                    GroupName="Visibility" />
+                                <RadioButton
+                                    x:Name="RadioButton_IsFriendsOnly"
+                                    Margin="5"
+                                    Content="仅限好友 FriendsOnly"
+                                    GroupName="Visibility" />
+                                <RadioButton
+                                    x:Name="RadioButton_IsPrivate"
+                                    Margin="5"
+                                    Content="隐藏 Private"
+                                    GroupName="Visibility" />
+                                <RadioButton
+                                    x:Name="RadioButton_IsUnlisted"
+                                    Margin="5"
+                                    Content="非公开 Unlisted"
+                                    GroupName="Visibility" />
+                            </WrapPanel>
+                        </StackPanel>
+                        <!--  //////////////////////////////  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="5"
+                                FontWeight="Bold"
+                                Text="标签 Tags" />
+                            <TextBlock
+                                x:Name="TextBlock_Tags"
+                                Margin="5"
+                                Text="{Binding ItemInfo.TagsContent}" />
+                        </StackPanel>
+                        <!--  //////////////////////////////  -->
+                        <StackPanel>
+                            <TextBlock
+                                Margin="5"
+                                FontWeight="Bold"
+                                Text="物品 Id" />
+                            <TextBlock x:Name="TextBlock_Id" Margin="5" />
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
             <!--  //////////////////////////////  -->
@@ -112,8 +127,7 @@
                     x:Name="TextBox_ChangeLog"
                     DockPanel.Dock="Bottom"
                     MaxLength="8000"
-                    Style="{StaticResource TextBoxStyle_InputBox2}"
-                    Text="{Binding ItemInfo.ChangeLog, UpdateSourceTrigger=PropertyChanged}" />
+                    Style="{StaticResource TextBoxStyle_InputBox2}" />
             </DockPanel>
             <!--  ///////////////  -->
             <DockPanel DockPanel.Dock="Left">
@@ -127,8 +141,7 @@
                     Margin="5,5,0,5"
                     DockPanel.Dock="Bottom"
                     MaxLength="8000"
-                    Style="{StaticResource TextBoxStyle_InputBox2}"
-                    Text="{Binding ItemInfo.Description, UpdateSourceTrigger=PropertyChanged}" />
+                    Style="{StaticResource TextBoxStyle_InputBox2}" />
             </DockPanel>
         </DockPanel>
         <!--  ////////////////////////////////////////  -->
