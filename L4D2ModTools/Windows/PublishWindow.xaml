@@ -21,37 +21,14 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--  ////////////////////////////////////////  -->
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <!--  //////////////////////////////  -->
-                <DockPanel>
-                    <TextBlock
-                        Margin="5"
-                        DockPanel.Dock="Top"
-                        FontWeight="Bold"
-                        Text="请将图片拖拽此处" />
-                    <Border
-                        Width="220"
-                        Height="220"
-                        Margin="5"
-                        BorderBrush="Gray"
-                        BorderThickness="1"
-                        DockPanel.Dock="Bottom">
-                        <Image
-                            x:Name="Image_PreviewImage"
-                            Margin="1"
-                            AllowDrop="True"
-                            DragEnter="Image_PreviewImage_DragEnter"
-                            Drop="Image_PreviewImage_Drop"
-                            Source="{Binding ElementName=TextBox_PreviewImage, Path=Text, Converter={StaticResource StringToImageSourceConverter}}" />
-                    </Border>
-                </DockPanel>
-                <!--  //////////////////////////////  -->
-                <StackPanel Grid.Column="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <!--  //////////////////////////////  -->
+            <StackPanel>
+                <StackPanel x:Name="StackPanel_01">
                     <TextBlock
                         Margin="5"
                         FontWeight="Bold"
@@ -108,46 +85,58 @@
                             IsChecked="{Binding ItemInfo.IsUnlisted, UpdateSourceTrigger=PropertyChanged}" />
                     </WrapPanel>
                 </StackPanel>
-            </Grid>
+            </StackPanel>
             <!--  //////////////////////////////  -->
-            <UniformGrid Columns="2">
-                <StackPanel>
-                    <TextBlock
-                        Margin="5"
-                        FontWeight="Bold"
-                        Text="{Binding ElementName=TextBox_Description, Path=Text.Length, StringFormat='描述 Description ( {0} / 8000 最大字符数 )'}" />
-                    <TextBox
-                        x:Name="TextBox_Description"
-                        MaxLength="8000"
-                        Style="{StaticResource TextBoxStyle_InputBox2}"
-                        Text="{Binding ItemInfo.Description, UpdateSourceTrigger=PropertyChanged}" />
-                </StackPanel>
-                <!--  ///////////////  -->
-                <StackPanel>
-                    <TextBlock
-                        Margin="5"
-                        FontWeight="Bold"
-                        Text="{Binding ElementName=TextBox_ChangeLog, Path=Text.Length, StringFormat='更新日志 Change ( {0} / 8000 最大字符数 )'}" />
-                    <TextBox
-                        x:Name="TextBox_ChangeLog"
-                        MaxLength="8000"
-                        Style="{StaticResource TextBoxStyle_InputBox2}"
-                        Text="{Binding ItemInfo.ChangeLog, UpdateSourceTrigger=PropertyChanged}" />
-                </StackPanel>
-            </UniformGrid>
-        </StackPanel>
+            <Border
+                Grid.Column="1"
+                Width="{Binding ElementName=StackPanel_01, Path=ActualHeight}"
+                Height="{Binding ElementName=StackPanel_01, Path=ActualHeight}"
+                Margin="0,5,5,5"
+                BorderBrush="#ACACAC"
+                BorderThickness="1">
+                <Image
+                    x:Name="Image_PreviewImage"
+                    Margin="1"
+                    Source="{Binding ElementName=TextBox_PreviewImage, Path=Text, Converter={StaticResource StringToImageSourceConverter}}" />
+            </Border>
+        </Grid>
         <!--  ////////////////////////////////////////  -->
-        <TextBox
-            x:Name="TextBox_Logger"
-            Grid.Row="1"
-            Margin="5,0,5,0"
-            Style="{StaticResource TextBoxStyle_Logger}" />
+        <DockPanel Grid.Row="1">
+            <DockPanel Width="400" DockPanel.Dock="Right">
+                <TextBlock
+                    Margin="5"
+                    DockPanel.Dock="Top"
+                    FontWeight="Bold"
+                    Text="{Binding ElementName=TextBox_ChangeLog, Path=Text.Length, StringFormat='更新日志 Change ( {0} / 8000 最大字符数 )'}" />
+                <TextBox
+                    x:Name="TextBox_ChangeLog"
+                    DockPanel.Dock="Bottom"
+                    MaxLength="8000"
+                    Style="{StaticResource TextBoxStyle_InputBox2}"
+                    Text="{Binding ItemInfo.ChangeLog, UpdateSourceTrigger=PropertyChanged}" />
+            </DockPanel>
+            <!--  ///////////////  -->
+            <DockPanel DockPanel.Dock="Left">
+                <TextBlock
+                    Margin="5,5,0,5"
+                    DockPanel.Dock="Top"
+                    FontWeight="Bold"
+                    Text="{Binding ElementName=TextBox_Description, Path=Text.Length, StringFormat='描述 Description ( {0} / 8000 最大字符数 )'}" />
+                <TextBox
+                    x:Name="TextBox_Description"
+                    Margin="5,5,0,5"
+                    DockPanel.Dock="Bottom"
+                    MaxLength="8000"
+                    Style="{StaticResource TextBoxStyle_InputBox2}"
+                    Text="{Binding ItemInfo.Description, UpdateSourceTrigger=PropertyChanged}" />
+            </DockPanel>
+        </DockPanel>
         <!--  ////////////////////////////////////////  -->
         <DockPanel Grid.Row="2">
             <Button
                 x:Name="Button_PublishMod"
                 Width="100"
-                Margin="0,5,5,5"
+                Margin="0,0,5,5"
                 Click="Button_PublishMod_Click"
                 Content="更新Mod"
                 DockPanel.Dock="Right" />
@@ -155,7 +144,7 @@
                 x:Name="ProgressBar_Publish"
                 Grid.Row="2"
                 Height="30"
-                Margin="5"
+                Margin="5,0,5,5"
                 BorderBrush="Gray"
                 BorderThickness="1"
                 DockPanel.Dock="Left"

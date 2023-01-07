@@ -30,6 +30,8 @@ public partial class PublishWindow : Window
 
     private void Window_Publish_Loaded(object sender, RoutedEventArgs e)
     {
+        Progress = new Progress<float>(ReportProgress);
+
         if (IsPublish)
         {
             Title = "发布L4D2创意工坊";
@@ -39,7 +41,8 @@ public partial class PublishWindow : Window
 
             foreach (var item in Directory.GetFiles(Globals.OutputDir))
             {
-                ComboBox_ContentFile.Items.Add(Path.GetFileName(item));
+                if (Path.GetExtension(item) == ".vpk")
+                    ComboBox_ContentFile.Items.Add(Path.GetFileName(item));
             }
         }
         else
@@ -50,47 +53,13 @@ public partial class PublishWindow : Window
             ComboBox_ContentFile.Items.Add("保持默认");
             foreach (var item in Directory.GetFiles(Globals.OutputDir))
             {
-                ComboBox_ContentFile.Items.Add(Path.GetFileName(item));
+                if (Path.GetExtension(item) == ".vpk")
+                    ComboBox_ContentFile.Items.Add(Path.GetFileName(item));
             }
         }
-
-        Progress = new Progress<float>(ReportProgress);
     }
 
     private void Window_Publish_Closing(object sender, CancelEventArgs e)
-    {
-
-    }
-    /// <summary>
-    /// 清空日志
-    /// </summary>
-    private void ClearLogger()
-    {
-        this.Dispatcher.Invoke(() =>
-        {
-            TextBox_Logger.Clear();
-        });
-    }
-
-    /// <summary>
-    /// 增加日志信息
-    /// </summary>
-    /// <param name="log"></param>
-    private void AddLogger(string log)
-    {
-        this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
-        {
-            TextBox_Logger.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {log}\n");
-            TextBox_Logger.ScrollToEnd();
-        });
-    }
-
-    private void Image_PreviewImage_DragEnter(object sender, DragEventArgs e)
-    {
-
-    }
-
-    private void Image_PreviewImage_Drop(object sender, DragEventArgs e)
     {
 
     }
@@ -127,7 +96,6 @@ public partial class PublishWindow : Window
     {
         if (ItemInfo.Id == 0)
         {
-            AddLogger("创意工坊项目ID为空，操作取消");
             MsgBoxUtil.Error("创意工坊项目ID为空，操作取消");
             return;
         }
@@ -142,11 +110,9 @@ public partial class PublishWindow : Window
         if (!string.IsNullOrWhiteSpace(ItemInfo.Title))
         {
             editor.WithTitle(ItemInfo.Title);
-            AddLogger($"Mod标题为: {ItemInfo.Title}");
         }
         else
         {
-            AddLogger("Mod标题为空，操作取消");
             MsgBoxUtil.Error("Mod标题为空，操作取消");
             return;
         }
@@ -158,13 +124,8 @@ public partial class PublishWindow : Window
                 if (Directory.GetFiles(ItemInfo.ContentFile).Length != 0)
                 {
                     editor.WithContent(new DirectoryInfo(ItemInfo.ContentFile));
-                    AddLogger($"Mod新文件路径为: {ItemInfo.ContentFile}");
                 }
             }
-        }
-        else
-        {
-            AddLogger("Mod文件路径为空，不进行更新操作");
         }
 
         editor.WithDescription(ItemInfo.Description);

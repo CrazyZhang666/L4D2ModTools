@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "L4D2ModTools", "L4D2ModTool
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Steamworks", "Steamworks\Steamworks.csproj", "{0400A8BA-4442-445D-B4DF-EE832BCD2C94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDemo", "TestDemo\TestDemo.csproj", "{06575318-3336-47A3-8F40-E0D398DA0325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDemo", "TestDemo\TestDemo.csproj", "{06575318-3336-47A3-8F40-E0D398DA0325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpVPK", "SharpVPK\SharpVPK.csproj", "{9F5208E7-D7B0-401D-B946-26773DFDB4F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{06575318-3336-47A3-8F40-E0D398DA0325}.Debug|x86.ActiveCfg = Debug|x86
 		{06575318-3336-47A3-8F40-E0D398DA0325}.Debug|x86.Build.0 = Debug|x86
 		{06575318-3336-47A3-8F40-E0D398DA0325}.Release|x86.ActiveCfg = Release|x86
+		{9F5208E7-D7B0-401D-B946-26773DFDB4F5}.Debug|x86.ActiveCfg = Debug|x86
+		{9F5208E7-D7B0-401D-B946-26773DFDB4F5}.Debug|x86.Build.0 = Debug|x86
+		{9F5208E7-D7B0-401D-B946-26773DFDB4F5}.Release|x86.ActiveCfg = Release|x86
+		{9F5208E7-D7B0-401D-B946-26773DFDB4F5}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

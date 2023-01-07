@@ -48,7 +48,6 @@
         <Setter Property="VirtualizingPanel.ScrollUnit" Value="Item" />
         <Setter Property="Margin" Value="5" />
         <Setter Property="Padding" Value="5" />
-        <Setter Property="Height" Value="200" />
         <Setter Property="Background" Value="White" />
         <Setter Property="BorderBrush" Value="#ACACAC" />
         <Setter Property="BorderThickness" Value="1" />

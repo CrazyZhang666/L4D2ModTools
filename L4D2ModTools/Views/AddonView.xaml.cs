@@ -17,6 +17,8 @@ public partial class AddonView : UserControl
     private string addonURL0 = string.Empty;
     private string addonDescription = string.Empty;
 
+    private string description = string.Empty;
+
     public AddonView()
     {
         InitializeComponent();
@@ -30,6 +32,8 @@ public partial class AddonView : UserControl
         TextBox_addonAuthor.Text = IniHelper.ReadValue("Addon", "addonAuthor");
         TextBox_addonURL0.Text = IniHelper.ReadValue("Addon", "addonURL0");
         TextBox_addonDescription.Text = IniHelper.ReadValue("Addon", "addonDescription");
+
+        TextBox_Description.Text = IniHelper.ReadValue("Addon", "Description");
     }
 
     /// <summary>
@@ -51,6 +55,8 @@ public partial class AddonView : UserControl
         IniHelper.WriteValue("Addon", "addonAuthor", TextBox_addonAuthor.Text);
         IniHelper.WriteValue("Addon", "addonURL0", TextBox_addonURL0.Text);
         IniHelper.WriteValue("Addon", "addonDescription", TextBox_addonDescription.Text);
+
+        IniHelper.WriteValue("Addon", "Description", TextBox_Description.Text);
     }
 
     /// <summary>
@@ -68,6 +74,8 @@ public partial class AddonView : UserControl
         addonAuthor = TextBox_addonAuthor.Text.Trim();
         addonURL0 = TextBox_addonURL0.Text.Trim();
         addonDescription = TextBox_addonDescription.Text.Trim();
+
+        description = TextBox_Description.Text.Trim();
 
         var dirs = Directory.GetDirectories(Globals.OutputDir);
         if (dirs.Length == 0)
@@ -156,22 +164,22 @@ public partial class AddonView : UserControl
             var builder = new StringBuilder();
             builder.AppendLine("\"AddonInfo\"");
             builder.AppendLine("{");
-            builder.AppendLine($"\taddonTitle \"{addonTitle}\"");
-            builder.AppendLine($"\taddonAuthor \"{addonAuthor}\"");
-            builder.AppendLine($"\taddonURL0 \"{addonURL0}\"");
-            builder.AppendLine($"\taddonDescription \"{addonDescription}\"");
-            builder.AppendLine("\taddonContent_Campaign 0");
-            builder.AppendLine("\taddonContent_Map 0");
-            builder.AppendLine("\taddonContent_Survivor 1");
-            builder.AppendLine("\taddonContent_Skin 0");
-            builder.AppendLine("\taddonContent_BossInfected 0");
-            builder.AppendLine("\taddonContent_CommonInfected 0");
-            builder.AppendLine("\taddonContent_Music 0");
-            builder.AppendLine("\taddonContent_Sound 0");
-            builder.AppendLine("\taddonContent_Prop 0");
-            builder.AppendLine("\taddonContent_Weapon 0");
-            builder.AppendLine("\taddonContent_Script 0");
-            builder.AppendLine("}");
+            builder.AppendLine($"\taddonTitle                     \"{addonTitle}\"");
+            builder.AppendLine($"\taddonAuthor                    \"{addonAuthor}\"");
+            builder.AppendLine($"\taddonURL0                      \"{addonURL0}\"");
+            builder.AppendLine($"\taddonDescription               \"{addonDescription}\"");
+            builder.AppendLine("\taddonContent_Campaign          0");
+            builder.AppendLine("\taddonContent_Map               0");
+            builder.AppendLine("\taddonContent_Survivor          1");
+            builder.AppendLine("\taddonContent_Skin              0");
+            builder.AppendLine("\taddonContent_BossInfected      0");
+            builder.AppendLine("\taddonContent_CommonInfected    0");
+            builder.AppendLine("\taddonContent_Music             0");
+            builder.AppendLine("\taddonContent_Sound             0");
+            builder.AppendLine("\taddonContent_Prop              0");
+            builder.AppendLine("\taddonContent_Weapon            0");
+            builder.AppendLine("\taddonContent_Script            0");
+            builder.Append("}");
 
             // 写入addoninfo文件
             FileUtil.WriteFileUTF8NoBOM(dirPath + "\\addoninfo.txt", builder.Replace("@@", $"{survivor}").ToString());
@@ -197,6 +205,8 @@ public partial class AddonView : UserControl
         TextBox_addonAuthor.Text = "CrazyZhang";
         TextBox_addonURL0.Text = "https://steamcommunity.com/profiles/76561198293570981/";
         TextBox_addonDescription.Text = "DOAXVV Fiona - Endorphin Heart, Replace Survivor for @@";
+
+        TextBox_Description.Text = "DOAXVV Fiona - Endorphin Heart, Replace Survivor for @@";
     }
 
     /// <summary>
@@ -292,27 +302,5 @@ public partial class AddonView : UserControl
         }
 
         MsgBoxUtil.Information("发送VPK文件到Addons成功");
-    }
-
-    /// <summary>
-    /// 图片拖拽事件
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void Image_addonimage_DragEnter(object sender, DragEventArgs e)
-    {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            e.Effects = DragDropEffects.Copy;
-    }
-
-    /// <summary>
-    /// 图片拖拽事件
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void Image_addonimage_Drop(object sender, DragEventArgs e)
-    {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            TextBox_addonImage.Text = (e.Data.GetData(DataFormats.FileDrop) as Array).GetValue(0).ToString();
     }
 }
