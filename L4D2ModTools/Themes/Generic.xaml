@@ -11,6 +11,7 @@
 
         <ResourceDictionary Source="/Themes/Styles/TabControl.xaml" />
         <ResourceDictionary Source="/Themes/Styles/ListView.xaml" />
+        <ResourceDictionary Source="/Themes/Styles/ComboBox.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
 

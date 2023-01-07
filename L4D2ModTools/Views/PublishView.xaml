@@ -43,7 +43,7 @@
                     Name="Button_PublishWorkshop"
                     Margin="5,5,0,5"
                     Click="Button_PublishWorkshop_Click"
-                    Content="上传L4D2创意工坊" />
+                    Content="发布L4D2创意工坊" />
                 <Button
                     x:Name="Button_UpdateWorkshop"
                     Margin="5,5,0,5"
@@ -75,18 +75,18 @@
                                     Width="30"
                                     Height="30"
                                     Margin="1"
-                                    Source="{Binding PreviewImageUrl, Converter={StaticResource StringToImageSourceConverter}}">
+                                    Source="{Binding PreviewImage, Converter={StaticResource StringToImageSourceConverter}}">
                                     <Image.ToolTip>
                                         <Image
                                             MaxWidth="500"
                                             MaxHeight="500"
-                                            Source="{Binding PreviewImageUrl, Converter={StaticResource StringToImageSourceConverter}}" />
+                                            Source="{Binding PreviewImage, Converter={StaticResource StringToImageSourceConverter}}" />
                                     </Image.ToolTip>
                                 </Image>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="文件ID" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="ID" />
                     <GridViewColumn Header="标题">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -98,12 +98,12 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding FileSize}" Header="大小" />
+                    <GridViewColumn DisplayMemberBinding="{Binding FileSize}" Header="文件大小" />
                     <GridViewColumn DisplayMemberBinding="{Binding PublicState}" Header="可见性" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Updated}" Header="修改日期" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Created}" Header="创建日期" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Tags}" Header="标志" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Owner}" Header="拥有者" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Updated}" Header="更新日期" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Created}" Header="发表于" />
+                    <GridViewColumn DisplayMemberBinding="{Binding TagsContent}" Header="标签" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Owner}" Header="所有者" />
                 </GridView>
             </ListView.View>
         </ListView>

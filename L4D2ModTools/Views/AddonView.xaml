@@ -92,10 +92,9 @@
             </DockPanel>
             <TextBox
                 x:Name="TextBox_addonDescription"
-                Height="90"
                 VerticalAlignment="Stretch"
                 DockPanel.Dock="Bottom"
-                Style="{StaticResource TextBoxStyle_InputBox}" />
+                Style="{StaticResource TextBoxStyle_InputBox2}" />
         </StackPanel>
         <!--  ///////////////////////////////////////////  -->
         <DockPanel Grid.Row="2">

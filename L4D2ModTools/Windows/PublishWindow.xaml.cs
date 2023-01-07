@@ -1,22 +1,187 @@
-﻿namespace L4D2ModTools.Windows;
+﻿using L4D2ModTools.Data;
+using L4D2ModTools.Utils;
+
+using Steamworks.Ugc;
+using Steamworks.Data;
+using L4D2ModTools.Core;
+
+namespace L4D2ModTools.Windows;
 
 /// <summary>
 /// PublishWindow.xaml 的交互逻辑
 /// </summary>
 public partial class PublishWindow : Window
 {
-    public PublishWindow()
+    public ItemInfo ItemInfo { get; set; }
+    public bool IsPublish { get; set; }
+
+    //////////////////////////////////////////////////
+
+    private Progress<float> Progress { get; set; }
+
+    public PublishWindow(ItemInfo itemInfo, bool isPublish)
     {
         InitializeComponent();
+        this.DataContext = this;
+
+        ItemInfo = itemInfo;
+        IsPublish = isPublish;
     }
 
     private void Window_Publish_Loaded(object sender, RoutedEventArgs e)
     {
+        if (IsPublish)
+        {
+            Title = "发布L4D2创意工坊";
+            Button_PublishMod.Content = "发布Mod";
 
+            RadioButton_IsFriendsOnly.IsChecked = true;
+
+            foreach (var item in Directory.GetFiles(Globals.OutputDir))
+            {
+                ComboBox_ContentFile.Items.Add(Path.GetFileName(item));
+            }
+        }
+        else
+        {
+            Title = "更新选中Mod信息";
+            Button_PublishMod.Content = "更新Mod";
+
+            ComboBox_ContentFile.Items.Add("保持默认");
+            foreach (var item in Directory.GetFiles(Globals.OutputDir))
+            {
+                ComboBox_ContentFile.Items.Add(Path.GetFileName(item));
+            }
+        }
+
+        Progress = new Progress<float>(ReportProgress);
     }
 
     private void Window_Publish_Closing(object sender, CancelEventArgs e)
     {
 
+    }
+    /// <summary>
+    /// 清空日志
+    /// </summary>
+    private void ClearLogger()
+    {
+        this.Dispatcher.Invoke(() =>
+        {
+            TextBox_Logger.Clear();
+        });
+    }
+
+    /// <summary>
+    /// 增加日志信息
+    /// </summary>
+    /// <param name="log"></param>
+    private void AddLogger(string log)
+    {
+        this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
+        {
+            TextBox_Logger.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {log}\n");
+            TextBox_Logger.ScrollToEnd();
+        });
+    }
+
+    private void Image_PreviewImage_DragEnter(object sender, DragEventArgs e)
+    {
+
+    }
+
+    private void Image_PreviewImage_Drop(object sender, DragEventArgs e)
+    {
+
+    }
+
+    /// <summary>
+    /// 报告进度
+    /// </summary>
+    /// <param name="progress"></param>
+    private void ReportProgress(float progress)
+    {
+        this.ProgressBar_Publish.Value = progress;
+    }
+
+    private void Button_PublishMod_Click(object sender, RoutedEventArgs e)
+    {
+        if (IsPublish)
+            PublishMod();
+        else
+            UpdateMod();
+    }
+
+    /// <summary>
+    /// 发布新的Mod
+    /// </summary>
+    private void PublishMod()
+    {
+
+    }
+
+    /// <summary>
+    /// 更新选中Mod信息
+    /// </summary>
+    private async void UpdateMod()
+    {
+        if (ItemInfo.Id == 0)
+        {
+            AddLogger("创意工坊项目ID为空，操作取消");
+            MsgBoxUtil.Error("创意工坊项目ID为空，操作取消");
+            return;
+        }
+
+        var editor = new Editor(new PublishedFileId
+        {
+            Value = ItemInfo.Id
+        });
+
+        ///////////////////////////////////////////////////
+
+        if (!string.IsNullOrWhiteSpace(ItemInfo.Title))
+        {
+            editor.WithTitle(ItemInfo.Title);
+            AddLogger($"Mod标题为: {ItemInfo.Title}");
+        }
+        else
+        {
+            AddLogger("Mod标题为空，操作取消");
+            MsgBoxUtil.Error("Mod标题为空，操作取消");
+            return;
+        }
+
+        if (!string.IsNullOrWhiteSpace(ItemInfo.ContentFile))
+        {
+            if (Directory.Exists(ItemInfo.ContentFile))
+            {
+                if (Directory.GetFiles(ItemInfo.ContentFile).Length != 0)
+                {
+                    editor.WithContent(new DirectoryInfo(ItemInfo.ContentFile));
+                    AddLogger($"Mod新文件路径为: {ItemInfo.ContentFile}");
+                }
+            }
+        }
+        else
+        {
+            AddLogger("Mod文件路径为空，不进行更新操作");
+        }
+
+        editor.WithDescription(ItemInfo.Description);
+        editor.WithChangeLog(ItemInfo.ChangeLog);
+
+        //if (string.IsNullOrWhiteSpace(ItemInfo.PreviewImage))
+        //{
+        //    editor.WithPreviewFile(ItemInfo.PreviewImage);
+        //}
+
+        //foreach (var tag in ItemInfo.Tags)
+        //{
+        //    editor.WithTag(tag);
+        //}
+
+        //editor.WithFriendsOnlyVisibility();
+
+        await editor.SubmitAsync(Progress);
     }
 }

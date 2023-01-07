@@ -61,8 +61,9 @@ public partial class MainWindow : Window
                     using var archive = ZipFile.OpenRead(".\\AppData.bin");
                     archive.ExtractToDirectory(Globals.AppDataDir);
                 }
-                // 创建输出文件夹
+                // 创建文件夹
                 Directory.CreateDirectory(Globals.OutputDir);
+                Directory.CreateDirectory(Globals.PublishDir);
             }
             else
             {

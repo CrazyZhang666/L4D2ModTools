@@ -306,8 +306,11 @@
                 Grid.Row="2"
                 Height="30"
                 Margin="5"
+                BorderBrush="Gray"
+                BorderThickness="1"
                 Maximum="1"
-                Minimum="0" />
+                Minimum="0"
+                SnapsToDevicePixels="True" />
         </Grid>
     </Grid>
 

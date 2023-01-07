@@ -9,9 +9,10 @@ public static class Globals
 
     /////////////////////////////////////////////////////////////
 
-    public const string OutputDir = ".\\__输出目录";
-
+    public const string OutputDir = ".\\__Output";
+    public const string PublishDir = ".\\__Publish";
     public const string AppDataDir = ".\\AppData";
+
     public const string SharedDir = $"{AppDataDir}\\__Shared";
 
     public const string AppSurvivorsDir = $"{AppDataDir}\\Survivors";

@@ -27,7 +27,7 @@ public static class Workshop
     {
         lock (ObjLock)
         {
-            if (ProcessUtil.IsAppRun("steam"))
+            if (Client.IsRun())
             {
                 try
                 {
@@ -95,7 +95,7 @@ public static class Workshop
     /// </summary>
     /// <param name="tags"></param>
     /// <returns></returns>
-    public static string GetTags(string[] tags)
+    public static string GetTagsContent(string[] tags)
     {
         for (int i = 0; i < tags.Length; i++)
             tags[i] = MiscUtil.UpperCaseFirstChar(tags[i]);
@@ -188,15 +188,20 @@ public static class Workshop
                     {
                         Index = index++,
                         Id = item.Id.Value,
-                        PreviewImageUrl = item.PreviewImageUrl,
+                        PreviewImage = item.PreviewImageUrl,
                         Title = item.Title.Replace("\n", ""),
                         Description = item.Description,
                         Url = item.Url,
                         FileSize = MiscUtil.ByteConverterMB(item.FileSize),
+                        IsPublic = item.IsPublic,
+                        IsFriendsOnly = item.IsFriendsOnly,
+                        IsPrivate = item.IsPrivate,
+                        IsUnlisted = item.IsUnlisted,
                         PublicState = GetPublicState(item.IsPublic, item.IsFriendsOnly, item.IsPrivate, item.IsUnlisted),
                         Updated = item.Updated.ToString(),
                         Created = item.Created.ToString(),
-                        Tags = GetTags(item.Tags),
+                        Tags = item.Tags,
+                        TagsContent = GetTagsContent(item.Tags),
                         Owner = item.Owner.Name,
                     });
                 }

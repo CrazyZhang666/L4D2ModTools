@@ -98,10 +98,13 @@ public partial class ConfigView : UserControl
         {
             Title = "选择求生之路2主程序 left4dead2.exe",
             RestoreDirectory = true,
-            Multiselect = false,
             DefaultExt = ".exe",
             Filter = "可执行文件 (*.exe)|*.exe",
-            FileName = "left4dead2.exe"
+            FileName = "left4dead2.exe",
+            ValidateNames = true,
+            AddExtension = true,
+            CheckFileExists = false,
+            Multiselect = false
         };
 
         if (!string.IsNullOrEmpty(Globals.L4D2MainDir))

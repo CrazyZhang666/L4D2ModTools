@@ -1,6 +1,7 @@
 ﻿using L4D2ModTools.Data;
-using L4D2ModTools.Steam;
 using L4D2ModTools.Utils;
+using L4D2ModTools.Steam;
+using L4D2ModTools.Helper;
 using L4D2ModTools.Windows;
 
 namespace L4D2ModTools.Views;
@@ -86,7 +87,10 @@ public partial class PublishView : UserControl
         {
             itemInfos.ForEach(info =>
             {
-                ItemInfoLists.Add(info);
+                this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
+                {
+                    ItemInfoLists.Add(info);
+                });
                 AddLogger($"{info.Index} {info.Title}");
             });
 
@@ -97,7 +101,7 @@ public partial class PublishView : UserControl
     }
 
     /// <summary>
-    /// 上传L4D2创意工坊按钮点击事件
+    /// 发布L4D2创意工坊按钮点击事件
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
@@ -105,7 +109,7 @@ public partial class PublishView : UserControl
     {
         if (Workshop.Init())
         {
-            var publishWindow = new PublishWindow
+            var publishWindow = new PublishWindow(new ItemInfo(), true)
             {
                 Owner = MainWindow.MainWindowInstance
             };
@@ -122,11 +126,11 @@ public partial class PublishView : UserControl
     {
         if (ListView_WorkShops.SelectedItem is ItemInfo info)
         {
-            var updateWindow = new UpdateWindow(info)
+            var publishWindow = new PublishWindow(JsonHelper.DeepClone(info), false)
             {
                 Owner = MainWindow.MainWindowInstance
             };
-            updateWindow.ShowDialog();
+            publishWindow.ShowDialog();
         }
     }
 
