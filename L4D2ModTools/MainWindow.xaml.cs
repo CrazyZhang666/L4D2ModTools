@@ -43,40 +43,6 @@ public partial class MainWindow : Window
         this.Title = $"求生之路2 Mod工具箱 v{MiscUtil.VersionInfo} - 编译时间 {MiscUtil.BuildTime}";
 
         ActionTaskbarProgress = TaskbarProgress;
-
-        try
-        {
-            // 创建文件夹
-            Directory.CreateDirectory(Globals.OutputDir);
-            Directory.CreateDirectory(Globals.ConfigDir);
-
-            // 创建INI配置文件
-            IniHelper.Create();
-
-            // 释放数据文件
-            MiscUtil.ExtractResFile("L4D2ModTools.Files.AppData.zip", ".\\AppData.bin");
-            MiscUtil.ExtractResFile("L4D2ModTools.Files.steam_api.dll", ".\\steam_api.dll");
-
-            // 解压数据文件
-            if (File.Exists(".\\AppData.bin"))
-            {
-                if (!Directory.Exists(Globals.AppDataDir))
-                {
-                    using var archive = ZipFile.OpenRead(".\\AppData.bin");
-                    archive.ExtractToDirectory(Globals.AppDataDir);
-                }
-            }
-            else
-            {
-                MsgBoxUtil.Error("未发现AppData.bin，请更新工具版本");
-                Application.Current.Shutdown();
-            }
-        }
-        catch (Exception ex)
-        {
-            MsgBoxUtil.Exception(ex);
-            Application.Current.Shutdown();
-        }
     }
 
     private void Window_Main_Closing(object sender, CancelEventArgs e)

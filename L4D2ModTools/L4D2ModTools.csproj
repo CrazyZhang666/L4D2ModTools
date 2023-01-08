@@ -5,7 +5,7 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>disable</Nullable>
 		<UseWPF>true</UseWPF>
-		<Platforms>x86</Platforms>
+		<Platforms>x64</Platforms>
 		<StartupObject>L4D2ModTools.App</StartupObject>
 		<ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
 		<GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -15,11 +15,11 @@
 		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
 		<DebugType>full</DebugType>
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
 		<DebugType>full</DebugType>
 	</PropertyGroup>
 
@@ -29,7 +29,7 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="Files\AppData.zip" />
-		<EmbeddedResource Include="Files\steam_api.dll" />
+		<EmbeddedResource Include="Files\steam_api64.dll" />
 	</ItemGroup>
 
 	<ItemGroup>

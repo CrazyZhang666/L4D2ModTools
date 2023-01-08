@@ -345,11 +345,6 @@ public partial class AddonView : UserControl
     private void Button_ClearAddons_Click(object sender, RoutedEventArgs e)
     {
         var files = Directory.GetFiles(Globals.L4D2AddonsDir);
-        if (files.Length == 0)
-        {
-            MsgBoxUtil.Warning("Addons文件夹未发现文件，操作取消");
-            return;
-        }
 
         if (MessageBox.Show("你确认要清空Addons文件夹VPK文件吗？", "警告",
             MessageBoxButton.OKCancel, MessageBoxImage.Information) == MessageBoxResult.OK)
