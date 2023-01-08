@@ -23,6 +23,21 @@ public static class Client
     }
 
     /// <summary>
+    /// 获取Steam位置
+    /// </summary>
+    /// <returns></returns>
+    public static string GetMainPath()
+    {
+        if (IsRun())
+        {
+            var steam = Process.GetProcessesByName("steam")[0];
+            return steam.MainModule.FileName;
+        }
+
+        return string.Empty;
+    }
+
+    /// <summary>
     /// 运行Steam客户端
     /// </summary>
     public static void Run()

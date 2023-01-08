@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <!--  /////////////////////////  -->
         <DockPanel Grid.Row="0">
@@ -20,13 +21,23 @@
                 VerticalAlignment="Center"
                 Text="创意工坊链接" />
             <Button
-                x:Name="Button_DownloadWorkshopFIle"
+                x:Name="Button_VPKDir"
                 Margin="0,5,5,5"
                 BorderThickness="0,1,1,1"
-                Click="Button_DownloadWorkshopFIle_Click"
+                Click="Button_VPKDir_Click"
+                Content="&#xeabe;"
+                DockPanel.Dock="Right"
+                Style="{StaticResource ButtonStyle_IconFont}"
+                ToolTip="输出文件夹" />
+            <Button
+                x:Name="Button_DownloadWorkshopFile"
+                Margin="0,5,0,5"
+                BorderThickness="0,1,1,1"
+                Click="Button_DownloadWorkshopFile_Click"
                 Content="&#xe857;"
                 DockPanel.Dock="Right"
-                Style="{StaticResource ButtonStyle_IconFont}" />
+                Style="{StaticResource ButtonStyle_IconFont}"
+                ToolTip="开始下载" />
             <TextBox
                 x:Name="TextBox_WorkshopFIleLink"
                 Margin="5,5,0,5"
@@ -38,8 +49,19 @@
         <TextBox
             x:Name="TextBox_Logger"
             Grid.Row="1"
-            Margin="5,2,5,5"
+            Margin="5,2,5,0"
             Style="{StaticResource TextBoxStyle_Logger}" />
+        <!--  /////////////////////////  -->
+        <ProgressBar
+            x:Name="ProgressBar_Download"
+            Grid.Row="2"
+            Height="30"
+            Margin="5"
+            BorderBrush="Gray"
+            BorderThickness="1"
+            Maximum="1"
+            Minimum="0"
+            SnapsToDevicePixels="True" />
     </Grid>
 
 </UserControl>
