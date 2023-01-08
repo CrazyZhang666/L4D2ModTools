@@ -10,13 +10,16 @@ public static class Client
     /// <returns></returns>
     public static bool IsRun()
     {
-        if (!ProcessUtil.IsAppRun("steam"))
-        {
-            MsgBoxUtil.Warning("未发现Steam进程，请先启动Steam客户端");
-            return false;
-        }
+        return ProcessUtil.IsAppRun("steam");
+    }
 
-        return true;
+    /// <summary>
+    /// 判断求生之路2是否运行
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsL4D2Run()
+    {
+        return ProcessUtil.IsAppRun("left4dead2");
     }
 
     /// <summary>
@@ -35,7 +38,7 @@ public static class Client
     /// </summary>
     public static void RunL4D2Game()
     {
-        if (!IsRun())
+        if (!IsL4D2Run())
             ProcessUtil.OpenLink("steam://rungameid/550");
         else
             MsgBoxUtil.Warning("求生之路2游戏已经在运行了，请不要重复启动");
