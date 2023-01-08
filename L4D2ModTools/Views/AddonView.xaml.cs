@@ -237,7 +237,7 @@ public partial class AddonView : UserControl
         TextBox_addonURL0.Text = "https://steamcommunity.com/profiles/76561198293570981/";
         TextBox_addonDescription.Text = "DOAXVV Fiona - Endorphin Heart, Replace Survivor for @@";
 
-        TextBox_Description.Text = "DOAXVV Fiona - Endorphin Heart, Replace Survivor for @@";
+        TextBox_Description.Text = "DOAXVV Nanami - Rondo Breeze, Replace Survivor for @@\r\n\r\n生还者，替换 @@\r\n\r\n模型来源\r\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=0123456789";
     }
 
     /// <summary>
@@ -256,11 +256,13 @@ public partial class AddonView : UserControl
             title = VPK.ReplaceSurvivorName(title);
             TextBox_addonTitle.Text = $"[@@] {title}";
             TextBox_addonDescription.Text = $"{title}, Replace Survivor for @@";
+            TextBox_Description.Text = $"{title}, Replace Survivor for @@\r\n\r\n生还者，替换 @@\r\n\r\n模型来源\r\nhttps://steamcommunity.com/sharedfiles/filedetails/?id=0123456789";
         }
         else
         {
             TextBox_addonTitle.Text = "自动获取失败";
             TextBox_addonDescription.Text = "自动获取失败";
+            TextBox_Description.Text = "自动获取失败";
         }
 
         var name = Workshop.GetUserName();
@@ -320,7 +322,7 @@ public partial class AddonView : UserControl
         var files = Directory.GetFiles(Globals.OutputDir);
         if (files.Length == 0)
         {
-            MsgBoxUtil.Warning("输出文件夹未发现VPK文件，操作取消");
+            MsgBoxUtil.Warning("输出文件夹未发现文件，操作取消");
             return;
         }
 
@@ -333,5 +335,34 @@ public partial class AddonView : UserControl
         }
 
         MsgBoxUtil.Information("发送VPK文件到Addons成功");
+    }
+
+    /// <summary>
+    /// 清空Addons文件夹VPK文件按钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_ClearAddons_Click(object sender, RoutedEventArgs e)
+    {
+        var files = Directory.GetFiles(Globals.L4D2AddonsDir);
+        if (files.Length == 0)
+        {
+            MsgBoxUtil.Warning("Addons文件夹未发现文件，操作取消");
+            return;
+        }
+
+        if (MessageBox.Show("你确认要清空Addons文件夹VPK文件吗？", "警告",
+            MessageBoxButton.OKCancel, MessageBoxImage.Information) == MessageBoxResult.OK)
+        {
+            foreach (var file in files)
+            {
+                if (Path.GetExtension(file) == ".vpk")
+                {
+                    File.Delete(file);
+                }
+            }
+
+            MsgBoxUtil.Information("清空Addons文件夹VPK文件成功");
+        }
     }
 }

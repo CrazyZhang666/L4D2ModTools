@@ -12,7 +12,6 @@ public static class Globals
     public const string OutputDir = ".\\__Output";
     public const string AppDataDir = ".\\AppData";
     public const string ConfigDir = ".\\Config";
-    public const string VPKDir = ".\\VPK";
 
     public const string SharedDir = $"{AppDataDir}\\__Shared";
 

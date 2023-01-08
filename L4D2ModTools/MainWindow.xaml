@@ -28,9 +28,6 @@
         <TabItem Header="配置目录">
             <views:ConfigView />
         </TabItem>
-        <TabItem Header="VPK下载">
-            <views:DownloadView />
-        </TabItem>
         <TabItem Header="准备工作">
             <views:ReadyView />
         </TabItem>

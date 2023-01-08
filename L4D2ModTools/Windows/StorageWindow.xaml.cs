@@ -131,26 +131,8 @@ public partial class StorageWindow : Window
                     MsgBoxUtil.Information($"删除文件 {info.Name} 成功");
                 else
                     MsgBoxUtil.Error($"删除文件 {info.Name} 失败");
-            }
-        }
-    }
 
-    /// <summary>
-    /// 清空全部文件按钮点击事件
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void Button_ClearAllFile_Click(object sender, RoutedEventArgs e)
-    {
-        if (ListView_RemoteStorage.Items.Count != 0)
-        {
-            if (MessageBox.Show($"您确定要清空全部文件吗？此操作不可撤销！",
-                "清空全部文件", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
-            {
-                foreach (var file in SteamRemoteStorage.Files)
-                    SteamRemoteStorage.FileDelete(file);
-
-                MsgBoxUtil.Information("清空全部文件成功");
+                RefreshList();
             }
         }
     }

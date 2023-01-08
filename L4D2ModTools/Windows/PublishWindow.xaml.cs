@@ -328,7 +328,11 @@ public partial class PublishWindow : Window
                     if (SteamRemoteStorage.UpdatePublished(fileId, changeLog, vpkName))
                     {
                         ReportProgress(1.0);
-                        MsgBoxUtil.Information("更新已发布物品VPK文件成功");
+                        if (MessageBox.Show("更新已发布物品VPK文件成功，现在关闭窗口吗？", "更新成功",
+                            MessageBoxButton.OKCancel, MessageBoxImage.Information) == MessageBoxResult.OK)
+                        {
+                            this.Close();
+                        }
                     }
                     else
                     {

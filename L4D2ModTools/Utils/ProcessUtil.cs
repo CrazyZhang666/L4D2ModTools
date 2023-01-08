@@ -64,12 +64,4 @@ public static class ProcessUtil
         foreach (var targetPro in appProcess)
             targetPro.Kill();
     }
-
-    /// <summary>
-    /// 关闭全部第三方exe进程
-    /// </summary>
-    public static void CloseThirdProcess()
-    {
-        CloseProcess("Notepad2");
-    }
 }

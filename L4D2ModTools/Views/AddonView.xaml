@@ -149,6 +149,12 @@
                 <!--  ////////////////////  -->
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button
+                        x:Name="Button_ClearAddons"
+                        Margin="5,0,0,5"
+                        Click="Button_ClearAddons_Click"
+                        Content="清空Addons文件夹VPK文件"
+                        Foreground="Red" />
+                    <Button
                         x:Name="Button_SendAddons"
                         Margin="5,0,0,5"
                         Click="Button_SendAddons_Click"
