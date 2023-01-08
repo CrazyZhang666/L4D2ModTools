@@ -3,6 +3,8 @@ using L4D2ModTools.Utils;
 using L4D2ModTools.Steam;
 using L4D2ModTools.Windows;
 
+using Steamworks;
+
 namespace L4D2ModTools.Views;
 
 /// <summary>
@@ -46,6 +48,39 @@ public partial class PublishView : UserControl
             TextBox_Logger.AppendText($"[{DateTime.Now:HH:mm:ss.fff}] {log}\n");
             TextBox_Logger.ScrollToEnd();
         });
+    }
+
+    /// <summary>
+    /// 自动调整列宽
+    /// </summary>
+    private void AutoColumWidth()
+    {
+        lock (this)
+        {
+            if (ListView_WorkShops.View is GridView view)
+            {
+                foreach (GridViewColumn gvc in view.Columns)
+                {
+                    gvc.Width = 100;
+                    gvc.Width = double.NaN;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// 刷新配额信息
+    /// </summary>
+    private void RefushQuotaInfo()
+    {
+        if (Workshop.Init())
+        {
+            var quotaBytes = SteamRemoteStorage.QuotaBytes;
+            var quotaUsedBytes = SteamRemoteStorage.QuotaUsedBytes;
+
+            Border_QuotaUse.Width = 1.0 * quotaUsedBytes / quotaBytes * 200;
+            TextBlock_QuotaInfo.Text = $"{MiscUtil.ByteConverterMB(quotaUsedBytes)} / {MiscUtil.ByteConverterMB(quotaBytes)}";
+        }
     }
 
     /// <summary>
@@ -96,7 +131,29 @@ public partial class PublishView : UserControl
             AddLogger("刷新Mod列表完成");
         }
 
+        RefushQuotaInfo();
+
         Button_RefushModList.IsEnabled = true;
+
+        await Task.Delay(500);
+        AutoColumWidth();
+    }
+
+    /// <summary>
+    /// 管理STEAM云按钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_SteamCloud_Click(object sender, RoutedEventArgs e)
+    {
+        if (Workshop.Init())
+        {
+            var storageWindow = new StorageWindow()
+            {
+                Owner = MainWindow.MainWindowInstance
+            };
+            storageWindow.ShowDialog();
+        }
     }
 
     /// <summary>
@@ -142,11 +199,9 @@ public partial class PublishView : UserControl
     {
         if (ListView_WorkShops.SelectedItem is ItemInfo info)
         {
-            if (MessageBox.Show("您确定要删除这件物品吗？此操作不可撤销！", "删除物品", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            if (MessageBox.Show($"您确定要删除这件物品吗？此操作不可撤销！\n\n标题：{info.Title}\n物品ID：{info.Id}",
+                "删除物品", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
             {
-                if (!Workshop.Init())
-                    return;
-
                 Workshop.DeletePublishedFile(info.Id);
             }
         }
@@ -170,16 +225,6 @@ public partial class PublishView : UserControl
     /// <param name="e"></param>
     private void Button_AutoColumWidth_Click(object sender, RoutedEventArgs e)
     {
-        lock (this)
-        {
-            if (ListView_WorkShops.View is GridView workshop)
-            {
-                foreach (GridViewColumn gvc in workshop.Columns)
-                {
-                    gvc.Width = 100;
-                    gvc.Width = double.NaN;
-                }
-            }
-        }
+        AutoColumWidth();
     }
 }

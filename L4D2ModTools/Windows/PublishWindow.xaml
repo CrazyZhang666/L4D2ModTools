@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="Window_Publish"
-    Title="发布L4D2创意工坊"
+    Title="求生之路2 发布创意工坊"
     Width="1000"
     Height="700"
     Closing="Window_Publish_Closing"

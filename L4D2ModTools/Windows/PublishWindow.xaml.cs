@@ -7,9 +7,6 @@ using L4D2ModTools.Helper;
 using Steamworks;
 using Steamworks.Ugc;
 using Steamworks.Data;
-using System.Security.Principal;
-using System.Reflection.Metadata;
-using System;
 
 namespace L4D2ModTools.Windows;
 
@@ -18,8 +15,6 @@ namespace L4D2ModTools.Windows;
 /// </summary>
 public partial class PublishWindow : Window
 {
-    private Progress<float> Progress;
-
     public bool IsPublish = true;
 
     private const string NotUploadFile = "不上传VPK文件";
@@ -32,7 +27,6 @@ public partial class PublishWindow : Window
         this.DataContext = this;
 
         IsPublish = isPublish;
-
         if (!isPublish)
         {
             TextBox_Title.Text = itemInfo.Title;
@@ -54,8 +48,6 @@ public partial class PublishWindow : Window
 
     private void Window_Publish_Loaded(object sender, RoutedEventArgs e)
     {
-        Progress = new Progress<float>(ReportProgress);
-
         ComboBox_ContentFile.Items.Add(NotUploadFile);
         ComboBox_ContentFile.SelectedIndex = 0;
         foreach (var item in Directory.GetFiles(Globals.OutputDir))
@@ -66,14 +58,14 @@ public partial class PublishWindow : Window
 
         if (IsPublish)
         {
-            Title = "发布L4D2创意工坊";
+            Title = "求生之路2 发布创意工坊";
             Button_PublishMod.Content = "发布Mod";
 
             RadioButton_IsFriendsOnly.IsChecked = true;
         }
         else
         {
-            Title = "更新选中Mod信息";
+            Title = "求生之路2 更新Mod信息";
             Button_PublishMod.Content = "更新Mod";
         }
     }
@@ -88,9 +80,12 @@ public partial class PublishWindow : Window
     /// 报告进度
     /// </summary>
     /// <param name="progress"></param>
-    private void ReportProgress(float progress)
+    private void ReportProgress(double progress)
     {
-        this.ProgressBar_Publish.Value = progress;
+        this.Dispatcher.BeginInvoke(DispatcherPriority.Background, () =>
+        {
+            this.ProgressBar_Publish.Value = progress;
+        });
     }
 
     private void ComboBox_ContentFile_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -131,6 +126,8 @@ public partial class PublishWindow : Window
     /// </summary>
     private async Task PublishMod()
     {
+        ReportProgress(0.0);
+
         if (!Workshop.Init())
             return;
 
@@ -165,24 +162,6 @@ public partial class PublishWindow : Window
         // Mod描述
         var description = TextBox_Description.Text.Trim();
 
-        // 预览图二进制文件
-        var imgData = await File.ReadAllBytesAsync(imgPath);
-        // 上传预览图文件到Steam云存储
-        if (!SteamRemoteStorage.FileWrite(imgName, imgData))
-        {
-            MsgBoxUtil.Error("上传预览图文件到Steam云存储失败");
-            return;
-        }
-
-        // VPK二进制文件
-        var vpkData = await File.ReadAllBytesAsync(vpkPath);
-        // 上传VPK文件到Steam云存储
-        if (!SteamRemoteStorage.FileWrite(vpkName, vpkData))
-        {
-            MsgBoxUtil.Error("上传VPK文件到Steam云存储失败");
-            return;
-        }
-
         // 可见性
         var visibility = new RemoteStoragePublishedFileVisibility();
         if (RadioButton_IsPublic.IsChecked == true)
@@ -199,16 +178,43 @@ public partial class PublishWindow : Window
         var tag = TextBlock_Tags.Text.Replace("Survivors,", "").Trim();
         if (!string.IsNullOrWhiteSpace(tag))
             tags.Add(tag);
-        // 标签格式转换
-        using var a = SteamParamStringArray.From(tags.ToArray());
-        var val = a.Value;
+
+        ReportProgress(0.2);
+
+        // 预览图二进制文件
+        var imgData = await File.ReadAllBytesAsync(imgPath);
+        // 上传预览图文件到Steam云存储
+        if (!SteamRemoteStorage.FileWrite(imgName, imgData))
+        {
+            MsgBoxUtil.Error("上传预览图文件到Steam云存储失败，操作取消");
+            return;
+        }
+
+        ReportProgress(0.5);
+
+        // VPK二进制文件
+        var vpkData = await File.ReadAllBytesAsync(vpkPath);
+        // 上传VPK文件到Steam云存储
+        if (!SteamRemoteStorage.FileWrite(vpkName, vpkData))
+        {
+            MsgBoxUtil.Error("上传VPK文件到Steam云存储失败，操作取消");
+            return;
+        }
+
+        ReportProgress(0.8);
 
         // 从Steam云存储发布
-        var fileId = await SteamRemoteStorage.PublishWorkshopFile(vpkName, imgName, title, description, visibility, val);
-        if (fileId != 0)
-            MsgBoxUtil.Information($"发布L4D2创意工坊成功，物品Id：{fileId}");
+        var result_t = await SteamRemoteStorage.PublishWorkshopFile(vpkName, imgName, title, description, visibility, tags);
+        if (result_t.Value.Result == Result.OK)
+        {
+            ReportProgress(1.0);
+            MsgBoxUtil.Information($"发布L4D2创意工坊成功，物品Id：{result_t.Value.PublishedFileId.Value}");
+        }
         else
-            MsgBoxUtil.Error("发布L4D2创意工坊失败");
+        {
+            MsgBoxUtil.Error($"发布L4D2创意工坊失败 {result_t.Value.Result}，操作取消");
+            ReportProgress(0.0);
+        }
     }
 
     /// <summary>
@@ -216,31 +222,53 @@ public partial class PublishWindow : Window
     /// </summary>
     private async Task UpdateMod()
     {
-        if (string.IsNullOrWhiteSpace(TextBlock_Id.Text))
+        // 物品Id
+        var id = TextBlock_Id.Text.Trim();
+        if (string.IsNullOrWhiteSpace(id))
         {
             MsgBoxUtil.Error("创意工坊物品Id不能为空，操作取消");
             return;
         }
 
-        var editor = new Editor(new PublishedFileId
-        {
-            Value = ulong.Parse(TextBlock_Id.Text)
-        });
-
         ///////////////////////////////////////////////////
 
-        if (string.IsNullOrWhiteSpace(TextBox_Title.Text))
+        // 创建更新Mod请求
+        var editor = new Editor(new PublishedFileId
         {
-            MsgBoxUtil.Error("Mod标题不能为空，操作取消");
+            Value = ulong.Parse(id)
+        });
+
+        // 标题
+        var title = TextBox_Title.Text.Trim();
+        if (string.IsNullOrWhiteSpace(title))
+        {
+            MsgBoxUtil.Warning("Mod标题不能为空，操作取消");
             return;
         }
 
-        // 标题
-        editor.WithTitle(TextBox_Title.Text.Trim());
-        // 描述
-        editor.WithDescription(TextBox_Description.Text.Trim());
-        // 更新日志
-        editor.WithChangeLog(TextBox_ChangeLog.Text.Trim());
+        // 预览图绝对路径
+        var imgPath = TextBox_PreviewImage.Text.Trim();
+        if (!imgPath.StartsWith("http"))
+        {
+            if (!File.Exists(imgPath))
+            {
+                MsgBoxUtil.Warning("Mod预览图文件为空或不存在，操作取消");
+                return;
+            }
+            else
+            {
+                // 预览图
+                editor.WithPreviewFile(imgPath);
+            }
+        }
+
+        ReportProgress(0.2);
+
+        // Mod描述
+        var description = TextBox_Description.Text.Trim();
+
+        editor.WithTitle(title);
+        editor.WithDescription(description);
 
         // 可见性
         if (RadioButton_IsPublic.IsChecked == true)
@@ -252,18 +280,6 @@ public partial class PublishWindow : Window
         else if (RadioButton_IsUnlisted.IsChecked == true)
             editor.WithUnlistedVisibility();
 
-        if (ComboBox_ContentFile.SelectedItem is string name)
-        {
-            if (name != NotUploadFile)
-            {
-                // VPK目录
-                //editor.WithContent(Globals.FullPublishDir);
-
-                // 预览图
-                editor.WithPreviewFile(TextBox_PreviewImage.Text.Trim());
-            }
-        }
-
         // 标签
         var tag = TextBlock_Tags.Text.Replace("Survivors,", "").Trim();
         if (!string.IsNullOrWhiteSpace(tag))
@@ -272,15 +288,73 @@ public partial class PublishWindow : Window
             editor.WithTag(tag);
         }
 
+        ReportProgress(0.3);
+
         // 提交更新请求
-        var result = await editor.SubmitAsync(Progress);
+        var result = await editor.SubmitAsync();
         if (result.Success)
         {
-            MsgBoxUtil.Information($"更新选中Mod信息成功 {result.Result}");
+            ReportProgress(0.5);
+
+            // VPK文件绝对路径
+            var vpkPath = TextBox_VPKPath.Text.Trim();
+            if (string.IsNullOrWhiteSpace(vpkPath))
+            {
+                MsgBoxUtil.Information($"更新选中Mod信息成功 {result.Result}");
+                ReportProgress(1.0);
+                return;
+            }
+
+            if (File.Exists(vpkPath))
+            {
+                // VPK文件名称
+                var vpkName = Path.GetFileName(vpkPath);
+                // VPK二进制文件
+                var vpkData = await File.ReadAllBytesAsync(vpkPath);
+
+                ReportProgress(0.6);
+
+                // 上传VPK文件到Steam云存储
+                if (SteamRemoteStorage.FileWrite(vpkName, vpkData))
+                {
+                    ReportProgress(0.8);
+
+                    var fileId = new PublishedFileId
+                    {
+                        Value = ulong.Parse(id)
+                    };
+                    var changeLog = TextBox_ChangeLog.Text.Trim();
+                    // 更新VPK文件和分部分项日志
+                    if (SteamRemoteStorage.UpdatePublished(fileId, changeLog, vpkName))
+                    {
+                        ReportProgress(1.0);
+                        MsgBoxUtil.Information("更新已发布物品VPK文件成功");
+                    }
+                    else
+                    {
+                        MsgBoxUtil.Error("更新已发布物品VPK文件失败，操作取消");
+                        ReportProgress(0.0);
+                        return;
+                    }
+                }
+                else
+                {
+                    MsgBoxUtil.Error("上传VPK文件到Steam云存储失败，操作取消");
+                    ReportProgress(0.0);
+                    return;
+                }
+            }
+            else
+            {
+                MsgBoxUtil.Warning("Mod主体VPK文件不能为空或不存在，操作取消");
+                ReportProgress(0.0);
+                return;
+            }
         }
         else
         {
-            MsgBoxUtil.Error($"更新选中Mod信息失败 {result.Result}");
+            MsgBoxUtil.Error($"更新选中Mod信息失败 {result.Result}，操作取消");
+            ReportProgress(0.0);
         }
     }
 }

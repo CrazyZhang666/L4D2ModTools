@@ -3,8 +3,8 @@ using L4D2ModTools.Data;
 using L4D2ModTools.Utils;
 
 using Steamworks;
-using Steamworks.Data;
 using Steamworks.Ugc;
+using Steamworks.Data;
 
 namespace L4D2ModTools.Steam;
 
@@ -197,8 +197,8 @@ public static class Workshop
                         IsPrivate = item.IsPrivate,
                         IsUnlisted = item.IsUnlisted,
                         PublicState = GetPublicState(item.IsPublic, item.IsFriendsOnly, item.IsPrivate, item.IsUnlisted),
-                        Updated = item.Updated.ToString(),
-                        Created = item.Created.ToString(),
+                        Updated = MiscUtil.FormatDateTime(item.Updated),
+                        Created = MiscUtil.FormatDateTime(item.Created),
                         Tags = item.Tags,
                         TagsContent = GetTagsContent(item.Tags),
                         Owner = item.Owner.Name,
@@ -220,6 +220,9 @@ public static class Workshop
     /// <param name="id"></param>
     public static async void DeletePublishedFile(ulong id)
     {
+        if (!Init())
+            return;
+
         var fileId = new PublishedFileId
         {
             Value = id

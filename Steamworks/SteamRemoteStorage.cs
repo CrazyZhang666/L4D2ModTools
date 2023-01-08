@@ -180,20 +180,37 @@ public class SteamRemoteStorage : SteamClientClass<SteamRemoteStorage>
         }
     }
 
-    public static async Task<ulong> PublishWorkshopFile(string fileName, string previewFileName, string title, string description, RemoteStoragePublishedFileVisibility fileVisibility, SteamParamStringArray_t tags)
+    ///////////////////////////////////////////////////////////////////////
+
+    public static readonly AppId L4D2AppId = new() { Value = 550 };
+
+    /// <summary>
+    /// 发布求生之路2创意工坊Mod
+    /// </summary>
+    public static async Task<RemoteStoragePublishFileResult_t?> PublishWorkshopFile(string fileName, string previewFileName, string title, string description, RemoteStoragePublishedFileVisibility fileVisibility, List<string> tags)
     {
-        var appId = new AppId
+        using var val = SteamParamStringArray.From(tags.ToArray());
+        return await Internal.PublishWorkshopFile(fileName, previewFileName, L4D2AppId, title, description, fileVisibility, val.Value, WorkshopFileType.Community);
+    }
+
+    /// <summary>
+    /// 更新求生之路2已发布创意工坊Mod
+    /// </summary>
+    public static bool UpdatePublished(PublishedFileId fileId, string changeLog, string fileName)
+    {
+        var updateHandle_t = Internal.CreatePublishedFileUpdateRequest(fileId);
+        if (updateHandle_t.Value != 0)
         {
-            Value = 550
-        };
-        var result_T = await Internal.PublishWorkshopFile(fileName, previewFileName, appId, title, description, fileVisibility, tags, WorkshopFileType.Community);
-        if (result_T.Value.Result == Result.OK)
-        {
-            return result_T.Value.PublishedFileId.Value;
+            // 更新日志
+            Internal.UpdatePublishedFileSetChangeDescription(updateHandle_t, changeLog);
+            // 更新VPK文件
+            Internal.UpdatePublishedFileFile(updateHandle_t, fileName);
+            // 提交更新
+            Internal.CommitPublishedFileUpdate(updateHandle_t);
+
+            return true;
         }
-        else
-        {
-            return 0;
-        }
+
+        return false;
     }
 }

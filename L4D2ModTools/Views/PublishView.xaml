@@ -18,13 +18,41 @@
         <DockPanel>
             <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
                 <Button
+                    x:Name="Button_RefushModList"
+                    Margin="5,5,0,5"
+                    Click="Button_RefushModList_Click"
+                    Content="刷新Mod列表" />
+                <Button
                     x:Name="Button_AutoColumWidth"
                     Margin="5,5,0,5"
                     Click="Button_AutoColumWidth_Click"
                     Content="自动调整列宽" />
                 <Button
+                    x:Name="Button_SteamCloud"
+                    Margin="5,5,0,5"
+                    Click="Button_SteamCloud_Click"
+                    Content="管理STEAM云" />
+                <Grid>
+                    <Border
+                        Width="200"
+                        Margin="5"
+                        Background="#EEEEF2">
+                        <Border
+                            x:Name="Border_QuotaUse"
+                            Width="10"
+                            HorizontalAlignment="Left"
+                            Background="Green" />
+                    </Border>
+                    <TextBlock
+                        x:Name="TextBlock_QuotaInfo"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="25 MB / 1024 MB" />
+                </Grid>
+                <!--  //////////////////////////  -->
+                <Button
                     Name="Button_RestarApp"
-                    Margin="5"
+                    Margin="0,5,5,5"
                     Click="Button_RestarApp_Click"
                     Content="重启工具" />
             </StackPanel>
@@ -34,30 +62,10 @@
                     Margin="5,5,0,5"
                     Click="Button_RunSteam_Click"
                     Content="启动Steam" />
-                <Button
-                    x:Name="Button_RefushModList"
-                    Margin="5,5,0,5"
-                    Click="Button_RefushModList_Click"
-                    Content="刷新Mod列表" />
-                <Grid>
-                    <Border
-                        Width="200"
-                        Margin="5"
-                        Background="#EEEEF2">
-                        <Border
-                            Width="10"
-                            HorizontalAlignment="Left"
-                            Background="Green" />
-                    </Border>
-                    <TextBlock
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Text="25 / 1024 MB" />
-                </Grid>
                 <!--  /////////////////////////  -->
                 <Button
                     Name="Button_PublishWorkshop"
-                    Margin="0,5,0,5"
+                    Margin="5,5,0,5"
                     Click="Button_PublishWorkshop_Click"
                     Content="发布L4D2创意工坊" />
                 <Button
@@ -109,18 +117,18 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="物品Id" />
-                    <GridViewColumn Header="标题">
+                    <GridViewColumn Header="物品ID">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock>
                                     <Hyperlink NavigateUri="{Binding Url}" RequestNavigate="Hyperlink_RequestNavigate">
-                                        <Run Text="{Binding Title}" />
+                                        <Run Text="{Binding Id}" />
                                     </Hyperlink>
                                 </TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Header="标题" />
                     <GridViewColumn DisplayMemberBinding="{Binding FileSize}" Header="文件大小" />
                     <GridViewColumn DisplayMemberBinding="{Binding PublicState}" Header="可见性" />
                     <GridViewColumn DisplayMemberBinding="{Binding Updated}" Header="更新日期" />

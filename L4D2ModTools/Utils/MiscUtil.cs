@@ -45,6 +45,36 @@ public static class MiscUtil
     }
 
     /// <summary>
+    /// 字节转MB单位，保留2位小数
+    /// </summary>
+    /// <param name="size"></param>
+    /// <returns></returns>
+    public static string ByteConverterMB(ulong size)
+    {
+        return $"{size / MB:0.00} MB";
+    }
+
+    /// <summary>
+    /// 格式化输出日期时间
+    /// </summary>
+    /// <param name="dateTime"></param>
+    /// <returns></returns>
+    public static string FormatDateTime(DateTime dateTime)
+    {
+        return dateTime.ToString("yyyy/MM/dd HH:mm:ss");
+    }
+
+    /// <summary>
+    /// 布尔值转字符串符号
+    /// </summary>
+    /// <param name="flag"></param>
+    /// <returns></returns>
+    public static string BoolToFlag(bool flag)
+    {
+        return flag ? "✔" : "";
+    }
+
+    /// <summary>
     /// 从资源文件中抽取资源文件
     /// </summary>
     /// <param name="resFileName"></param>
