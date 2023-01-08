@@ -48,7 +48,6 @@ public partial class MainWindow : Window
         {
             // 创建文件夹
             Directory.CreateDirectory(Globals.OutputDir);
-            Directory.CreateDirectory(Globals.PublishDir);
             Directory.CreateDirectory(Globals.ConfigDir);
 
             // 创建INI配置文件

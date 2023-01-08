@@ -1,4 +1,7 @@
-﻿namespace Steamworks;
+﻿using Steamworks.Data;
+using Steamworks.Ugc;
+
+namespace Steamworks;
 
 /// <summary>
 /// Class for utilizing the Steam Remote Storage API.
@@ -177,4 +180,20 @@ public class SteamRemoteStorage : SteamClientClass<SteamRemoteStorage>
         }
     }
 
+    public static async Task<ulong> PublishWorkshopFile(string fileName, string previewFileName, string title, string description, RemoteStoragePublishedFileVisibility fileVisibility, SteamParamStringArray_t tags)
+    {
+        var appId = new AppId
+        {
+            Value = 550
+        };
+        var result_T = await Internal.PublishWorkshopFile(fileName, previewFileName, appId, title, description, fileVisibility, tags, WorkshopFileType.Community);
+        if (result_T.Value.Result == Result.OK)
+        {
+            return result_T.Value.PublishedFileId.Value;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

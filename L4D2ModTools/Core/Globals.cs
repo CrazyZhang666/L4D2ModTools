@@ -10,7 +10,6 @@ public static class Globals
     /////////////////////////////////////////////////////////////
 
     public const string OutputDir = ".\\__Output";
-    public const string PublishDir = ".\\__Publish";
     public const string AppDataDir = ".\\AppData";
     public const string ConfigDir = ".\\Config";
 
@@ -23,7 +22,6 @@ public static class Globals
     public const string AppWeaponsQc = $"{AppWeaponsDir}\\__Main.qci";
 
     public static string FullOutputDir = Directory.GetCurrentDirectory() + "\\__Output";
-    public static string FullPublishDir = Directory.GetCurrentDirectory() + "\\__Publish";
 
     /////////////////////////////////////////////////////////////
 

@@ -39,9 +39,25 @@
                     Margin="5,5,0,5"
                     Click="Button_RefushModList_Click"
                     Content="刷新Mod列表" />
+                <Grid>
+                    <Border
+                        Width="200"
+                        Margin="5"
+                        Background="#EEEEF2">
+                        <Border
+                            Width="10"
+                            HorizontalAlignment="Left"
+                            Background="Green" />
+                    </Border>
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="25 / 1024 MB" />
+                </Grid>
+                <!--  /////////////////////////  -->
                 <Button
                     Name="Button_PublishWorkshop"
-                    Margin="5,5,0,5"
+                    Margin="0,5,0,5"
                     Click="Button_PublishWorkshop_Click"
                     Content="发布L4D2创意工坊" />
                 <Button
@@ -93,7 +109,7 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="物品ID" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="物品Id" />
                     <GridViewColumn Header="标题">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

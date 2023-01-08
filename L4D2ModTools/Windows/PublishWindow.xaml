@@ -34,6 +34,11 @@
                         FontWeight="Bold"
                         Text="内容文件 ContentFile ( .vpk )" />
                     <ComboBox x:Name="ComboBox_ContentFile" SelectionChanged="ComboBox_ContentFile_SelectionChanged" />
+                    <TextBox
+                        x:Name="TextBox_VPKPath"
+                        Cursor="Arrow"
+                        IsReadOnly="True"
+                        Style="{StaticResource TextBoxStyle_InputBox}" />
                     <!--  //////////////////  -->
                     <TextBlock
                         Margin="5"

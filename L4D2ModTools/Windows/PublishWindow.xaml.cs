@@ -7,6 +7,9 @@ using L4D2ModTools.Helper;
 using Steamworks;
 using Steamworks.Ugc;
 using Steamworks.Data;
+using System.Security.Principal;
+using System.Reflection.Metadata;
+using System;
 
 namespace L4D2ModTools.Windows;
 
@@ -90,43 +93,24 @@ public partial class PublishWindow : Window
         this.ProgressBar_Publish.Value = progress;
     }
 
-    /// <summary>
-    /// 清空发布文件夹文件
-    /// </summary>
-    private void ClearPublish()
-    {
-        foreach (var item in Directory.GetFiles(Globals.PublishDir))
-        {
-            File.Delete(item);
-        }
-    }
-
     private void ComboBox_ContentFile_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (ComboBox_ContentFile.SelectedItem is string fileName)
         {
-            ClearPublish();
-
             if (fileName == NotUploadFile)
                 return;
 
-            var vpk = $"{Globals.OutputDir}\\{fileName}.vpk";
+            var vpk = $"{Globals.FullOutputDir}\\{fileName}.vpk";
             var jpg = $"{Globals.FullOutputDir}\\{fileName}.jpg";
-            var json = $"{Globals.OutputDir}\\{fileName}.json";
+            var json = $"{Globals.FullOutputDir}\\{fileName}.json";
 
-            if (File.Exists(jpg))
-                TextBox_PreviewImage.Text = jpg;
+            TextBox_VPKPath.Text = vpk;
+            TextBox_PreviewImage.Text = jpg;
 
-            if (File.Exists(json))
-            {
-                var addonInfo = JsonHelper.ReadFile<AddonInfo>(json);
-                TextBox_Title.Text = addonInfo.AddonTitle;
-                TextBlock_Tags.Text = $"Survivors, {addonInfo.Survivor}";
-                TextBox_Description.Text = addonInfo.Description;
-            }
-
-            if (File.Exists(vpk))
-                File.Copy(vpk, $"{Globals.PublishDir}\\{fileName}.vpk");
+            var addonInfo = JsonHelper.ReadFile<AddonInfo>(json);
+            TextBox_Title.Text = addonInfo.AddonTitle;
+            TextBlock_Tags.Text = $"Survivors, {addonInfo.Survivor}";
+            TextBox_Description.Text = addonInfo.Description;
         }
     }
 
@@ -150,70 +134,81 @@ public partial class PublishWindow : Window
         if (!Workshop.Init())
             return;
 
-        if (string.IsNullOrWhiteSpace(TextBox_Title.Text))
+        // 标题
+        var title = TextBox_Title.Text.Trim();
+        if (string.IsNullOrWhiteSpace(title))
         {
             MsgBoxUtil.Warning("Mod标题不能为空，操作取消");
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(TextBox_PreviewImage.Text))
+        // 预览图绝对路径
+        var imgPath = TextBox_PreviewImage.Text.Trim();
+        if (!File.Exists(imgPath))
         {
-            MsgBoxUtil.Warning("Mod预览图文件不能为空，操作取消");
+            MsgBoxUtil.Warning("Mod预览图文件为空或不存在，操作取消");
+            return;
+        }
+        // 预览图名称
+        var imgName = Path.GetFileName(imgPath);
+
+        // VPK文件绝对路径
+        var vpkPath = TextBox_VPKPath.Text.Trim();
+        if (!File.Exists(vpkPath))
+        {
+            MsgBoxUtil.Warning("Mod主体VPK文件不能为空或不存在，操作取消");
+            return;
+        }
+        // VPK文件名称
+        var vpkName = Path.GetFileName(vpkPath);
+
+        // Mod描述
+        var description = TextBox_Description.Text.Trim();
+
+        // 预览图二进制文件
+        var imgData = await File.ReadAllBytesAsync(imgPath);
+        // 上传预览图文件到Steam云存储
+        if (!SteamRemoteStorage.FileWrite(imgName, imgData))
+        {
+            MsgBoxUtil.Error("上传预览图文件到Steam云存储失败");
             return;
         }
 
-        if (!Directory.Exists(Globals.PublishDir))
+        // VPK二进制文件
+        var vpkData = await File.ReadAllBytesAsync(vpkPath);
+        // 上传VPK文件到Steam云存储
+        if (!SteamRemoteStorage.FileWrite(vpkName, vpkData))
         {
-            MsgBoxUtil.Warning("Mod标题上传VPK目录不存在，操作取消");
+            MsgBoxUtil.Error("上传VPK文件到Steam云存储失败");
             return;
         }
-
-        if (Directory.GetFiles(Globals.PublishDir).Length == 0)
-        {
-            MsgBoxUtil.Warning("Mod标题上传VPK目录文件为空，操作取消");
-            return;
-        }
-
-        var editor = Editor.NewCommunityFile.WithTag("Survivors");
-
-        // 标题
-        editor.WithTitle(TextBox_Title.Text.Trim());
-        // 描述
-        editor.WithDescription(TextBox_Description.Text.Trim());
-        // 更新日志
-        editor.WithChangeLog(TextBox_ChangeLog.Text.Trim());
-
-        // 预览图
-        editor.WithPreviewFile(TextBox_PreviewImage.Text.Trim());
-
-        // 标签
-        var tag = TextBlock_Tags.Text.Replace("Survivors,", "").Trim();
-        if (!string.IsNullOrWhiteSpace(tag))
-            editor.WithTag(tag);
 
         // 可见性
+        var visibility = new RemoteStoragePublishedFileVisibility();
         if (RadioButton_IsPublic.IsChecked == true)
-            editor.WithPublicVisibility();
+            visibility = RemoteStoragePublishedFileVisibility.Public;
         else if (RadioButton_IsFriendsOnly.IsChecked == true)
-            editor.WithFriendsOnlyVisibility();
+            visibility = RemoteStoragePublishedFileVisibility.FriendsOnly;
         else if (RadioButton_IsPrivate.IsChecked == true)
-            editor.WithPrivateVisibility();
+            visibility = RemoteStoragePublishedFileVisibility.Private;
         else if (RadioButton_IsUnlisted.IsChecked == true)
-            editor.WithUnlistedVisibility();
+            visibility = RemoteStoragePublishedFileVisibility.Unlisted;
 
-        // VPK目录
-        //editor.WithContent(Globals.FullPublishDir);
+        // 标签
+        var tags = new List<string> { "Survivors" };
+        var tag = TextBlock_Tags.Text.Replace("Survivors,", "").Trim();
+        if (!string.IsNullOrWhiteSpace(tag))
+            tags.Add(tag);
+        // 标签格式转换
+        using var a = SteamParamStringArray.From(tags.ToArray());
+        var val = a.Value;
 
-        // 提交更新请求
-        var result = await editor.SubmitAsync(Progress);
-        if (result.Success)
-        {
-            MsgBoxUtil.Information($"发布L4D2创意工坊成功 {result.Result}");
-        }
+        // 从Steam云存储发布
+        var fileId = await SteamRemoteStorage.PublishWorkshopFile(vpkName, imgName, title, description, visibility, val);
+        if (fileId != 0)
+            MsgBoxUtil.Information($"发布L4D2创意工坊成功，物品Id：{fileId}");
         else
-        {
-            MsgBoxUtil.Error($"发布L4D2创意工坊失败 {result.Result}");
-        }
+            MsgBoxUtil.Error("发布L4D2创意工坊失败");
     }
 
     /// <summary>
