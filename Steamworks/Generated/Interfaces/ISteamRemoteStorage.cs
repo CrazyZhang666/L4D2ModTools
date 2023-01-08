@@ -358,6 +358,277 @@ internal unsafe class ISteamRemoteStorage : SteamInterface
 	}
 	
 	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_PublishWorkshopFile", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _PublishWorkshopFile( IntPtr self, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchFile, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchPreviewFile, AppId nConsumerAppId, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchTitle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchDescription, RemoteStoragePublishedFileVisibility eVisibility, ref SteamParamStringArray_t pTags, WorkshopFileType eWorkshopFileType );
+	#endregion
+	
+	internal CallResult<RemoteStoragePublishFileProgress_t> PublishWorkshopFile( [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchFile, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchPreviewFile, AppId nConsumerAppId, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchTitle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchDescription, RemoteStoragePublishedFileVisibility eVisibility,  /* ref */ SteamParamStringArray_t pTags, WorkshopFileType eWorkshopFileType )
+	{
+		var returnValue = _PublishWorkshopFile( Self, pchFile, pchPreviewFile, nConsumerAppId, pchTitle, pchDescription, eVisibility, ref pTags, eWorkshopFileType );
+		return new CallResult<RemoteStoragePublishFileProgress_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_CreatePublishedFileUpdateRequest", CallingConvention = Platform.CC)]
+	private static extern PublishedFileUpdateHandle_t _CreatePublishedFileUpdateRequest( IntPtr self, PublishedFileId unPublishedFileId );
+	#endregion
+	
+	internal PublishedFileUpdateHandle_t CreatePublishedFileUpdateRequest( PublishedFileId unPublishedFileId )
+	{
+		var returnValue = _CreatePublishedFileUpdateRequest( Self, unPublishedFileId );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFileFile", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFileFile( IntPtr self, PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchFile );
+	#endregion
+	
+	internal bool UpdatePublishedFileFile( PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchFile )
+	{
+		var returnValue = _UpdatePublishedFileFile( Self, updateHandle, pchFile );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFilePreviewFile", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFilePreviewFile( IntPtr self, PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchPreviewFile );
+	#endregion
+	
+	internal bool UpdatePublishedFilePreviewFile( PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchPreviewFile )
+	{
+		var returnValue = _UpdatePublishedFilePreviewFile( Self, updateHandle, pchPreviewFile );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFileTitle", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFileTitle( IntPtr self, PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchTitle );
+	#endregion
+	
+	internal bool UpdatePublishedFileTitle( PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchTitle )
+	{
+		var returnValue = _UpdatePublishedFileTitle( Self, updateHandle, pchTitle );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFileDescription", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFileDescription( IntPtr self, PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchDescription );
+	#endregion
+	
+	internal bool UpdatePublishedFileDescription( PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchDescription )
+	{
+		var returnValue = _UpdatePublishedFileDescription( Self, updateHandle, pchDescription );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFileVisibility", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFileVisibility( IntPtr self, PublishedFileUpdateHandle_t updateHandle, RemoteStoragePublishedFileVisibility eVisibility );
+	#endregion
+	
+	internal bool UpdatePublishedFileVisibility( PublishedFileUpdateHandle_t updateHandle, RemoteStoragePublishedFileVisibility eVisibility )
+	{
+		var returnValue = _UpdatePublishedFileVisibility( Self, updateHandle, eVisibility );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFileTags", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFileTags( IntPtr self, PublishedFileUpdateHandle_t updateHandle, ref SteamParamStringArray_t pTags );
+	#endregion
+	
+	internal bool UpdatePublishedFileTags( PublishedFileUpdateHandle_t updateHandle, ref SteamParamStringArray_t pTags )
+	{
+		var returnValue = _UpdatePublishedFileTags( Self, updateHandle, ref pTags );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_CommitPublishedFileUpdate", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _CommitPublishedFileUpdate( IntPtr self, PublishedFileUpdateHandle_t updateHandle );
+	#endregion
+	
+	internal CallResult<RemoteStorageUpdatePublishedFileResult_t> CommitPublishedFileUpdate( PublishedFileUpdateHandle_t updateHandle )
+	{
+		var returnValue = _CommitPublishedFileUpdate( Self, updateHandle );
+		return new CallResult<RemoteStorageUpdatePublishedFileResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_GetPublishedFileDetails", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _GetPublishedFileDetails( IntPtr self, PublishedFileId unPublishedFileId, uint unMaxSecondsOld );
+	#endregion
+	
+	internal CallResult<RemoteStorageGetPublishedFileDetailsResult_t> GetPublishedFileDetails( PublishedFileId unPublishedFileId, uint unMaxSecondsOld )
+	{
+		var returnValue = _GetPublishedFileDetails( Self, unPublishedFileId, unMaxSecondsOld );
+		return new CallResult<RemoteStorageGetPublishedFileDetailsResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_DeletePublishedFile", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _DeletePublishedFile( IntPtr self, PublishedFileId unPublishedFileId );
+	#endregion
+	
+	internal CallResult<RemoteStorageDeletePublishedFileResult_t> DeletePublishedFile( PublishedFileId unPublishedFileId )
+	{
+		var returnValue = _DeletePublishedFile( Self, unPublishedFileId );
+		return new CallResult<RemoteStorageDeletePublishedFileResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_EnumerateUserPublishedFiles", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _EnumerateUserPublishedFiles( IntPtr self, uint unStartIndex );
+	#endregion
+	
+	internal CallResult<RemoteStorageEnumerateUserPublishedFilesResult_t> EnumerateUserPublishedFiles( uint unStartIndex )
+	{
+		var returnValue = _EnumerateUserPublishedFiles( Self, unStartIndex );
+		return new CallResult<RemoteStorageEnumerateUserPublishedFilesResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_SubscribePublishedFile", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _SubscribePublishedFile( IntPtr self, PublishedFileId unPublishedFileId );
+	#endregion
+	
+	internal CallResult<RemoteStorageSubscribePublishedFileResult_t> SubscribePublishedFile( PublishedFileId unPublishedFileId )
+	{
+		var returnValue = _SubscribePublishedFile( Self, unPublishedFileId );
+		return new CallResult<RemoteStorageSubscribePublishedFileResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_EnumerateUserSubscribedFiles", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _EnumerateUserSubscribedFiles( IntPtr self, uint unStartIndex );
+	#endregion
+	
+	internal CallResult<RemoteStorageEnumerateUserSubscribedFilesResult_t> EnumerateUserSubscribedFiles( uint unStartIndex )
+	{
+		var returnValue = _EnumerateUserSubscribedFiles( Self, unStartIndex );
+		return new CallResult<RemoteStorageEnumerateUserSubscribedFilesResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UnsubscribePublishedFile", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _UnsubscribePublishedFile( IntPtr self, PublishedFileId unPublishedFileId );
+	#endregion
+	
+	internal CallResult<RemoteStorageUnsubscribePublishedFileResult_t> UnsubscribePublishedFile( PublishedFileId unPublishedFileId )
+	{
+		var returnValue = _UnsubscribePublishedFile( Self, unPublishedFileId );
+		return new CallResult<RemoteStorageUnsubscribePublishedFileResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdatePublishedFileSetChangeDescription", CallingConvention = Platform.CC)]
+	[return: MarshalAs( UnmanagedType.I1 )]
+	private static extern bool _UpdatePublishedFileSetChangeDescription( IntPtr self, PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchChangeDescription );
+	#endregion
+	
+	internal bool UpdatePublishedFileSetChangeDescription( PublishedFileUpdateHandle_t updateHandle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchChangeDescription )
+	{
+		var returnValue = _UpdatePublishedFileSetChangeDescription( Self, updateHandle, pchChangeDescription );
+		return returnValue;
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_GetPublishedItemVoteDetails", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _GetPublishedItemVoteDetails( IntPtr self, PublishedFileId unPublishedFileId );
+	#endregion
+	
+	internal CallResult<RemoteStorageGetPublishedItemVoteDetailsResult_t> GetPublishedItemVoteDetails( PublishedFileId unPublishedFileId )
+	{
+		var returnValue = _GetPublishedItemVoteDetails( Self, unPublishedFileId );
+		return new CallResult<RemoteStorageGetPublishedItemVoteDetailsResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UpdateUserPublishedItemVote", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _UpdateUserPublishedItemVote( IntPtr self, PublishedFileId unPublishedFileId, [MarshalAs( UnmanagedType.U1 )] bool bVoteUp );
+	#endregion
+	
+	internal CallResult<RemoteStorageUpdateUserPublishedItemVoteResult_t> UpdateUserPublishedItemVote( PublishedFileId unPublishedFileId, [MarshalAs( UnmanagedType.U1 )] bool bVoteUp )
+	{
+		var returnValue = _UpdateUserPublishedItemVote( Self, unPublishedFileId, bVoteUp );
+		return new CallResult<RemoteStorageUpdateUserPublishedItemVoteResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_GetUserPublishedItemVoteDetails", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _GetUserPublishedItemVoteDetails( IntPtr self, PublishedFileId unPublishedFileId );
+	#endregion
+	
+	internal CallResult<RemoteStorageGetPublishedItemVoteDetailsResult_t> GetUserPublishedItemVoteDetails( PublishedFileId unPublishedFileId )
+	{
+		var returnValue = _GetUserPublishedItemVoteDetails( Self, unPublishedFileId );
+		return new CallResult<RemoteStorageGetPublishedItemVoteDetailsResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_EnumerateUserSharedWorkshopFiles", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _EnumerateUserSharedWorkshopFiles( IntPtr self, SteamId steamId, uint unStartIndex, ref SteamParamStringArray_t pRequiredTags, ref SteamParamStringArray_t pExcludedTags );
+	#endregion
+	
+	internal CallResult<RemoteStorageEnumerateUserPublishedFilesResult_t> EnumerateUserSharedWorkshopFiles( SteamId steamId, uint unStartIndex,  /* ref */ SteamParamStringArray_t pRequiredTags,  /* ref */ SteamParamStringArray_t pExcludedTags )
+	{
+		var returnValue = _EnumerateUserSharedWorkshopFiles( Self, steamId, unStartIndex, ref pRequiredTags, ref pExcludedTags );
+		return new CallResult<RemoteStorageEnumerateUserPublishedFilesResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_PublishVideo", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _PublishVideo( IntPtr self, WorkshopVideoProvider eVideoProvider, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchVideoAccount, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchVideoIdentifier, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchPreviewFile, AppId nConsumerAppId, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchTitle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchDescription, RemoteStoragePublishedFileVisibility eVisibility, ref SteamParamStringArray_t pTags );
+	#endregion
+	
+	internal CallResult<RemoteStoragePublishFileProgress_t> PublishVideo( WorkshopVideoProvider eVideoProvider, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchVideoAccount, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchVideoIdentifier, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchPreviewFile, AppId nConsumerAppId, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchTitle, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchDescription, RemoteStoragePublishedFileVisibility eVisibility,  /* ref */ SteamParamStringArray_t pTags )
+	{
+		var returnValue = _PublishVideo( Self, eVideoProvider, pchVideoAccount, pchVideoIdentifier, pchPreviewFile, nConsumerAppId, pchTitle, pchDescription, eVisibility, ref pTags );
+		return new CallResult<RemoteStoragePublishFileProgress_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_SetUserPublishedFileAction", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _SetUserPublishedFileAction( IntPtr self, PublishedFileId unPublishedFileId, WorkshopFileAction eAction );
+	#endregion
+	
+	internal CallResult<RemoteStorageSetUserPublishedFileActionResult_t> SetUserPublishedFileAction( PublishedFileId unPublishedFileId, WorkshopFileAction eAction )
+	{
+		var returnValue = _SetUserPublishedFileAction( Self, unPublishedFileId, eAction );
+		return new CallResult<RemoteStorageSetUserPublishedFileActionResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_EnumeratePublishedFilesByUserAction", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _EnumeratePublishedFilesByUserAction( IntPtr self, WorkshopFileAction eAction, uint unStartIndex );
+	#endregion
+	
+	internal CallResult<RemoteStorageEnumeratePublishedFilesByUserActionResult_t> EnumeratePublishedFilesByUserAction( WorkshopFileAction eAction, uint unStartIndex )
+	{
+		var returnValue = _EnumeratePublishedFilesByUserAction( Self, eAction, unStartIndex );
+		return new CallResult<RemoteStorageEnumeratePublishedFilesByUserActionResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
+	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_EnumeratePublishedWorkshopFiles", CallingConvention = Platform.CC)]
+	private static extern SteamAPICall_t _EnumeratePublishedWorkshopFiles( IntPtr self, WorkshopEnumerationType eEnumerationType, uint unStartIndex, uint unCount, uint unDays, ref SteamParamStringArray_t pTags, ref SteamParamStringArray_t pUserTags );
+	#endregion
+	
+	internal CallResult<RemoteStorageEnumerateWorkshopFilesResult_t> EnumeratePublishedWorkshopFiles( WorkshopEnumerationType eEnumerationType, uint unStartIndex, uint unCount, uint unDays,  /* ref */ SteamParamStringArray_t pTags,  /* ref */ SteamParamStringArray_t pUserTags )
+	{
+		var returnValue = _EnumeratePublishedWorkshopFiles( Self, eEnumerationType, unStartIndex, unCount, unDays, ref pTags, ref pUserTags );
+		return new CallResult<RemoteStorageEnumerateWorkshopFilesResult_t>( returnValue, IsServer );
+	}
+	
+	#region FunctionMeta
 	[DllImport( Platform.LibraryName, EntryPoint = "SteamAPI_ISteamRemoteStorage_UGCDownloadToLocation", CallingConvention = Platform.CC)]
 	private static extern SteamAPICall_t _UGCDownloadToLocation( IntPtr self, UGCHandle_t hContent, [MarshalAs( UnmanagedType.CustomMarshaler, MarshalTypeRef = typeof( Utf8StringToNative ) )] string pchLocation, uint unPriority );
 	#endregion
