@@ -22,11 +22,7 @@
     </WindowChrome.WindowChrome>
 
     <Grid>
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="50"
-            Text="主窗口左右布局" />
+        <Image Source="/Assets/l4d2.jpg" />
     </Grid>
 
 </Window>

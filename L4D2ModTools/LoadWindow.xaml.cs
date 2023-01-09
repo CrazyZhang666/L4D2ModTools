@@ -50,15 +50,16 @@ public partial class LoadWindow : Window
 
                 /////////////////////////////////////////////////////////////////////
 
-                await Task.Delay(1000);
+                await Task.Delay(500);
 
                 this.Dispatcher.Invoke(() =>
                 {
                     var mainWindow = new MainWindow();
-                    // 显示主窗口
-                    mainWindow.Show();
                     // 转移主程序控制权
                     Application.Current.MainWindow = mainWindow;
+                    // 显示主窗口
+                    mainWindow.Show();
+
                     // 关闭初始化窗口
                     this.Close();
                 });

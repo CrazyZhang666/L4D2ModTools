@@ -25,3 +25,5 @@ global using System.Collections.ObjectModel;
 global using System.Runtime.InteropServices;
 global using System.Text.RegularExpressions;
 global using Microsoft.Win32;
+
+global using CommunityToolkit.Mvvm.Input;
