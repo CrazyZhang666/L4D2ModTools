@@ -21,4 +21,7 @@ public class ItemInfo
     public string[] Tags { get; set; }
     public string TagsContent { get; set; }
     public string Owner { get; set; }
+    public ulong NumUniqueWebsiteViews { get; set; }
+    public ulong NumSubscriptions { get; set; }
+    public ulong NumFavorites { get; set; }
 }

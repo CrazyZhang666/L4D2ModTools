@@ -203,6 +203,9 @@ public static class Workshop
                         Tags = item.Tags,
                         TagsContent = GetTagsContent(item.Tags),
                         Owner = item.Owner.Name,
+                        NumUniqueWebsiteViews = item.NumUniqueWebsiteViews,
+                        NumSubscriptions = item.NumSubscriptions,
+                        NumFavorites = item.NumFavorites
                     });
                 }
             }

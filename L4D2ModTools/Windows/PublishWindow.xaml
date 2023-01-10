@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="Window_Publish"
     Title="求生之路2 发布创意工坊"
-    Width="1000"
+    Width="1200"
     Height="700"
     Closing="Window_Publish_Closing"
     Loaded="Window_Publish_Loaded"
@@ -55,8 +55,29 @@
                         Text="预览图 PreviewImage" />
                     <TextBox x:Name="TextBox_PreviewImage" Style="{StaticResource TextBoxStyle_InputBox}" />
                     <!--  //////////////////  -->
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel>
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                            <StackPanel>
+                                <TextBlock
+                                    Margin="5"
+                                    FontWeight="Bold"
+                                    Text="标签 Tags" />
+                                <TextBlock
+                                    x:Name="TextBlock_Tags"
+                                    Margin="5"
+                                    Text="{Binding ItemInfo.TagsContent}" />
+                            </StackPanel>
+                            <!--  //////////////  -->
+                            <StackPanel>
+                                <TextBlock
+                                    Margin="5"
+                                    FontWeight="Bold"
+                                    Text="物品 Id" />
+                                <TextBlock x:Name="TextBlock_Id" Margin="5" />
+                            </StackPanel>
+                        </StackPanel>
+                        <!--  //////////////////////////////  -->
+                        <StackPanel DockPanel.Dock="Left">
                             <TextBlock
                                 Margin="5"
                                 FontWeight="Bold"
@@ -84,26 +105,7 @@
                                     GroupName="Visibility" />
                             </WrapPanel>
                         </StackPanel>
-                        <!--  //////////////////////////////  -->
-                        <StackPanel>
-                            <TextBlock
-                                Margin="5"
-                                FontWeight="Bold"
-                                Text="标签 Tags" />
-                            <TextBlock
-                                x:Name="TextBlock_Tags"
-                                Margin="5"
-                                Text="{Binding ItemInfo.TagsContent}" />
-                        </StackPanel>
-                        <!--  //////////////////////////////  -->
-                        <StackPanel>
-                            <TextBlock
-                                Margin="5"
-                                FontWeight="Bold"
-                                Text="物品 Id" />
-                            <TextBlock x:Name="TextBlock_Id" Margin="5" />
-                        </StackPanel>
-                    </StackPanel>
+                    </DockPanel>
                 </StackPanel>
             </StackPanel>
             <!--  //////////////////////////////  -->

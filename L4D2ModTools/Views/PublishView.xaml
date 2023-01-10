@@ -135,6 +135,27 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Created}" Header="发表于" />
                     <GridViewColumn DisplayMemberBinding="{Binding TagsContent}" Header="标签" />
                     <GridViewColumn DisplayMemberBinding="{Binding Owner}" Header="所有者" />
+                    <GridViewColumn Header="不重复访客数">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NumUniqueWebsiteViews}" TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="当前订阅者">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NumSubscriptions}" TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="当前收藏人数">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding NumFavorites}" TextAlignment="Right" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

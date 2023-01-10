@@ -9,9 +9,10 @@
     Title="求生之路2 Mod工具箱"
     Width="1280"
     Height="720"
+    MinWidth="1280"
+    MinHeight="720"
     Closing="Window_Main_Closing"
     Loaded="Window_Main_Loaded"
-    ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 

@@ -83,10 +83,10 @@ public static class Compile
     /// <returns></returns>
     public static bool IsExistProportions()
     {
-        var files = Directory.GetFiles(Globals.AppSurvivorsDir);
-        return Array.IndexOf(files, "a_proportions.smd") != -1 ||
-            Array.IndexOf(files, "a_proportions_corrective_animation.smd") != -1 ||
-            Array.IndexOf(files, "reference.smd") != -1;
+        var files = Directory.GetFiles(Globals.AppSurvivorsDir).ToList();
+        return files.FindIndex(item => Path.GetFileName(item).Equals("a_proportions.smd")) != -1 ||
+            files.FindIndex(item => Path.GetFileName(item).Equals("a_proportions_corrective_animation.smd")) != -1 ||
+            files.FindIndex(item => Path.GetFileName(item).Equals("reference.smd")) != -1;
     }
 
     /// <summary>
