@@ -19,5 +19,17 @@ public partial class AboutView : UserControl
 
     private void MainWindow_WindowClosingEvent()
     {
+
+    }
+
+    /// <summary>
+    /// 超链接请求导航事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+    {
+        ProcessUtil.OpenLink(e.Uri.OriginalString);
+        e.Handled = true;
     }
 }

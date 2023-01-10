@@ -33,6 +33,11 @@
                 x:Name="TextBlock_BuildTime"
                 Margin="5"
                 Text="编译时间" />
+            <TextBlock Margin="5">
+                <Hyperlink NavigateUri="https://github.com/CrazyZhang666/L4D2ModTools" RequestNavigate="Hyperlink_RequestNavigate">
+                    GitHub
+                </Hyperlink>
+            </TextBlock>
         </StackPanel>
         <!--  ///////////////////  -->
         <Border
