@@ -9,13 +9,21 @@
     mc:Ignorable="d">
 
     <StackPanel>
+        <Image
+            Height="100"
+            Margin="20"
+            Source="/Assets/l4d2.png" />
+        <!--  ///////////////////  -->
         <TextBlock
-            Margin="10,20,10,10"
+            Margin="10,0,10,10"
             HorizontalAlignment="Center"
             FontSize="36"
             FontWeight="Bold"
             Text="求生之路2 Mod工具箱" />
         <!--  ///////////////////  -->
+        <TextBlock Margin="5" HorizontalAlignment="Center">
+            Copyright © 2022-2023 DS By CrazyZhang
+        </TextBlock>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock
                 x:Name="TextBlock_VersionInfo"
@@ -26,17 +34,16 @@
                 Margin="5"
                 Text="编译时间" />
         </StackPanel>
-        <TextBlock Margin="5" HorizontalAlignment="Center">
-            DS By CrazyZhang
-        </TextBlock>
         <!--  ///////////////////  -->
-        <Image
-            Height="150"
+        <Border
             Margin="10"
-            Source="/Assets/l4d2.jpg" />
-        <!--  ///////////////////  -->
-        <TextBlock Margin="5" HorizontalAlignment="Center">
-            感谢 Cat-20、MLUIdgb 大佬的研究成果
-        </TextBlock>
+            Padding="10"
+            HorizontalAlignment="Center"
+            BorderBrush="#ACACAC"
+            BorderThickness="0,1,0,0">
+            <TextBlock>
+                PS: 感谢 Cat-20、MLUIdgb 等大佬的研究成果，本工具是在此基础上开发的
+            </TextBlock>
+        </Border>
     </StackPanel>
 </UserControl>

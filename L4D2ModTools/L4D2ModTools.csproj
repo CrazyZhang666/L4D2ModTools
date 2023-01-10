@@ -24,17 +24,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Content Include="Assets\favicon.ico" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<EmbeddedResource Include="Files\AppData.zip" />
 		<EmbeddedResource Include="Files\steam_api64.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-	  <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -45,7 +41,7 @@
 	<ItemGroup>
 		<Resource Include="Assets\crowbar.png" />
 		<Resource Include="Assets\favicon.ico" />
-		<Resource Include="Assets\l4d2.jpg" />
+		<Resource Include="Assets\l4d2.png" />
 		<Resource Include="Assets\Survivors\select_bill.png" />
 		<Resource Include="Assets\Survivors\select_francis.png" />
 		<Resource Include="Assets\Survivors\select_louis.png" />
@@ -58,7 +54,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Properties\PublishProfiles\" />
+		<Folder Include="Properties\PublishProfiles\" />
 	</ItemGroup>
 
 </Project>

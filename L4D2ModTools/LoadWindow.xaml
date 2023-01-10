@@ -8,21 +8,28 @@
     Title="工具初始化窗口"
     Width="600"
     Height="350"
-    BorderBrush="#5C5A58"
-    BorderThickness="1"
     Loaded="Window_Load_Loaded"
     ResizeMode="NoResize"
     ShowInTaskbar="False"
     Topmost="True"
     WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
     mc:Ignorable="d">
 
     <WindowChrome.WindowChrome>
-        <WindowChrome GlassFrameThickness="1" ResizeBorderThickness="4" />
+        <WindowChrome GlassFrameThickness="-1" />
     </WindowChrome.WindowChrome>
 
+    <Window.Template>
+        <ControlTemplate TargetType="{x:Type Window}">
+            <Border Padding="64" Background="Transparent">
+                <ContentPresenter ClipToBounds="True" />
+            </Border>
+        </ControlTemplate>
+    </Window.Template>
+
     <Grid>
-        <Image Source="/Assets/l4d2.jpg" />
+        <Image Source="/Assets/l4d2.png" />
     </Grid>
 
 </Window>

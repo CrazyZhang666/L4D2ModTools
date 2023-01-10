@@ -39,7 +39,7 @@
                         Background="#EEEEF2">
                         <Border
                             x:Name="Border_QuotaUse"
-                            Width="10"
+                            Width="0"
                             HorizontalAlignment="Left"
                             Background="Green" />
                     </Border>
@@ -47,7 +47,7 @@
                         x:Name="TextBlock_QuotaInfo"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Text="25 MB / 1024 MB" />
+                        Text="0.00 MB / 1024.00 MB" />
                 </Grid>
                 <!--  //////////////////////////  -->
                 <Button
