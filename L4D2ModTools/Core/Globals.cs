@@ -93,6 +93,6 @@ public static class Globals
 
     public static string L4D2ComplieArgs
     {
-        get { return $"-game \"{L4D2MainDir}\\left4dead2\" -nop4"; }
+        get { return $"-game \"{L4D2MainDir}\\left4dead2\" -nop4 -verbose"; }
     }
 }

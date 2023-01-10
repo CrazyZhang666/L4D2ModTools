@@ -78,6 +78,18 @@ public static class Compile
     }
 
     /// <summary>
+    /// 判断模型是否存在缩骨文件
+    /// </summary>
+    /// <returns></returns>
+    public static bool IsExistProportions()
+    {
+        var files = Directory.GetFiles(Globals.AppSurvivorsDir);
+        return Array.IndexOf(files, "a_proportions.smd") != -1 ||
+            Array.IndexOf(files, "a_proportions_corrective_animation.smd") != -1 ||
+            Array.IndexOf(files, "reference.smd") != -1;
+    }
+
+    /// <summary>
     /// 运行求生之路2开发者工具，附带运行参数
     /// </summary>
     /// <param name="execPath"></param>
@@ -99,7 +111,10 @@ public static class Compile
     /// <param name="survivor"></param>
     public static void StudiomdlExec(Survivor modelAnims, Survivor survivor, string outputDir)
     {
-        RunL4D2DevExec(Globals.StudiomdlExec, $"{Globals.L4D2ComplieArgs} {Globals.AppSurvivorsDir}\\{modelAnims}2{survivor}.qc");
+        if (IsExistProportions())
+            RunL4D2DevExec(Globals.StudiomdlExec, $"{Globals.L4D2ComplieArgs} {Globals.AppSurvivorsDir}\\{modelAnims}2{survivor}.qc");
+        else
+            RunL4D2DevExec(Globals.StudiomdlExec, $"{Globals.L4D2ComplieArgs} {Globals.AppSurvivorsDir}\\{modelAnims}2{survivor}_NoProportions.qc");
 
         var modelInfo = GetModelInfo(survivor);
 
@@ -116,7 +131,10 @@ public static class Compile
     /// <param name="survivor"></param>
     public static void StudiomdlExecLight(Survivor modelAnims, Survivor survivor, string outputDir)
     {
-        RunL4D2DevExec(Globals.StudiomdlExec, $"{Globals.L4D2ComplieArgs} {Globals.AppSurvivorsDir}\\{modelAnims}2{survivor}_light.qc");
+        if (IsExistProportions())
+            RunL4D2DevExec(Globals.StudiomdlExec, $"{Globals.L4D2ComplieArgs} {Globals.AppSurvivorsDir}\\{modelAnims}2{survivor}_Light.qc");
+        else
+            RunL4D2DevExec(Globals.StudiomdlExec, $"{Globals.L4D2ComplieArgs} {Globals.AppSurvivorsDir}\\{modelAnims}2{survivor}_Light_NoProportions.qc");
 
         var modelInfo = GetModelInfo(survivor);
 
