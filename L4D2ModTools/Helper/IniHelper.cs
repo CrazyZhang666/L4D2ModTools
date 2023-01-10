@@ -38,6 +38,20 @@ public static class IniHelper
     }
 
     /// <summary>
+    /// 读取节点值
+    /// </summary>
+    /// <param name="section"></param>
+    /// <param name="key"></param>
+    /// <param name="intPath"></param>
+    /// <returns></returns>
+    public static string ReadValue(string section, string key, string intPath)
+    {
+        var temp = new StringBuilder(1024);
+        _ = GetPrivateProfileString(section, key, string.Empty, temp, temp.Capacity, intPath);
+        return temp.ToString();
+    }
+
+    /// <summary>
     /// 写入节点值
     /// </summary>
     /// <param name="section"></param>
@@ -46,5 +60,17 @@ public static class IniHelper
     public static void WriteValue(string section, string key, string value)
     {
         WritePrivateProfileString(section, key, value, IniPath);
+    }
+
+    /// <summary>
+    /// 写入节点值
+    /// </summary>
+    /// <param name="section"></param>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    /// <param name="intPath"></param>
+    public static void WriteValue(string section, string key, string value, string intPath)
+    {
+        WritePrivateProfileString(section, key, value, intPath);
     }
 }

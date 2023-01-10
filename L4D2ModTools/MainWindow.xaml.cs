@@ -72,7 +72,8 @@ public partial class MainWindow : Window
         NavMenus.Add(new() { Icon = "\xe78e", Title = "QC重编译", ViewName = "CompileView" });
         NavMenus.Add(new() { Icon = "\xec89", Title = "VPK打包", ViewName = "AddonView" });
         NavMenus.Add(new() { Icon = "\xe652", Title = "发布工坊", ViewName = "PublishView" });
-        NavMenus.Add(new() { Icon = "\xe603", Title = "关于", ViewName = "AboutView" });
+        NavMenus.Add(new() { Icon = "\xe704", Title = "自定字体", ViewName = "FontView" });
+        NavMenus.Add(new() { Icon = "\xe603", Title = "关于工具", ViewName = "AboutView" });
 
         NavMenus.ForEach(menu =>
         {

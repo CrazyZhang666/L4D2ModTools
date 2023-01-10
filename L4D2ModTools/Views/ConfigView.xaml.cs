@@ -17,6 +17,7 @@ public partial class ConfigView : UserControl
         MainWindow.WindowClosingEvent += MainWindow_WindowClosingEvent;
 
         // 读取对应配置文件
+        Globals.L4D2MainExec = IniHelper.ReadValue("Config", "L4D2MainExec");
         Globals.L4D2MainDir = IniHelper.ReadValue("Config", "L4D2MainDir");
 
         TextBox_L4D2MainDir.Text = Globals.L4D2MainDir;
@@ -40,6 +41,7 @@ public partial class ConfigView : UserControl
     /// </summary>
     private void SaveConfig()
     {
+        IniHelper.WriteValue("Config", "L4D2MainExec", Globals.L4D2MainExec);
         IniHelper.WriteValue("Config", "L4D2MainDir", Globals.L4D2MainDir);
     }
 
@@ -81,6 +83,8 @@ public partial class ConfigView : UserControl
         if (!string.IsNullOrWhiteSpace(dir))
         {
             Globals.L4D2MainDir = dir;
+            Globals.L4D2MainExec = $"{Globals.L4D2MainDir}\\left4dead2.exe";
+
             TextBox_L4D2MainDir.Text = Globals.L4D2MainDir;
 
             CheckEnv();
@@ -88,6 +92,8 @@ public partial class ConfigView : UserControl
         else
         {
             Globals.L4D2MainDir = string.Empty;
+            Globals.L4D2MainExec = string.Empty;
+
             TextBox_L4D2MainDir.Text = "Steam自动识别失败";
         }
     }
@@ -112,6 +118,7 @@ public partial class ConfigView : UserControl
 
         if (folder.ShowDialog() == true)
         {
+            Globals.L4D2MainExec = folder.FileName;
             Globals.L4D2MainDir = Path.GetDirectoryName(folder.FileName);
 
             CheckEnv();
@@ -132,6 +139,7 @@ public partial class ConfigView : UserControl
         {
             AddLogger("✔ 求生之路2工具环境检查通过");
 
+            AddLogger($"求生之路2 主程序路径: {Globals.L4D2MainExec}");
             AddLogger($"求生之路2 根目录路径: {Globals.L4D2MainDir}");
 
             AddLogger($"求生之路2 studiomdl.exe路径: {Globals.StudiomdlExec}");

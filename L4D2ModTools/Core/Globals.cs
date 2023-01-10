@@ -21,6 +21,9 @@ public static class Globals
     public const string AppSurvivorsQc = $"{AppSurvivorsDir}\\__Main.qci";
     public const string AppWeaponsQc = $"{AppWeaponsDir}\\__Main.qci";
 
+    public const string MacTypeDir = $"{AppDataDir}\\MacType";
+    public const string FontLoaderExec = $"{MacTypeDir}\\MacLoader.exe";
+
     public static string FullOutputDir = Directory.GetCurrentDirectory() + "\\__Output";
 
     /////////////////////////////////////////////////////////////
@@ -64,6 +67,7 @@ public static class Globals
 
     /////////////////////////////////////////////////////////////
 
+    public static string L4D2MainExec { get; set; } = string.Empty;
     public static string L4D2MainDir { get; set; } = string.Empty;
 
     public static string StudiomdlExec
