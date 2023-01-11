@@ -136,4 +136,24 @@ public partial class StorageWindow : Window
             }
         }
     }
+
+    /// <summary>
+    /// 清空云存储文件按钮点击事件
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Button_ClearRemoteStorage_Click(object sender, RoutedEventArgs e)
+    {
+        if (MessageBox.Show($"您确定要清空云存储文件吗？此操作不可撤销！",
+            "清空云存储文件", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+        {
+            foreach (var file in SteamRemoteStorage.Files)
+            {
+                SteamRemoteStorage.FileDelete(file);
+            }
+
+            MsgBoxUtil.Information("清空云存储文件成功");
+            RefreshList();
+        }
+    }
 }

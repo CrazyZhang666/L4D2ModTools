@@ -57,6 +57,12 @@
                     Content="删除选中项"
                     Foreground="Red"
                     IsEnabled="{Binding ElementName=ListView_RemoteStorage, Path=SelectedIndex, Converter={StaticResource IsSelectedNullConverter}}" />
+                <Button
+                    x:Name="Button_ClearRemoteStorage"
+                    Margin="0,5,5,5"
+                    Click="Button_ClearRemoteStorage_Click"
+                    Content="清空云存储文件"
+                    Foreground="Red" />
             </StackPanel>
         </DockPanel>
         <!--  /////////////////////////////  -->
