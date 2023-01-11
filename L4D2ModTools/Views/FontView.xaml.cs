@@ -22,7 +22,7 @@ public partial class FontView : UserControl
         TextBox_CustomRunArgs.Text = IniHelper.ReadValue("Font", "CustomRunArgs");
 
         if (string.IsNullOrWhiteSpace(TextBox_CustomRunArgs.Text.Trim()))
-            TextBox_CustomRunArgs.Text = "-steam -novid -num_edicts 8192 +exec autoexec";
+            TextBox_CustomRunArgs.Text = "-steam -novid -language schinese";
 
         Task.Run(() =>
         {
@@ -60,7 +60,7 @@ public partial class FontView : UserControl
     /// </summary>
     private void SaveConfig()
     {
-        IniHelper.WriteValue("Font", "CustomFontName", TextBox_CustomFontName.Text.Trim()); ;
+        IniHelper.WriteValue("Font", "CustomFontName", TextBox_CustomFontName.Text.Trim());
         IniHelper.WriteValue("Font", "CustomRunArgs", TextBox_CustomRunArgs.Text.Trim());
     }
 

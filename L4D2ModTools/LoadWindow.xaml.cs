@@ -26,9 +26,6 @@ public partial class LoadWindow : Window
                 Directory.CreateDirectory(Globals.OutputDir);
                 Directory.CreateDirectory(Globals.ConfigDir);
 
-                // 创建INI配置文件
-                IniHelper.Create();
-
                 // 释放数据文件
                 MiscUtil.ExtractResFile("L4D2ModTools.Files.AppData.zip", ".\\AppData.bin");
                 MiscUtil.ExtractResFile("L4D2ModTools.Files.steam_api64.dll", ".\\steam_api64.dll");
