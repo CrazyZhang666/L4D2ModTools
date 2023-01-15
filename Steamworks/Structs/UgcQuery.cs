@@ -105,8 +105,11 @@ public struct Query
     {
         if (page <= 0) throw new System.Exception("page should be > 0");
 
-        if (consumerApp == 0) consumerApp = SteamClient.AppId;
-        if (creatorApp == 0) creatorApp = consumerApp;
+        //if (consumerApp == 0) consumerApp = SteamClient.AppId;
+        //if (creatorApp == 0) creatorApp = consumerApp;
+
+        consumerApp = SteamClient.AppId;
+        creatorApp = 0;
 
         UGCQueryHandle_t handle;
 

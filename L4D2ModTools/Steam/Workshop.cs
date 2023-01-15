@@ -179,7 +179,7 @@ public static class Workshop
         {
             if (Init())
             {
-                var published = Query.All.WhereUserPublished();
+                var published = Query.ItemsReadyToUse.WhereUserPublished().SortByUpdateDate();
                 ResultPage? result = null;
                 int page = 1, index = 1;
 
