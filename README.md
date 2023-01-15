@@ -16,12 +16,6 @@
 
 > https://dotnet.microsoft.com/zh-cn/download/dotnet/thank-you/runtime-desktop-6.0.13-windows-x64-installer
 
-## 鸣谢
-
-* Cat-20
-* MLUIdgb
-* 更多...
-
 ## 预览
 
 ![image](https://user-images.githubusercontent.com/28080853/211705795-b97827a8-f485-4958-af4f-f8dc24c11710.png)
@@ -31,3 +25,9 @@
 ![image](https://user-images.githubusercontent.com/28080853/211705886-2a43704d-3f4a-4fb3-b454-11ddbc009786.png)
 ![image](https://user-images.githubusercontent.com/28080853/211705906-1ef84f93-17a3-4483-947e-7a35122f6554.png)
 ![image](https://user-images.githubusercontent.com/28080853/211705924-3a3faf8a-adcc-4ad2-9f2b-d2ab3b986ccc.png)
+
+## 鸣谢
+
+* Cat-20
+* MLUIdgb
+* 更多...
